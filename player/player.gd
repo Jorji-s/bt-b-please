@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var camera_3d: Camera3D = $neck/Camera3D
 @onready var pause_lab: Label = $HUD/pauseLab
 @onready var pixel_shader: MeshInstance3D = $neck/Camera3D/pixelShader
+@onready var interaction_ray: RayCast3D = $"neck/Camera3D/interaction ray"
 
 @export var allow_moving:=true
 @export var speed:=4.75;
@@ -52,8 +53,12 @@ func _physics_process(delta: float) -> void:
 	var inputDir = Vector2(inputDirX,inputDirY).normalized()
 	var walkDir = Vector3(inputDir.x, 0, inputDir.y).rotated(Vector3.UP, neck.rotation.y)
 	
-	
-
+	# Check if interaction ray hit something
+	# Hit object should be interactable type because of collision layer
+	if interaction_ray.is_colliding() and Input.is_action_just_pressed("Interact"):
+		var hit_object = interaction_ray.get_collider()
+		hit_object.interact()
+		
 	#Cool epic acceleration based movement that feels silky smooth both starting and stopping mmmmm
 	if allow_moving && !paused:
 		var target_velocity = walkDir * speed
