@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://bfpqmt6gop8pd"]
+
+[ext_resource type="Texture2D" uid="uid://cwen80ifw6akr" path="res://aliens/potatoMan.webp" id="1_6jog0"]
+[ext_resource type="Script" uid="uid://dapj5orj6tdxf" path="res://mainWorld/alien.gd" id="1_7a0mi"]
+[ext_resource type="Texture2D" uid="uid://dyhtxki58xp0y" path="res://aliens/alienGuy.png" id="2_7a0mi"]
+
+[sub_resource type="Animation" id="Animation_j3v63"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-9.4451885, 0.88224816, -12.760448)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("modulator:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.353256, 1.353256, 1.353256, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("modulator:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.9, 0.9, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_2pkn0"]
+resource_name = "letThrough"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1, 1.2333333, 5),
+"transitions": PackedFloat32Array(1, 0.7071069, 1, 1),
+"update": 0,
+"values": [Vector3(0.7, 0.882, -12.74), Vector3(0.7, 0.882, -14.5), Vector3(0.7, 0.882, -14.5), Vector3(11.045, 0.882, -14.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("modulator:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 1, 5.9333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1.353256, 1.353256, 1.353256, 1), Color(0.16680585, 0.16680583, 0.16680583, 1), Color(0.16680585, 0.16680583, 0.16680583, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("modulator:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.92, 0.92, 0.92)]
+}
+
+[sub_resource type="Animation" id="Animation_y6a8i"]
+resource_name = "showUp"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 4.9, 5.9666667),
+"transitions": PackedFloat32Array(1, 1.8025012, 1),
+"update": 0,
+"values": [Vector3(-9.445, 0.882, -14.5), Vector3(0.7, 0.882, -14.5), Vector3(0.7, 0.882, -12.74)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("modulator:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 5.366667, 5.8333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.16680585, 0.16680583, 0.16680583, 1), Color(0.16680585, 0.16680583, 0.16680583, 1), Color(1.353256, 1.353256, 1.353256, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("modulator:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5.366667, 5.8333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.92, 0.92, 0.92), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oguhb"]
+_data = {
+&"RESET": SubResource("Animation_j3v63"),
+&"letThrough": SubResource("Animation_2pkn0"),
+&"showUp": SubResource("Animation_y6a8i")
+}
+
+[sub_resource type="Animation" id="Animation_oguhb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cn18u"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.05, 0.95, 1), Vector3(0.95, 1.05, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3v63"]
+_data = {
+&"RESET": SubResource("Animation_oguhb"),
+&"idle": SubResource("Animation_cn18u")
+}
+
+[node name="alien" type="Node3D" unique_id=1493841331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4451885, 0.88224816, -12.760448)
+script = ExtResource("1_7a0mi")
+
+[node name="modulator" type="Sprite3D" parent="." unique_id=1325607719]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+
+[node name="person1" type="Sprite3D" parent="modulator" unique_id=2065964243]
+transform = Transform3D(0.67599994, 0, 0, 0, 0.743, 0, 0, 0, 0.724, 0, 2, 0)
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_6jog0")
+
+[node name="person2" type="Sprite3D" parent="modulator" unique_id=792184365]
+transform = Transform3D(3.5359998, 0, 0, 0, 3.878, 0, 0, 0, 3.788, 0, 2, 0)
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_7a0mi")
+
+[node name="moveAnimator" type="AnimationPlayer" parent="." unique_id=10282502]
+libraries/ = SubResource("AnimationLibrary_oguhb")
+autoplay = &"showUp"
+
+[node name="idleAnimator" type="AnimationPlayer" parent="." unique_id=1092652035]
+libraries/ = SubResource("AnimationLibrary_j3v63")
+autoplay = &"idle"
+speed_scale = 0.78

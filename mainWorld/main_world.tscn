@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dpfxuwxfmrxun" path="res://player/player.tscn" id="1_6axsh"]
 [ext_resource type="Script" uid="uid://d0e7a1cfirpev" path="res://mainWorld/main_world.gd" id="1_cso50"]
-[ext_resource type="Texture2D" uid="uid://cwen80ifw6akr" path="res://aliens/potatoMan.webp" id="3_y6a8i"]
+[ext_resource type="PackedScene" uid="uid://bfpqmt6gop8pd" path="res://mainWorld/alien.tscn" id="3_2pkn0"]
 [ext_resource type="Texture2D" uid="uid://dyhtxki58xp0y" path="res://aliens/alienGuy.png" id="4_oguhb"]
 [ext_resource type="Shader" uid="uid://b3bmm50e2txu5" path="res://SkyStar.gdshader" id="5_2pkn0"]
 [ext_resource type="Shader" uid="uid://c6ibdkvw1wv8h" path="res://mainWorld/postProcessPixelation.gdshader" id="5_cn18u"]
@@ -25,169 +25,6 @@ albedo_color = Color(0.36971408, 0.16448101, 0, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 16.0
-
-[sub_resource type="Animation" id="Animation_j3v63"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-9.4451885, 0.88224816, -12.760448)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("modulator:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1.353256, 1.353256, 1.353256, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("modulator:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.9, 0.9, 0.9)]
-}
-
-[sub_resource type="Animation" id="Animation_2pkn0"]
-resource_name = "letThrough"
-length = 6.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 1, 1.2333333, 5),
-"transitions": PackedFloat32Array(1, 0.7071069, 1, 1),
-"update": 0,
-"values": [Vector3(0.7, 0.882, -12.74), Vector3(0.7, 0.882, -14.5), Vector3(0.7, 0.882, -14.5), Vector3(11.045, 0.882, -14.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("modulator:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.06666667, 1, 5.9333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1.353256, 1.353256, 1.353256, 1), Color(0.16680585, 0.16680583, 0.16680583, 1), Color(0.16680585, 0.16680583, 0.16680583, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("modulator:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(0.92, 0.92, 0.92)]
-}
-
-[sub_resource type="Animation" id="Animation_y6a8i"]
-resource_name = "showUp"
-length = 6.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.033333335, 4.9, 5.9666667),
-"transitions": PackedFloat32Array(1, 1.8025012, 1),
-"update": 0,
-"values": [Vector3(-9.445, 0.882, -14.5), Vector3(0.7, 0.882, -14.5), Vector3(0.7, 0.882, -12.74)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("modulator:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335, 5.366667, 5.8333335),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.16680585, 0.16680583, 0.16680583, 1), Color(0.16680585, 0.16680583, 0.16680583, 1), Color(1.353256, 1.353256, 1.353256, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("modulator:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(5.366667, 5.8333335),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.92, 0.92, 0.92), Vector3(1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_oguhb"]
-_data = {
-&"RESET": SubResource("Animation_j3v63"),
-&"letThrough": SubResource("Animation_2pkn0"),
-&"showUp": SubResource("Animation_y6a8i")
-}
-
-[sub_resource type="Animation" id="Animation_oguhb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_cn18u"]
-resource_name = "idle"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.05, 0.95, 1), Vector3(0.95, 1.05, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3v63"]
-_data = {
-&"RESET": SubResource("Animation_oguhb"),
-&"idle": SubResource("Animation_cn18u")
-}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qvqpt"]
 shader = ExtResource("5_2pkn0")
@@ -370,36 +207,8 @@ shadow_enabled = true
 [node name="player" parent="." unique_id=1644100093 instance=ExtResource("1_6axsh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6748613, -5.430007)
 
-[node name="alien" type="Node3D" parent="." unique_id=2050907806]
+[node name="alien" parent="." unique_id=1493841331 instance=ExtResource("3_2pkn0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4451885, 0.88224816, -12.760448)
-
-[node name="modulator" type="Sprite3D" parent="alien" unique_id=2115256021]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
-modulate = Color(1.353256, 1.353256, 1.353256, 1)
-
-[node name="testPerson" type="Sprite3D" parent="alien/modulator" unique_id=1449588519]
-transform = Transform3D(0.67599994, 0, 0, 0, 0.743, 0, 0, 0, 0.724, 0, 2, 0)
-visible = false
-billboard = 2
-shaded = true
-texture_filter = 0
-texture = ExtResource("3_y6a8i")
-
-[node name="testPerson2" type="Sprite3D" parent="alien/modulator" unique_id=1538641643]
-transform = Transform3D(3.5359998, 0, 0, 0, 3.878, 0, 0, 0, 3.788, 0, 2, 0)
-billboard = 2
-shaded = true
-texture_filter = 0
-texture = ExtResource("4_oguhb")
-
-[node name="moveAnimator" type="AnimationPlayer" parent="alien" unique_id=1111728480]
-libraries/ = SubResource("AnimationLibrary_oguhb")
-autoplay = &"showUp"
-
-[node name="idleAnimator" type="AnimationPlayer" parent="alien" unique_id=383666856]
-libraries/ = SubResource("AnimationLibrary_j3v63")
-autoplay = &"idle"
-speed_scale = 0.78
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1349356277]
 environment = SubResource("Environment_f6ehp")
