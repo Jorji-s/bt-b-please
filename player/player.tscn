@@ -41,6 +41,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.06407026)
 visible = false
 mesh = SubResource("QuadMesh_yupk3")
 
+[node name="interaction ray" type="RayCast3D" parent="neck/Camera3D" unique_id=474445395]
+target_position = Vector3(0, 0, -5)
+
 [node name="HUD" type="Control" parent="." unique_id=1186715677]
 layout_mode = 3
 anchors_preset = 15
