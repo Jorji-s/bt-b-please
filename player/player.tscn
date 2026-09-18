@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://dpfxuwxfmrxun"]
 
 [ext_resource type="Script" uid="uid://buq2ymhv4xnf7" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Shader" uid="uid://qammwmhix2ba" path="res://player/pixelate.gdshader" id="2_rkbax"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yupk3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rkbax"]
+render_priority = 0
+shader = ExtResource("2_rkbax")
+shader_parameter/pixel_size = 6
+
+[sub_resource type="QuadMesh" id="QuadMesh_yupk3"]
+material = SubResource("ShaderMaterial_rkbax")
+size = Vector2(2.11, 2.08)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yupk3"]
 font_size = 132
@@ -25,6 +35,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79405165, 0)
 [node name="Camera3D" type="Camera3D" parent="neck" unique_id=1718113794]
 current = true
 fov = 80.0
+
+[node name="pixelShader" type="MeshInstance3D" parent="neck/Camera3D" unique_id=1655720450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.06407026)
+visible = false
+mesh = SubResource("QuadMesh_yupk3")
 
 [node name="HUD" type="Control" parent="." unique_id=1186715677]
 layout_mode = 3

@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var mouse_sen:=10.0
 @onready var camera_3d: Camera3D = $neck/Camera3D
 @onready var pause_lab: Label = $HUD/pauseLab
+@onready var pixel_shader: MeshInstance3D = $neck/Camera3D/pixelShader
 
 @export var allow_moving:=true
 @export var speed:=4.75;
@@ -17,6 +18,7 @@ var bobTime:=0.0
 var camStartPos:=Vector3.ZERO
 
 func _ready() -> void:
+	pixel_shader.visible=true
 	camStartPos=camera_3d.position
 	await get_tree().create_timer(0.2).timeout
 	allow_looking=true

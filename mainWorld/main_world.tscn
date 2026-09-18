@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dpfxuwxfmrxun" path="res://player/player.tscn" id="1_6axsh"]
 [ext_resource type="Script" uid="uid://d0e7a1cfirpev" path="res://mainWorld/main_world.gd" id="1_cso50"]
+[ext_resource type="Texture2D" uid="uid://d3kdp3t6ul116" path="res://icon.svg" id="3_y6a8i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6axsh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,14 +16,31 @@ background_mode = 2
 sky = SubResource("Sky_cso50")
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
+albedo_color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cso50"]
+albedo_color = Color(0.58909595, 0.58909553, 0.5890954, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oul6g"]
-albedo_color = Color(0.7294118, 0, 1, 1)
+albedo_texture = ExtResource("3_y6a8i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oguhb"]
+albedo_color = Color(0.36971408, 0.16448101, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yupk3"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
 
 [node name="mainWorld" type="Node3D" unique_id=269181359]
 script = ExtResource("1_cso50")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=675719265]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.407
+light_indirect_energy = 13.615
+light_volumetric_fog_energy = 16.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=923450261]
@@ -32,32 +50,76 @@ environment = SubResource("Environment_y6a8i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28087494, 0)
 use_collision = true
 size = Vector3(100, 1, 100)
+material = SubResource("StandardMaterial3D_y6a8i")
 
 [node name="player" parent="." unique_id=1644100093 instance=ExtResource("1_6axsh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6748613, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6748613, -5.430007)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1060915338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.601215, 2.8996105, 0.51397705)
+[node name="East Wall" type="CSGBox3D" parent="." unique_id=1060915338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.172314, 2.8996105, -1.9348068)
 use_collision = true
-size = Vector3(1, 6.7991858, 23.420532)
+size = Vector3(1, 6.7991858, 17.206131)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1259893795]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8985815, 2.8996105, 0.51397705)
+[node name="hallwayCeiling" type="CSGBox3D" parent="." unique_id=1822689936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22468185, 6.373057, -13.801619)
 use_collision = true
-size = Vector3(1, 6.7991858, 23.420532)
+size = Vector3(88.31421, 0.61630034, 6.933693)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1035174072]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.39714146, 2.8996105, -10.729229)
+[node name="hallwayCeiling2" type="CSGBox3D" parent="." unique_id=629978875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8633232, 6.373057, -6.123848)
 use_collision = true
-size = Vector3(1, 6.7991858, 23.420532)
+size = Vector3(16.634827, 0.61630034, 22.289234)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1775930242]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.39714146, 2.8996105, 11.727358)
+[node name="WestWall" type="CSGBox3D" parent="." unique_id=1259893795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6154437, 2.8996105, -2.5619354)
 use_collision = true
-size = Vector3(1, 6.7991858, 23.420532)
+size = Vector3(1, 6.7991858, 15.890167)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=492584493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1568346, 0.66465783, -5.88307)
+[node name="SouthWall" type="CSGBox3D" parent="." unique_id=1775930242]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.3557901, 2.8996105, 4.5520935)
 use_collision = true
-size = Vector3(1, 2.3292804, 1.6157227)
+size = Vector3(1, 6.7991858, 19.503235)
+
+[node name="hallwayHall" type="CSGBox3D" parent="." unique_id=1129147606]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.17886448, 2.8996105, -16.767189)
+use_collision = true
+size = Vector3(1, 6.7991858, 86.105606)
+material = SubResource("StandardMaterial3D_cso50")
+
+[node name="fakeGuy" type="CSGBox3D" parent="." unique_id=492584493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3772776, 2.8449156, -13.058469)
+use_collision = true
+size = Vector3(4.8467407, 3.9792318, 1.6157227)
 material = SubResource("StandardMaterial3D_oul6g")
+
+[node name="North Wall" type="CSGCombiner3D" parent="." unique_id=1974849270]
+operation = 2
+use_collision = true
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="North Wall" unique_id=1035174072]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.8128643, 2.8926847, -10.343408)
+use_collision = true
+size = Vector3(0.19251709, 6.7854013, 83.782616)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="North Wall" unique_id=826029441]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.70380306, 3.011231, -10.35441)
+operation = 2
+use_collision = true
+size = Vector3(1.3452485, 2.5552444, 7.4519715)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="North Wall" unique_id=1106626385]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.70380306, 1.6712942, -10.35441)
+use_collision = true
+size = Vector3(1.3452485, 0.14663708, 7.4519715)
+material = SubResource("StandardMaterial3D_oguhb")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=356420237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.101592, -2.1341538)
+material = SubResource("StandardMaterial3D_yupk3")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGSphere3D" unique_id=955988464]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.57373667, 0.05075121)
+light_energy = 1.743
+spot_range = 4.629
+spot_angle = 162.25
+spot_angle_attenuation = 0.93303066
