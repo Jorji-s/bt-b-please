@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d0e7a1cfirpev" path="res://mainWorld/main_world.gd" id="1_cso50"]
 [ext_resource type="Texture2D" uid="uid://cwen80ifw6akr" path="res://aliens/potatoMan.webp" id="3_y6a8i"]
 [ext_resource type="Texture2D" uid="uid://dyhtxki58xp0y" path="res://aliens/alienGuy.png" id="4_oguhb"]
+[ext_resource type="Shader" uid="uid://b3bmm50e2txu5" path="res://SkyStar.gdshader" id="5_2pkn0"]
 [ext_resource type="Shader" uid="uid://c6ibdkvw1wv8h" path="res://mainWorld/postProcessPixelation.gdshader" id="5_cn18u"]
 [ext_resource type="FontFile" uid="uid://cklety1ec87is" path="res://fonts/RoinertPixels-Regular.ttf" id="5_j3v63"]
 
@@ -188,7 +189,21 @@ _data = {
 &"idle": SubResource("Animation_cn18u")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qvqpt"]
+shader = ExtResource("5_2pkn0")
+shader_parameter/space_color = Color(0.001, 0.0005, 0.01, 1)
+shader_parameter/space_blue = Color(0.004, 0.002, 0.025, 1)
+shader_parameter/star_brightness = 2.3
+shader_parameter/twinkle_speed = 0.8
+shader_parameter/star_movement = 0.0008
+
+[sub_resource type="Sky" id="Sky_j3v63"]
+sky_material = SubResource("ShaderMaterial_qvqpt")
+radiance_size = 6
+
 [sub_resource type="Environment" id="Environment_f6ehp"]
+background_mode = 2
+sky = SubResource("Sky_j3v63")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3mhs"]
 albedo_color = Color(0.5370113, 0.5370113, 0.5370113, 1)
@@ -236,9 +251,9 @@ script = ExtResource("1_cso50")
 [node name="tempRoom" type="Node3D" parent="." unique_id=1931434415]
 
 [node name="tempFloor" type="CSGBox3D" parent="tempRoom" unique_id=1874531789]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28087494, 19.677979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28087494, -3.925415)
 use_collision = true
-size = Vector3(100, 1, 60.644043)
+size = Vector3(100, 1, 13.437256)
 material = SubResource("StandardMaterial3D_y6a8i")
 
 [node name="tempFloor2" type="CSGBox3D" parent="tempRoom" unique_id=1009557694]
@@ -248,9 +263,9 @@ size = Vector3(100, 1, 60.644043)
 material = SubResource("StandardMaterial3D_cn18u")
 
 [node name="East Wall" type="CSGBox3D" parent="tempRoom" unique_id=1060915338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0099945, 2.8996105, -1.9348068)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0099945, 2.8996105, -3.785595)
 use_collision = true
-size = Vector3(1, 6.7991858, 17.206131)
+size = Vector3(1, 6.7991858, 13.504555)
 
 [node name="hallwayCeiling" type="CSGBox3D" parent="tempRoom" unique_id=1822689936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22468185, 6.373057, -13.801619)
@@ -259,20 +274,34 @@ size = Vector3(88.31421, 0.61630034, 6.933693)
 material = SubResource("StandardMaterial3D_cn18u")
 
 [node name="hallwayCeiling2" type="CSGBox3D" parent="tempRoom" unique_id=629978875]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9277344, 6.373057, 28.73932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9277344, 6.373057, -3.7740793)
 use_collision = true
-size = Vector3(16.634827, 0.61630034, 15.434168)
+size = Vector3(16.634827, 0.61630034, 13.54891)
 material = SubResource("StandardMaterial3D_2pkn0")
 
 [node name="WestWall" type="CSGBox3D" parent="tempRoom" unique_id=1259893795]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.680297, 2.8996105, -2.5619354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.680297, 2.8996105, -3.749321)
 use_collision = true
-size = Vector3(1, 6.7991858, 15.890167)
+size = Vector3(1, 6.7991858, 13.515396)
 
-[node name="SouthWall" type="CSGBox3D" parent="tempRoom" unique_id=1775930242]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.3557901, 2.8996105, 4.5520935)
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="tempRoom" unique_id=1963976928]
 use_collision = true
-size = Vector3(1, 6.7991858, 19.503235)
+
+[node name="SouthWall" type="CSGBox3D" parent="tempRoom/CSGCombiner3D" unique_id=1775930242]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.3557901, 2.8996105, 2.8530273)
+use_collision = true
+size = Vector3(0.2876587, 6.7991858, 19.503235)
+
+[node name="SouthWall2" type="CSGBox3D" parent="tempRoom/CSGCombiner3D" unique_id=2110089613]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.345908, 3.5104084, 3.880646)
+operation = 2
+use_collision = true
+size = Vector3(2.343, 3.664, 3.89)
+
+[node name="SouthWall2" type="CSGBox3D" parent="tempRoom" unique_id=59571012]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5151808, 2.8996105, -0.2651794)
+use_collision = true
+size = Vector3(6.508812, 6.7991858, 7.9614916)
 
 [node name="hallwayHall" type="CSGBox3D" parent="tempRoom" unique_id=1129147606]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.17886448, 2.8996105, -16.767189)
@@ -320,14 +349,15 @@ size = Vector3(1.345, 0.147, 5.027)
 material = SubResource("StandardMaterial3D_oguhb")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="tempRoom" unique_id=356420237]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8911209, 6.101592, 405.7898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9342365, 6.101592, -7.4357147)
 material = SubResource("StandardMaterial3D_yupk3")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="tempRoom/CSGSphere3D" unique_id=955988464]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.57373667, 0.05075121)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -2.68019, 0.05075121)
 light_energy = 1.743
-spot_range = 4.629
-spot_angle = 162.25
+light_indirect_energy = 0.0
+spot_range = 7.836
+spot_angle = 180.0
 spot_angle_attenuation = 0.93303066
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=675719265]
@@ -351,7 +381,6 @@ modulate = Color(1.353256, 1.353256, 1.353256, 1)
 transform = Transform3D(0.67599994, 0, 0, 0, 0.743, 0, 0, 0, 0.724, 0, 2, 0)
 visible = false
 billboard = 2
-transparent = false
 shaded = true
 texture_filter = 0
 texture = ExtResource("3_y6a8i")
