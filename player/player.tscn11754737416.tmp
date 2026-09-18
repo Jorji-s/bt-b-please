@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dpfxuwxfmrxun"]
+
+[ext_resource type="Script" uid="uid://buq2ymhv4xnf7" path="res://player/player.gd" id="1_oul6g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yupk3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yupk3"]
+font_size = 132
+font_color = Color(0.74509805, 1, 1, 1)
+shadow_size = 44
+shadow_color = Color(0, 0, 0, 0.105882354)
+
+[node name="player" type="CharacterBody3D" unique_id=1644100093]
+script = ExtResource("1_oul6g")
+mouse_sen = 30.0
+speed = 4.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=413668372]
+shape = SubResource("CapsuleShape3D_yupk3")
+debug_color = Color(1, 0.6, 0.69803923, 0.41960785)
+
+[node name="neck" type="Node3D" parent="." unique_id=473190635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79405165, 0)
+
+[node name="Camera3D" type="Camera3D" parent="neck" unique_id=1718113794]
+current = true
+fov = 80.0
+
+[node name="HUD" type="Control" parent="." unique_id=1186715677]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pauseLab" type="Label" parent="HUD" unique_id=2074871531]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -5.8625
+anchor_top = -1.7625
+anchor_right = 6.8625
+anchor_bottom = 2.7625
+offset_left = 234.5
+offset_top = 70.5
+offset_right = -234.5
+offset_bottom = -70.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_yupk3")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
