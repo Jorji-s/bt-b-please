@@ -18,7 +18,6 @@ var bobTime:=0.0
 var camStartPos:=Vector3.ZERO
 
 func _ready() -> void:
-	pixel_shader.visible=true
 	camStartPos=camera_3d.position
 	await get_tree().create_timer(0.2).timeout
 	allow_looking=true
