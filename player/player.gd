@@ -1,6 +1,7 @@
 extends CharacterBody3D
 @onready var neck: Node3D = $neck
-@export var mouse_sen:=10.0
+@export var mouse_senX:=10.0
+@export var mouse_senY:=7.0
 @onready var camera_3d: Camera3D = $neck/Camera3D
 @onready var pause_lab: Label = $HUD/pauseLab
 @onready var pixel_shader: MeshInstance3D = $neck/Camera3D/pixelShader
@@ -38,8 +39,8 @@ func _input(event: InputEvent) -> void:
 	#NECK ROTATE
 	#shit was a pain in my ass btw dont confuse MOUSE_MODE_CONFINED_HIDDEN with MOUSE_MODE_CAPTURED because otherwise you will spend 45 minutes trying to figure out why the camera randomly stops turning when in reality its that the mouse is invisibly hitting the edge of the screen FML AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	if event is InputEventMouseMotion && allow_looking && !paused:
-		neck.rotate_y(-event.relative.x*0.2*get_process_delta_time())
-		var pitch_rotate = neck.rotation_degrees.x - event.relative.y* mouse_sen*get_process_delta_time()
+		neck.rotate_y(-event.relative.x*0.2*get_process_delta_time()*mouse_senY/10.0)
+		var pitch_rotate = neck.rotation_degrees.x - event.relative.y* mouse_senX*get_process_delta_time()
 		var new_pitch = clampf(pitch_rotate,-80,80)
 		neck.rotation_degrees.x=new_pitch
 		
