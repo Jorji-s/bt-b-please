@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bksn65he0b3gu"]
 
 [ext_resource type="Script" uid="uid://dn0thppe8n72p" path="res://interaction/interaction_component.gd" id="1_wutrw"]
-[ext_resource type="Texture2D" uid="uid://bnsn05rtubr3a" path="res://GUI/Cursor1Temp.png" id="2_bdvdw"]
+[ext_resource type="Texture2D" uid="uid://bp4l1e5qk60oj" path="res://GUI/Cursor1Temp (3).png" id="2_bdvdw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wutrw"]
 
