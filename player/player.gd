@@ -18,6 +18,7 @@ extends CharacterBody3D
 @export var bobReturn:=10.0
 var bobTime:=0.0
 var camStartPos:=Vector3.ZERO
+var lastHitObject=null
 
 func _ready() -> void:
 	camStartPos=camera_3d.position
@@ -56,6 +57,16 @@ func _physics_process(delta: float) -> void:
 	
 	# Check if interaction ray hit something
 	# Hit object should be interactable type because of collision layer
+	
+	if interaction_ray.is_colliding():
+		var hit_object = interaction_ray.get_collider()
+		hit_object.showIcon(camera_3d)
+		lastHitObject=hit_object
+	else:
+		if lastHitObject!=null:
+			lastHitObject.hideIcon()
+			lastHitObject=null
+		
 	if interaction_ray.is_colliding() and Input.is_action_just_pressed("Interact"):
 		var hit_object = interaction_ray.get_collider()
 		hit_object.interact()

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cwen80ifw6akr" path="res://aliens/potatoMan.webp" id="1_6jog0"]
 [ext_resource type="Script" uid="uid://dapj5orj6tdxf" path="res://mainWorld/alien.gd" id="1_7a0mi"]
 [ext_resource type="Texture2D" uid="uid://dyhtxki58xp0y" path="res://aliens/alienGuy.png" id="2_7a0mi"]
+[ext_resource type="PackedScene" uid="uid://bksn65he0b3gu" path="res://interaction/interaction_component.tscn" id="4_r5dvv"]
 
 [sub_resource type="Animation" id="Animation_j3v63"]
 length = 0.001
@@ -197,3 +198,11 @@ autoplay = &"showUp"
 libraries/ = SubResource("AnimationLibrary_j3v63")
 autoplay = &"idle"
 speed_scale = 0.78
+
+[node name="InteractionComponent" parent="." unique_id=340135597 instance=ExtResource("4_r5dvv")]
+transform = Transform3D(1.799, 0, 0, 0, 1.799, 0, 0, 0, 1.799, 0, 1.7108908, 1.2153625)
+
+[node name="playerTracker" parent="InteractionComponent" index="2" unique_id=1082628906]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -0.48096132)
+
+[editable path="InteractionComponent"]

@@ -1,8 +1,46 @@
 [gd_scene format=3 uid="uid://bksn65he0b3gu"]
 
 [ext_resource type="Script" uid="uid://dn0thppe8n72p" path="res://interaction/interaction_component.gd" id="1_wutrw"]
+[ext_resource type="Texture2D" uid="uid://bnsn05rtubr3a" path="res://GUI/Cursor1Temp.png" id="2_bdvdw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wutrw"]
+
+[sub_resource type="Animation" id="Animation_bdvdw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("playerTracker/Sprite3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hfsb6"]
+resource_name = "animate"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("playerTracker/Sprite3D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.8, 0.8, 0.8), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqmsm"]
+_data = {
+&"RESET": SubResource("Animation_bdvdw"),
+&"animate": SubResource("Animation_hfsb6")
+}
 
 [node name="InteractionComponent" type="Area3D" unique_id=340135597]
 collision_layer = 8
@@ -11,3 +49,21 @@ script = ExtResource("1_wutrw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=285619197]
 shape = SubResource("SphereShape3D_wutrw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=977380089]
+libraries/ = SubResource("AnimationLibrary_kqmsm")
+autoplay = &"animate"
+speed_scale = 1.488
+
+[node name="playerTracker" type="Node3D" parent="." unique_id=1082628906]
+
+[node name="Sprite3D" type="Sprite3D" parent="playerTracker" unique_id=113376739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0015718805, -0.001, 0)
+visible = false
+no_depth_test = true
+fixed_size = true
+texture_filter = 0
+render_priority = 100
+texture = ExtResource("2_bdvdw")
+region_enabled = true
+region_rect = Rect2(0, 0, 28, 28)

@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://co063nbobiyy7" path="res://fonts/BoldsPixels.ttf" id="8_0hpoc"]
 [ext_resource type="Script" uid="uid://bmkw0ltgnnd3d" path="res://mainWorld/light_1.gd" id="8_qvqpt"]
 [ext_resource type="Script" uid="uid://c74y5wx743hd2" path="res://mainWorld/detain_button.gd" id="9_vtxlo"]
+[ext_resource type="PackedScene" uid="uid://bksn65he0b3gu" path="res://interaction/interaction_component.tscn" id="12_cdvnm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
 albedo_color = Color(0.23753911, 0.23753914, 0.23753908, 1)
@@ -492,6 +493,9 @@ billboard = 2
 text = "Paper
 Shredder"
 
+[node name="InteractionComponent" parent="tempRoom/shredder" unique_id=340135597 instance=ExtResource("12_cdvnm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42836386, 0)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=675719265]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 light_energy = 0.407
@@ -579,12 +583,24 @@ height = 0.38952637
 sides = 12
 material = SubResource("StandardMaterial3D_f6ehp")
 
+[node name="InteractionComponent" parent="button/CSGCylinder3D" unique_id=36472331 instance=ExtResource("12_cdvnm")]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0.11011028, -0.061667204)
+
+[node name="playerTracker" parent="button/CSGCylinder3D/InteractionComponent" index="2" unique_id=1082628906]
+transform = Transform3D(1, 0, 0, 0, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0, 0.073, 0.122)
+
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="button" unique_id=2005440250]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.42258072, 0.5772214, 0.93385124)
 radius = 0.18115234
 height = 0.38952637
 sides = 12
 material = SubResource("StandardMaterial3D_0hpoc")
+
+[node name="InteractionComponent" parent="button/CSGCylinder3D2" unique_id=2040016686 instance=ExtResource("12_cdvnm")]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0.11011028, 0.068412304)
+
+[node name="playerTracker" parent="button/CSGCylinder3D2/InteractionComponent" index="2" unique_id=1082628906]
+transform = Transform3D(1, 0, 0, 0, 1, -7.1054274e-15, 0, 7.1054274e-15, 1, 0, 0.07348251, -0.12454891)
 
 [node name="detainButton" type="CSGCombiner3D" parent="." unique_id=1970323349]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.266, 1.796, -11.204)
@@ -641,6 +657,9 @@ OF
 ORDER"
 font = ExtResource("8_0hpoc")
 font_size = 15
+
+[node name="InteractionComponent" parent="detainButton" unique_id=1937609287 instance=ExtResource("12_cdvnm")]
+transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 0.42700005, -9.422, 1.0489817)
 
 [node name="light1" type="CSGBox3D" parent="." unique_id=814916728]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.345908, 6.5283513, -0.2007395)
@@ -742,6 +761,9 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.330635
 billboard = 2
 text = "Computer"
 
+[node name="InteractionComponent" parent="desk/computerObj" unique_id=442796959 instance=ExtResource("12_cdvnm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4794302, -0.003651619)
+
 [node name="printer" type="Node3D" parent="." unique_id=793225763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9687514, 1.0488808, 2.5862086)
 
@@ -776,7 +798,7 @@ size = Vector3(0.2, 1.4600966, 0.2)
 material = SubResource("StandardMaterial3D_yupk3")
 
 [node name="printerObj" type="Node3D" parent="printer" unique_id=788460647]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4961176, 0.6304984, -0.61731505)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5597253, 0.6304984, -0.519428)
 
 [node name="Sprite3D" type="Sprite3D" parent="printer/printerObj" unique_id=2126849411]
 transform = Transform3D(0.737, 0, 0, 0, 0.68, 0, 0, 0, 0.70899993, 0, 0.44062972, 0)
@@ -794,6 +816,12 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.330635
 billboard = 2
 text = "Printer"
 
+[node name="InteractionComponent" parent="printer/printerObj" unique_id=370772040 instance=ExtResource("12_cdvnm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45850444, 0)
+
 [connection signal="timeout" from="light1/Timer" to="light1" method="_on_timer_timeout"]
 [connection signal="timeout" from="light2/Timer" to="light2" method="_on_timer_timeout"]
 [connection signal="timeout" from="light5/Timer" to="light5" method="_on_timer_timeout"]
+
+[editable path="button/CSGCylinder3D/InteractionComponent"]
+[editable path="button/CSGCylinder3D2/InteractionComponent"]
