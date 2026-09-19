@@ -136,7 +136,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("modulator:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -173,17 +173,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4451885, 0.88224816, -12.7
 script = ExtResource("1_7a0mi")
 
 [node name="modulator" type="Sprite3D" parent="." unique_id=1325607719]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 modulate = Color(1.353256, 1.353256, 1.353256, 1)
 
-[node name="person1" type="Sprite3D" parent="modulator" unique_id=2065964243]
+[node name="humanGuy" type="Sprite3D" parent="modulator" unique_id=2065964243]
 transform = Transform3D(0.67599994, 0, 0, 0, 0.743, 0, 0, 0, 0.724, 0, 2, 0)
 billboard = 2
 shaded = true
 texture_filter = 0
 texture = ExtResource("1_6jog0")
 
-[node name="person2" type="Sprite3D" parent="modulator" unique_id=792184365]
+[node name="testAlien1" type="Sprite3D" parent="modulator" unique_id=792184365]
 transform = Transform3D(3.5359998, 0, 0, 0, 3.878, 0, 0, 0, 3.788, 0, 2, 0)
 billboard = 2
 shaded = true
@@ -200,9 +199,12 @@ autoplay = &"idle"
 speed_scale = 0.78
 
 [node name="InteractionComponent" parent="." unique_id=340135597 instance=ExtResource("4_r5dvv")]
-transform = Transform3D(1.799, 0, 0, 0, 1.799, 0, 0, 0, 1.799, 0, 1.7108908, 1.2153625)
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.7108908, 1.2153625)
 
 [node name="playerTracker" parent="InteractionComponent" index="2" unique_id=1082628906]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.48096132)
+
+[node name="traitDisplayer" type="Label3D" parent="." unique_id=381937130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.332472, 1.7658873)
 
 [editable path="InteractionComponent"]

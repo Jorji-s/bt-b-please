@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://co063nbobiyy7" path="res://fonts/BoldsPixels.ttf" id="8_0hpoc"]
 [ext_resource type="Script" uid="uid://bmkw0ltgnnd3d" path="res://mainWorld/light_1.gd" id="8_qvqpt"]
 [ext_resource type="Script" uid="uid://c74y5wx743hd2" path="res://mainWorld/detain_button.gd" id="9_vtxlo"]
+[ext_resource type="Script" uid="uid://8lbkh8w4t2un" path="res://mainWorld/button.gd" id="10_pc4xd"]
 [ext_resource type="PackedScene" uid="uid://bksn65he0b3gu" path="res://interaction/interaction_component.tscn" id="12_cdvnm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
@@ -61,6 +62,81 @@ size = Vector2(2.5, 4.25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oguhb"]
 albedo_color = Color(0.36971408, 0.16448101, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m27s5"]
+albedo_color = Color(0.48178947, 0.48178947, 0.48178947, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p3mhs"]
+material = SubResource("StandardMaterial3D_m27s5")
+top_radius = 0.24951172
+bottom_radius = 0.24951172
+height = 0.27783203
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8mfcu"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.6509804)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yupk3"]
+material = SubResource("StandardMaterial3D_8mfcu")
+radius = 0.1743164
+height = 0.50878906
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mj0nn"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.9098039)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m2pnb"]
+material = SubResource("StandardMaterial3D_mj0nn")
+radius = 0.1743164
+height = 0.6633301
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2pnb"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.84313726)
+emission_enabled = true
+emission = Color(18.892157, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8jbd0"]
+material = SubResource("StandardMaterial3D_m2pnb")
+radius = 0.1743164
+height = 0.6633301
+
+[sub_resource type="Animation" id="Animation_isyps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o56fp"]
+resource_name = "speen"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3.1415927, 0), Vector3(0, -6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4buxl"]
+_data = {
+&"RESET": SubResource("Animation_isyps"),
+&"speen": SubResource("Animation_o56fp")
+}
 
 [sub_resource type="Animation" id="Animation_oguhb"]
 length = 0.001
@@ -124,6 +200,12 @@ albedo_color = Color(0.7019608, 1, 0.5176471, 1)
 material = SubResource("StandardMaterial3D_fwici")
 size = Vector2(2, 3)
 
+[sub_resource type="BoxMesh" id="BoxMesh_yupk3"]
+size = Vector3(5.161377, 2.7138672, 0.12860107)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4buxl"]
+albedo_texture = ExtResource("3_suj5o")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0hpoc"]
 shader = ExtResource("5_2pkn0")
 shader_parameter/space_color = Color(0.001, 0.0005, 0.01, 1)
@@ -180,6 +262,70 @@ emission = Color(0, 1, 0, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_6axt3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("greenButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.42258072, 1.0552673, 0.93385124)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("redButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.42258072, 0.5481503, 0.93385124)]
+}
+
+[sub_resource type="Animation" id="Animation_fwici"]
+resource_name = "pressGreen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("greenButton:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.5, 0.96666664),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.42258072, 1.0552673, 0.93385124), Vector3(0.423, 1.055, 0.834), Vector3(0.42258072, 1.0552673, 0.93385124)]
+}
+
+[sub_resource type="Animation" id="Animation_pc4xd"]
+resource_name = "pressRed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("redButton:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.42258072, 0.5481503, 0.93385124), Vector3(0.423, 0.548, 0.834), Vector3(0.42258072, 0.5481503, 0.93385124)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tklsj"]
+_data = {
+&"RESET": SubResource("Animation_6axt3"),
+&"pressGreen": SubResource("Animation_fwici"),
+&"pressRed": SubResource("Animation_pc4xd")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdvnm"]
 emission_enabled = true
 emission = Color(1, 0.46666667, 0, 1)
@@ -193,6 +339,163 @@ albedo_color = Color(1, 1, 0, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_isyps"]
 material = SubResource("StandardMaterial3D_2b0jq")
 size = Vector2(0.25, 0.25)
+
+[sub_resource type="Animation" id="Animation_2b0jq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("glowButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.42258072, 0.5772214, 0.9619198)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../tempRoom/blastDoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.57336426, 5.6935825, -10.512121)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../lightContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../tempRoom/North Wall/emerLight1/flashIng:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../tempRoom/North Wall/emerLight2/flashIng:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../TV/TVSCREEN:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tklsj"]
+resource_name = "press"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("glowButton:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.5, 0.59, 0.74, 0.9, 1.39, 1.9, 2.29, 2.75, 3.18, 3.51, 3.94, 4.32, 4.88, 5.266667, 5.69, 6.15, 6.32, 6.5, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.42258072, 0.5772214, 0.9619198), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.423, 0.577, 0.864), Vector3(0.42258072, 0.5772214, 0.9619198)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../tempRoom/blastDoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333333, 0.53333336, 0.70000005, 6.1, 6.9666667),
+"transitions": PackedFloat32Array(1, 1.5691684, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.57336426, 5.6935825, -10.512121), Vector3(0.57336426, 5.6935825, -10.512121), Vector3(0.573, 2.994, -10.512), Vector3(0.573, 2.994, -10.512), Vector3(0.57336426, 5.6935825, -10.512121)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../lightContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.56666666, 0.7, 6.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../tempRoom/North Wall/emerLight1/flashIng:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.43333334, 0.6, 6.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../tempRoom/North Wall/emerLight2/flashIng:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.43, 0.6, 6.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../TV/TVSCREEN:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.45, 0.7, 6.1333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2b0jq"]
+_data = {
+&"RESET": SubResource("Animation_2b0jq"),
+&"press": SubResource("Animation_tklsj")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkpag"]
 albedo_color = Color(1, 1, 0.9098039, 1)
@@ -343,11 +646,77 @@ use_collision = true
 size = Vector3(1.345, 0.147, 5.027)
 material = SubResource("StandardMaterial3D_oguhb")
 
+[node name="emerLight1" type="MeshInstance3D" parent="tempRoom/North Wall" unique_id=822086251]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1, 4.852, -10.222)
+mesh = SubResource("CylinderMesh_p3mhs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tempRoom/North Wall/emerLight1" unique_id=1532334247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2866211, 0)
+mesh = SubResource("CapsuleMesh_yupk3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="tempRoom/North Wall/emerLight1" unique_id=1008126242]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0.23639584, 0)
+mesh = SubResource("CapsuleMesh_m2pnb")
+
+[node name="flashIng" type="Node3D" parent="tempRoom/North Wall/emerLight1" unique_id=200999268]
+visible = false
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="tempRoom/North Wall/emerLight1/flashIng" unique_id=1998612592]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0.23639584, 0)
+mesh = SubResource("CapsuleMesh_8jbd0")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="tempRoom/North Wall/emerLight1/flashIng" unique_id=1337421500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31046867, 0)
+light_color = Color(1, 0, 0, 1)
+spot_angle = 41.67
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="tempRoom/North Wall/emerLight1/flashIng" unique_id=562621692]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.31046867, 0)
+light_color = Color(1, 0, 0, 1)
+spot_angle = 41.67
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tempRoom/North Wall/emerLight1/flashIng" unique_id=516979889]
+libraries/ = SubResource("AnimationLibrary_4buxl")
+autoplay = &"speen"
+
+[node name="emerLight2" type="MeshInstance3D" parent="tempRoom/North Wall" unique_id=878402817]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.4, 4.852, -10.222)
+mesh = SubResource("CylinderMesh_p3mhs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tempRoom/North Wall/emerLight2" unique_id=1054864175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2866211, 0)
+mesh = SubResource("CapsuleMesh_yupk3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="tempRoom/North Wall/emerLight2" unique_id=681521363]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0.23639584, 0)
+mesh = SubResource("CapsuleMesh_m2pnb")
+
+[node name="flashIng" type="Node3D" parent="tempRoom/North Wall/emerLight2" unique_id=1379113916]
+visible = false
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="tempRoom/North Wall/emerLight2/flashIng" unique_id=700490838]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0.23639584, 0)
+mesh = SubResource("CapsuleMesh_8jbd0")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="tempRoom/North Wall/emerLight2/flashIng" unique_id=897541508]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, 0.31046867, 0)
+light_color = Color(1, 0, 0, 1)
+spot_angle = 41.67
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="tempRoom/North Wall/emerLight2/flashIng" unique_id=1955176300]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.31046867, 0)
+light_color = Color(1, 0, 0, 1)
+spot_angle = 41.67
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tempRoom/North Wall/emerLight2/flashIng" unique_id=1335413832]
+libraries/ = SubResource("AnimationLibrary_4buxl")
+autoplay = &"speen"
+
 [node name="plant" type="Node3D" parent="tempRoom" unique_id=1982274289]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.759958, -0.14243433, -9.3840475)
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/plant" unique_id=1979014534]
-transform = Transform3D(2.606446, 0, 0, 0, 2.4127028, 0, 0, 0, 2.5099998, 0, 1.8975184, 0)
+transform = Transform3D(2.52, 0, 0, 0, 2.404, 0, 0, 0, 2.464, 0.0001282692, 1.894799, -3.33786e-05)
 billboard = 2
 shaded = true
 texture = ExtResource("2_0hpoc")
@@ -367,7 +736,7 @@ shape = SubResource("CylinderShape3D_yupk3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.364511, -0.14243433, 1.7115402)
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/plant2" unique_id=880425221]
-transform = Transform3D(2.606446, 0, 0, 0, 2.4127028, 0, 0, 0, 2.5099998, 0, 1.8975184, 0)
+transform = Transform3D(2.52, 0, 0, 0, 2.404, 0, 0, 0, 2.464, 0, 1.8975184, 0)
 billboard = 2
 shaded = true
 texture = ExtResource("2_0hpoc")
@@ -477,7 +846,7 @@ Cooler"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.464869, 0.42486072, -5.6394634)
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/shredder" unique_id=181646176]
-transform = Transform3D(0.737, 0, 0, 0, 0.75, 0, 0, 0, 0.709, 0, 0.36664748, 0)
+transform = Transform3D(1.025, 0, 0, 0, 0.975, 0, 0, 0, 1, 0, 0.36664748, 0)
 billboard = 2
 shaded = true
 texture = ExtResource("3_suj5o")
@@ -495,6 +864,11 @@ Shredder"
 
 [node name="InteractionComponent" parent="tempRoom/shredder" unique_id=340135597 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42836386, 0)
+
+[node name="blastDoor" type="MeshInstance3D" parent="tempRoom" unique_id=1497704008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57336426, 5.6935825, -10.512121)
+mesh = SubResource("BoxMesh_yupk3")
+surface_material_override/0 = SubResource("StandardMaterial3D_4buxl")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=675719265]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -514,7 +888,7 @@ environment = SubResource("Environment_f6ehp")
 [node name="TV" type="CSGCombiner3D" parent="." unique_id=234665071]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="TV" unique_id=1394424587]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7626636, 4.80263, -10.093214)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 4.803, -10.093)
 size = Vector3(0.40527344, 0.28778076, 0.37426758)
 material = SubResource("StandardMaterial3D_a30ig")
 
@@ -524,14 +898,14 @@ use_collision = true
 size = Vector3(0.12, 0.99, 1.807)
 material = SubResource("StandardMaterial3D_655eb")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="TV" unique_id=1068121291]
+[node name="TVSCREEN" type="CSGBox3D" parent="TV" unique_id=1068121291]
 transform = Transform3D(-4.026629e-08, 1.7009148e-08, 1, 0.38912395, 0.9211854, 0, -0.9211854, 0.38912395, -4.371139e-08, 0.7, 4.8279786, -9.730147)
 operation = 2
 use_collision = true
 size = Vector3(0.10910156, 0.89, 1.707)
 material = SubResource("StandardMaterial3D_j3v63")
 
-[node name="Label3D" type="Label3D" parent="TV/CSGBox3D8" unique_id=590787634]
+[node name="Label3D" type="Label3D" parent="TV/TVSCREEN" unique_id=590787634]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 text = "Now 
 Serving:
@@ -559,6 +933,7 @@ grow_vertical = 2
 
 [node name="button" type="CSGCombiner3D" parent="." unique_id=176519841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8061442, 1.7957144, -11.20402)
+script = ExtResource("10_pc4xd")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="button" unique_id=1629829945]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42258072, 0.79828835, 0.5458975)
@@ -576,31 +951,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42258072, 0.79828835, 0.934
 size = Vector3(0.605, 1.184, 0.076049805)
 material = SubResource("StandardMaterial3D_suj5o")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="button" unique_id=68955430]
+[node name="greenButton" type="CSGCylinder3D" parent="button" unique_id=68955430]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.42258072, 1.0552673, 0.93385124)
 radius = 0.18115234
 height = 0.38952637
 sides = 12
 material = SubResource("StandardMaterial3D_f6ehp")
 
-[node name="InteractionComponent" parent="button/CSGCylinder3D" unique_id=36472331 instance=ExtResource("12_cdvnm")]
+[node name="GreenComponent" parent="button/greenButton" unique_id=36472331 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0.11011028, -0.061667204)
 
-[node name="playerTracker" parent="button/CSGCylinder3D/InteractionComponent" index="2" unique_id=1082628906]
+[node name="playerTracker" parent="button/greenButton/GreenComponent" index="2" unique_id=1082628906]
 transform = Transform3D(1, 0, 0, 0, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0, 0.073, 0.122)
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="button" unique_id=2005440250]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.42258072, 0.5772214, 0.93385124)
+[node name="redButton" type="CSGCylinder3D" parent="button" unique_id=2005440250]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.42258072, 0.5481503, 0.93385124)
 radius = 0.18115234
 height = 0.38952637
 sides = 12
 material = SubResource("StandardMaterial3D_0hpoc")
 
-[node name="InteractionComponent" parent="button/CSGCylinder3D2" unique_id=2040016686 instance=ExtResource("12_cdvnm")]
+[node name="RedComponent" parent="button/redButton" unique_id=2040016686 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0.11011028, 0.068412304)
 
-[node name="playerTracker" parent="button/CSGCylinder3D2/InteractionComponent" index="2" unique_id=1082628906]
+[node name="playerTracker" parent="button/redButton/RedComponent" index="2" unique_id=1082628906]
 transform = Transform3D(1, 0, 0, 0, 1, -7.1054274e-15, 0, 7.1054274e-15, 1, 0, 0.07348251, -0.12454891)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="button" unique_id=2074192287]
+libraries/ = SubResource("AnimationLibrary_tklsj")
+autoplay = &"RESET"
+speed_scale = 1.25
 
 [node name="detainButton" type="CSGCombiner3D" parent="." unique_id=1970323349]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.266, 1.796, -11.204)
@@ -659,14 +1039,19 @@ font = ExtResource("8_0hpoc")
 font_size = 15
 
 [node name="InteractionComponent" parent="detainButton" unique_id=1937609287 instance=ExtResource("12_cdvnm")]
-transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 0.42700005, -9.422, 1.0489817)
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0.42700005, -9.422, 1.0489817)
 
-[node name="light1" type="CSGBox3D" parent="." unique_id=814916728]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="detainButton" unique_id=1791197348]
+libraries/ = SubResource("AnimationLibrary_2b0jq")
+
+[node name="lightContainer" type="Node3D" parent="." unique_id=1054914849]
+
+[node name="light1" type="CSGBox3D" parent="lightContainer" unique_id=814916728]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.345908, 6.5283513, -0.2007395)
 material = SubResource("StandardMaterial3D_tkpag")
 script = ExtResource("8_qvqpt")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="light1" unique_id=1150511181]
+[node name="SpotLight3D" type="SpotLight3D" parent="lightContainer/light1" unique_id=1150511181]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.313693, 0.05075121)
 light_color = Color(1, 1, 0.9098039, 1)
 light_energy = 1.743
@@ -675,16 +1060,16 @@ spot_range = 7.836
 spot_angle = 180.0
 spot_angle_attenuation = 0.93303066
 
-[node name="Timer" type="Timer" parent="light1" unique_id=1938585358]
+[node name="Timer" type="Timer" parent="lightContainer/light1" unique_id=1938585358]
 one_shot = true
 autostart = true
 
-[node name="light2" type="CSGBox3D" parent="." unique_id=1083175524]
+[node name="light2" type="CSGBox3D" parent="lightContainer" unique_id=1083175524]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.345908, 6.5283513, -7.184812)
 material = SubResource("StandardMaterial3D_tkpag")
 script = ExtResource("8_qvqpt")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="light2" unique_id=824990064]
+[node name="SpotLight3D" type="SpotLight3D" parent="lightContainer/light2" unique_id=824990064]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.313693, 0.05075121)
 light_color = Color(1, 1, 0.9098039, 1)
 light_energy = 1.743
@@ -693,16 +1078,16 @@ spot_range = 7.836
 spot_angle = 180.0
 spot_angle_attenuation = 0.93303066
 
-[node name="Timer" type="Timer" parent="light2" unique_id=1917080208]
+[node name="Timer" type="Timer" parent="lightContainer/light2" unique_id=1917080208]
 one_shot = true
 autostart = true
 
-[node name="light5" type="CSGBox3D" parent="." unique_id=791223789]
+[node name="light3" type="CSGBox3D" parent="lightContainer" unique_id=791223789]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.7998556, 6.5283513, -7.184812)
 material = SubResource("StandardMaterial3D_tkpag")
 script = ExtResource("8_qvqpt")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="light5" unique_id=1014819112]
+[node name="SpotLight3D" type="SpotLight3D" parent="lightContainer/light3" unique_id=1014819112]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.313693, 0.05075121)
 light_color = Color(1, 1, 0.9098039, 1)
 light_energy = 1.743
@@ -711,7 +1096,7 @@ spot_range = 7.836
 spot_angle = 180.0
 spot_angle_attenuation = 0.93303066
 
-[node name="Timer" type="Timer" parent="light5" unique_id=941924012]
+[node name="Timer" type="Timer" parent="lightContainer/light3" unique_id=941924012]
 one_shot = true
 autostart = true
 
@@ -819,9 +1204,13 @@ text = "Printer"
 [node name="InteractionComponent" parent="printer/printerObj" unique_id=370772040 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45850444, 0)
 
-[connection signal="timeout" from="light1/Timer" to="light1" method="_on_timer_timeout"]
-[connection signal="timeout" from="light2/Timer" to="light2" method="_on_timer_timeout"]
-[connection signal="timeout" from="light5/Timer" to="light5" method="_on_timer_timeout"]
+[connection signal="interacted" from="button/greenButton/GreenComponent" to="button" method="_on_green_component_interacted"]
+[connection signal="interacted" from="button/redButton/RedComponent" to="button" method="_on_red_component_interacted"]
+[connection signal="animation_finished" from="button/AnimationPlayer" to="button" method="_on_animation_player_animation_finished"]
+[connection signal="interacted" from="detainButton/InteractionComponent" to="detainButton" method="_on_interaction_component_interacted"]
+[connection signal="timeout" from="lightContainer/light1/Timer" to="lightContainer/light1" method="_on_timer_timeout"]
+[connection signal="timeout" from="lightContainer/light2/Timer" to="lightContainer/light2" method="_on_timer_timeout"]
+[connection signal="timeout" from="lightContainer/light3/Timer" to="lightContainer/light3" method="_on_timer_timeout"]
 
-[editable path="button/CSGCylinder3D/InteractionComponent"]
-[editable path="button/CSGCylinder3D2/InteractionComponent"]
+[editable path="button/greenButton/GreenComponent"]
+[editable path="button/redButton/RedComponent"]

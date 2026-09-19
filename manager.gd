@@ -1,2 +1,2 @@
 extends Node
-@export var detainUnlocked:=false
+@export var detainUnlocked:=true
