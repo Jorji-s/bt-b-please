@@ -29,11 +29,13 @@ func _input(event: InputEvent) -> void:
 	#Pause mechanics
 	if event.is_action_pressed("esc"):
 		if !paused:
+			allow_looking=false
 			paused=true
 			pause_lab.visible=true
 			Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 		else:
 			paused=false
+			allow_looking=true
 			pause_lab.visible=false
 			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 
@@ -47,6 +49,12 @@ func _input(event: InputEvent) -> void:
 		
 		
 func _physics_process(delta: float) -> void:
+	if !allow_looking:
+		var blurTween=create_tween()
+		blurTween.tween_property(camera_3d.attributes,"dof_blur_amount",0.3,0.5)
+	else:
+		var blurTween=create_tween()
+		blurTween.tween_property(camera_3d.attributes,"dof_blur_amount",0,0.5)
 	#gets direction held by keys :D
 	var inputDirX = Input.get_axis("Left", "Right")
 	var inputDirY = Input.get_axis("Up", "Down")
