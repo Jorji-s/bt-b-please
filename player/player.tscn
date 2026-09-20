@@ -5,6 +5,12 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yupk3"]
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_r5dvv"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 0.01
+dof_blur_far_transition = -1.0
+dof_blur_amount = 0.2
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rkbax"]
 render_priority = 0
 shader = ExtResource("2_rkbax")
@@ -32,6 +38,7 @@ debug_color = Color(1, 0.6, 0.69803923, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79405165, 0)
 
 [node name="Camera3D" type="Camera3D" parent="neck" unique_id=1718113794]
+attributes = SubResource("CameraAttributesPractical_r5dvv")
 current = true
 fov = 80.0
 

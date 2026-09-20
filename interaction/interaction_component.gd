@@ -8,6 +8,16 @@ extends Area3D
 @onready var sprite_3d: Sprite3D = $playerTracker/Sprite3D
 var player=null
 
+func enable()->void:
+	monitorable=true
+	monitoring=true
+	position.y-=100
+	
+func disable()->void:
+	monitorable=false
+	monitoring=false
+	position.y+=100
+
 signal interacted
 
 func interact():

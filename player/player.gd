@@ -13,6 +13,7 @@ extends CharacterBody3D
 @export var allow_looking:=false
 @export var paused:=false
 @export var allow_interaction=true
+@export var blurred:=false
 
 @export var bobSpeed:=10.0
 @export var bobAmount:=0.05
@@ -34,11 +35,13 @@ func _input(event: InputEvent) -> void:
 	# asher added: pause key is disabled if dialog manager is active
 	if event.is_action_pressed("esc") and not DialogManager.is_active:
 		if !paused:
+			blurred=true
 			paused=true
 			pause_lab.visible=true
 			Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 		else:
 			paused=false
+			blurred=false
 			pause_lab.visible=false
 			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	
@@ -52,6 +55,12 @@ func _input(event: InputEvent) -> void:
 		
 		
 func _physics_process(delta: float) -> void:
+	if blurred:
+		var blurTween=create_tween()
+		blurTween.tween_property(camera_3d.attributes,"dof_blur_amount",0.3,0.5)
+	else:
+		var blurTween=create_tween()
+		blurTween.tween_property(camera_3d.attributes,"dof_blur_amount",0,0.5)
 	#gets direction held by keys :D
 	var inputDirX = Input.get_axis("Left", "Right")
 	var inputDirY = Input.get_axis("Up", "Down")
@@ -64,6 +73,9 @@ func _physics_process(delta: float) -> void:
 	# Hit object should be interactable type because of collision layer
 	
 	if interaction_ray.is_colliding():
+		if lastHitObject!=null:
+			lastHitObject.hideIcon()
+			lastHitObject=null
 		var hit_object = interaction_ray.get_collider()
 		hit_object.showIcon(camera_3d)
 		lastHitObject=hit_object

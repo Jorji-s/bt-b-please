@@ -17,16 +17,13 @@
 [ext_resource type="Script" uid="uid://8lbkh8w4t2un" path="res://mainWorld/button.gd" id="10_pc4xd"]
 [ext_resource type="Script" uid="uid://cxkbomuhnw08v" path="res://mainWorld/tv.gd" id="12_2b0jq"]
 [ext_resource type="PackedScene" uid="uid://bksn65he0b3gu" path="res://interaction/interaction_component.tscn" id="12_cdvnm"]
-
-[ext_resource type="PackedScene" uid="uid://cyxcoytpp1ojj" path="res://dialog/dialog_ui.tscn" id="13_pc4xd"]
-
 [ext_resource type="Script" uid="uid://d16kkqxfwxg0f" path="res://mainWorld/document_hud.gd" id="13_4buxl"]
 [ext_resource type="FontFile" uid="uid://bo1mcwmwk54y2" path="res://fonts/pixeloidSans/PixeloidSans-Bold.ttf" id="13_8mfcu"]
 [ext_resource type="Texture2D" uid="uid://bh53bbpe5i1jw" path="res://GUI/passportmenu.png" id="13_isyps"]
+[ext_resource type="PackedScene" uid="uid://cyxcoytpp1ojj" path="res://dialog/dialog_ui.tscn" id="13_pc4xd"]
 [ext_resource type="FontFile" uid="uid://cklety1ec87is" path="res://fonts/RoinertPixels-Regular.ttf" id="14_o56fp"]
 [ext_resource type="Texture2D" uid="uid://dmo5s3eer3efk" path="res://GUI/ticketmenu.png" id="16_a30ig"]
 [ext_resource type="FontFile" uid="uid://drqqqt30cx1gj" path="res://fonts/pixeloidSans/PixeloidSans-Bold.otf" id="18_8mfcu"]
-
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
 albedo_color = Color(0.23753911, 0.23753914, 0.23753908, 1)
@@ -1736,17 +1733,8 @@ layer = 100
 [node name="DialogUI" parent="DialogLayer" unique_id=358119890 instance=ExtResource("13_pc4xd")]
 visible = false
 
-[connection signal="timeout" from="light1/Timer" to="light1" method="_on_timer_timeout"]
-[connection signal="timeout" from="light2/Timer" to="light2" method="_on_timer_timeout"]
-[connection signal="timeout" from="light5/Timer" to="light5" method="_on_timer_timeout"]
 [connection signal="interacted" from="tempRoom/North Wall/counterTop/passport/passInteractionComponent" to="Control/documentHUD" method="_on_pass_interaction_component_interacted"]
 [connection signal="interacted" from="tempRoom/North Wall/counterTop/tripTicket/InteractionComponent" to="Control/documentHUD" method="_on_interaction_component_interacted"]
-[connection signal="atCounter" from="alien" to="." method="_on_alien_at_counter"]
-[connection signal="atCounter" from="alien" to="tempRoom/North Wall/counterTop" method="_on_alien_at_counter"]
-[connection signal="leftCounter" from="alien" to="." method="_on_alien_left_counter"]
-[connection signal="leftCounter" from="alien" to="tempRoom/North Wall/counterTop" method="_on_alien_left_counter"]
-[connection signal="rightChoice" from="alien" to="TV" method="_on_alien_right_choice"]
-[connection signal="wrongChoice" from="alien" to="TV" method="_on_alien_wrong_choice"]
 [connection signal="animation_finished" from="TV/tvAnimator" to="TV" method="_on_tv_animator_animation_finished"]
 [connection signal="interacted" from="button/greenButton/GreenComponent" to="button" method="_on_green_component_interacted"]
 [connection signal="interacted" from="button/redButton/RedComponent" to="button" method="_on_red_component_interacted"]
