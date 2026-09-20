@@ -44,11 +44,13 @@ func _on_pass_interaction_component_interacted() -> void:
 				docu_hud_animator.play("showPassport")
 				passOpen=true
 				player.allow_moving=false
+				player.blurred=true
 				player.allow_looking=false
 			else:
 				docu_hud_animator.play_backwards("showPassport")
 				player.allow_moving=true
 				player.allow_looking=true
+				player.blurred=false
 				await get_tree().create_timer(0.5).timeout
 				passOpen=false
 
@@ -59,11 +61,13 @@ func _on_interaction_component_interacted() -> void:
 			if player.allow_moving:
 				docu_hud_animator.play("showTicket")
 				tickOpen=true
+				player.blurred=true
 				player.allow_moving=false
 				player.allow_looking=false
 			else:
 				docu_hud_animator.play_backwards("showTicket")
 				player.allow_moving=true
+				player.blurred=false
 				player.allow_looking=true
 				await get_tree().create_timer(0.5).timeout
 				tickOpen=false

@@ -12,6 +12,7 @@ extends CharacterBody3D
 @export var acceleration:=47.5
 @export var allow_looking:=false
 @export var paused:=false
+@export var blurred:=false
 
 @export var bobSpeed:=10.0
 @export var bobAmount:=0.05
@@ -29,13 +30,13 @@ func _input(event: InputEvent) -> void:
 	#Pause mechanics
 	if event.is_action_pressed("esc"):
 		if !paused:
-			allow_looking=false
+			blurred=true
 			paused=true
 			pause_lab.visible=true
 			Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 		else:
 			paused=false
-			allow_looking=true
+			blurred=false
 			pause_lab.visible=false
 			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 
@@ -49,7 +50,7 @@ func _input(event: InputEvent) -> void:
 		
 		
 func _physics_process(delta: float) -> void:
-	if !allow_looking:
+	if blurred:
 		var blurTween=create_tween()
 		blurTween.tween_property(camera_3d.attributes,"dof_blur_amount",0.3,0.5)
 	else:
