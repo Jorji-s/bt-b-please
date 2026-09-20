@@ -59,6 +59,9 @@ func _physics_process(delta: float) -> void:
 	# Hit object should be interactable type because of collision layer
 	
 	if interaction_ray.is_colliding():
+		if lastHitObject!=null:
+			lastHitObject.hideIcon()
+			lastHitObject=null
 		var hit_object = interaction_ray.get_collider()
 		hit_object.showIcon(camera_3d)
 		lastHitObject=hit_object

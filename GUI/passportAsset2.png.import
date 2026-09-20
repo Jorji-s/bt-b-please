@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnsn05rtubr3a"
-path.s3tc="res://.godot/imported/Cursor1Temp.png-4ef6b69fb4408c4ab6fda588d43de1c3.s3tc.ctex"
+uid="uid://cmcqbxknr85p3"
+path.s3tc="res://.godot/imported/passportAsset2.png-726cfa5a1afc880f87d81d59d539d3be.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://GUI/Cursor1Temp.png"
-dest_files=["res://.godot/imported/Cursor1Temp.png-4ef6b69fb4408c4ab6fda588d43de1c3.s3tc.ctex"]
+source_file="res://GUI/passportAsset2.png"
+dest_files=["res://.godot/imported/passportAsset2.png-726cfa5a1afc880f87d81d59d539d3be.s3tc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by5jglxpg8rtw"
-path.s3tc="res://.godot/imported/Cursor2.png-73c0824c56bfd95600576ce540d46b48.s3tc.ctex"
+uid="uid://bq0vce4j3tb2k"
+path.s3tc="res://.godot/imported/ticketAsset.png-c7bba92ef0cf4e0a547c11dbddbb0518.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://GUI/Cursor2.png"
-dest_files=["res://.godot/imported/Cursor2.png-73c0824c56bfd95600576ce540d46b48.s3tc.ctex"]
+source_file="res://GUI/ticketAsset.png"
+dest_files=["res://.godot/imported/ticketAsset.png-c7bba92ef0cf4e0a547c11dbddbb0518.s3tc.ctex"]
 
 [params]
 

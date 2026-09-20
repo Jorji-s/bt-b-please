@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://d0e7a1cfirpev" path="res://mainWorld/main_world.gd" id="1_cso50"]
 [ext_resource type="Texture2D" uid="uid://b8338l3ifxyla" path="res://decorAssets/tempPlantBTB.png" id="2_0hpoc"]
 [ext_resource type="PackedScene" uid="uid://bfpqmt6gop8pd" path="res://mainWorld/alien.tscn" id="3_2pkn0"]
+[ext_resource type="Texture2D" uid="uid://bst4xeva8alun" path="res://GUI/passportAsset.png" id="3_6axt3"]
 [ext_resource type="Texture2D" uid="uid://d3kdp3t6ul116" path="res://icon.svg" id="3_suj5o"]
 [ext_resource type="Script" uid="uid://dqrwc4asj05j0" path="res://mainWorld/counter_top.gd" id="3_tklsj"]
-[ext_resource type="Texture2D" uid="uid://cmcqbxknr85p3" path="res://GUI/passportAsset2.png" id="4_2b0jq"]
 [ext_resource type="Texture2D" uid="uid://bq0vce4j3tb2k" path="res://GUI/ticketAsset.png" id="4_fwici"]
 [ext_resource type="Texture2D" uid="uid://dyhtxki58xp0y" path="res://aliens/alienGuy.png" id="4_oguhb"]
 [ext_resource type="Shader" uid="uid://b3bmm50e2txu5" path="res://SkyStar.gdshader" id="5_2pkn0"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://bmkw0ltgnnd3d" path="res://mainWorld/light_1.gd" id="8_qvqpt"]
 [ext_resource type="Script" uid="uid://c74y5wx743hd2" path="res://mainWorld/detain_button.gd" id="9_vtxlo"]
 [ext_resource type="Script" uid="uid://8lbkh8w4t2un" path="res://mainWorld/button.gd" id="10_pc4xd"]
-[ext_resource type="Script" uid="uid://cxkbomuhnw08v" path="res://mainWorld/tv.gd" id="12_2b0jq"]
 [ext_resource type="PackedScene" uid="uid://bksn65he0b3gu" path="res://interaction/interaction_component.tscn" id="12_cdvnm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
@@ -343,88 +342,9 @@ albedo_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j3v63"]
-albedo_color = Color(0, 1, 0, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 16.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jbd0"]
-albedo_color = Color(0, 1, 0, 1)
-emission_enabled = true
-emission = Color(0, 1, 0, 1)
-emission_energy_multiplier = 16.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wimhl"]
-albedo_color = Color(1, 0, 0, 1)
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 16.0
-
-[sub_resource type="Animation" id="Animation_8mfcu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("greenFlash:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("redFlash:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_m27s5"]
-resource_name = "flashGreen"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("greenFlash:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.9666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-
-[sub_resource type="Animation" id="Animation_mj0nn"]
-resource_name = "flashRed"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("redFlash:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mfcu"]
-_data = {
-&"RESET": SubResource("Animation_8mfcu"),
-&"flashGreen": SubResource("Animation_m27s5"),
-&"flashRed": SubResource("Animation_mj0nn")
-}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oguhb"]
 shader = ExtResource("5_cn18u")
@@ -846,9 +766,9 @@ speed_scale = 0.75
 transform = Transform3D(-5.4639235e-09, 0.125, 5.4639235e-09, 0, -5.4639235e-09, 0.125, 0.125, 5.4639235e-09, 2.3883568e-16, 30.667, 0.096, -0.182)
 modulate = Color(0, 0, 0, 0)
 shaded = true
-texture = ExtResource("4_2b0jq")
+texture = ExtResource("3_6axt3")
 
-[node name="passInteractionComponent" parent="tempRoom/North Wall/counterTop/passport" unique_id=340135597 instance=ExtResource("12_cdvnm")]
+[node name="InteractionComponent" parent="tempRoom/North Wall/counterTop/passport" unique_id=340135597 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(5.215, 0, 0, 0, 5.215, 0, 0, 0, 5.215, 0.10438299, -0.06919861, 0)
 
 [node name="tripTicket" type="Sprite3D" parent="tempRoom/North Wall/counterTop" unique_id=1729505305]
@@ -1118,7 +1038,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6748613, -5.430007)
 environment = SubResource("Environment_f6ehp")
 
 [node name="TV" type="CSGCombiner3D" parent="." unique_id=234665071]
-script = ExtResource("12_2b0jq")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="TV" unique_id=1394424587]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 4.803, -10.093)
@@ -1138,33 +1057,14 @@ use_collision = true
 size = Vector3(0.10910156, 0.89, 1.707)
 material = SubResource("StandardMaterial3D_j3v63")
 
-[node name="tvLabel" type="Label3D" parent="TV/TVSCREEN" unique_id=590787634]
+[node name="Label3D" type="Label3D" parent="TV/TVSCREEN" unique_id=590787634]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
-text = "Now
-Serving
-A1"
+text = "Now 
+Serving:
+#1"
 font = ExtResource("8_0hpoc")
-font_size = 45
+font_size = 64
 outline_size = 30
-line_spacing = 15.03
-autowrap_mode = 3
-
-[node name="greenFlash" type="CSGBox3D" parent="TV" unique_id=529262198]
-transform = Transform3D(-4.1272948e-08, 1.7434377e-08, 1.025, 0.39885208, 0.944215, 0, -0.944215, 0.39885208, -4.480417e-08, 0.7, 4.840431, -9.759627)
-visible = false
-use_collision = true
-size = Vector3(0.045097657, 0.89, 1.707)
-material = SubResource("StandardMaterial3D_8jbd0")
-
-[node name="redFlash" type="CSGBox3D" parent="TV" unique_id=674048749]
-transform = Transform3D(-4.1272948e-08, 1.7434377e-08, 1.025, 0.39885208, 0.944215, 0, -0.944215, 0.39885208, -4.480417e-08, 0.7, 4.840431, -9.759627)
-visible = false
-use_collision = true
-size = Vector3(0.045097657, 0.89, 1.707)
-material = SubResource("StandardMaterial3D_wimhl")
-
-[node name="tvAnimator" type="AnimationPlayer" parent="TV" unique_id=1027689717]
-libraries/ = SubResource("AnimationLibrary_8mfcu")
 
 [node name="Control" type="Control" parent="." unique_id=1409540762]
 layout_mode = 3
@@ -1460,9 +1360,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45850444, 0)
 [connection signal="atCounter" from="alien" to="tempRoom/North Wall/counterTop" method="_on_alien_at_counter"]
 [connection signal="leftCounter" from="alien" to="." method="_on_alien_left_counter"]
 [connection signal="leftCounter" from="alien" to="tempRoom/North Wall/counterTop" method="_on_alien_left_counter"]
-[connection signal="rightChoice" from="alien" to="TV" method="_on_alien_right_choice"]
-[connection signal="wrongChoice" from="alien" to="TV" method="_on_alien_wrong_choice"]
-[connection signal="animation_finished" from="TV/tvAnimator" to="TV" method="_on_tv_animator_animation_finished"]
 [connection signal="interacted" from="button/greenButton/GreenComponent" to="button" method="_on_green_component_interacted"]
 [connection signal="interacted" from="button/redButton/RedComponent" to="button" method="_on_red_component_interacted"]
 [connection signal="animation_finished" from="button/AnimationPlayer" to="button" method="_on_animation_player_animation_finished"]
@@ -1471,7 +1368,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45850444, 0)
 [connection signal="timeout" from="lightContainer/light2/Timer" to="lightContainer/light2" method="_on_timer_timeout"]
 [connection signal="timeout" from="lightContainer/light3/Timer" to="lightContainer/light3" method="_on_timer_timeout"]
 
-[editable path="tempRoom/North Wall/counterTop/passport/passInteractionComponent"]
+[editable path="tempRoom/North Wall/counterTop/passport/InteractionComponent"]
 [editable path="tempRoom/North Wall/counterTop/tripTicket/InteractionComponent"]
 [editable path="button/greenButton/GreenComponent"]
 [editable path="button/redButton/RedComponent"]

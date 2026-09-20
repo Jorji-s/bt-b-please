@@ -44,7 +44,7 @@ tracks/2/keys = {
 "values": [Vector3(0.9, 0.9, 0.9)]
 }
 
-[sub_resource type="Animation" id="Animation_2pkn0"]
+[sub_resource type="Animation" id="Animation_r5dvv"]
 resource_name = "letThrough"
 length = 6.0
 tracks/0/type = "value"
@@ -54,10 +54,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 1, 1.2333333, 5),
-"transitions": PackedFloat32Array(1, 0.7071069, 1, 1),
+"times": PackedFloat32Array(0, 0.73333335, 6),
+"transitions": PackedFloat32Array(1, 0.6830201, 1),
 "update": 0,
-"values": [Vector3(0.7, 0.882, -12.74), Vector3(0.7, 0.882, -14.5), Vector3(0.7, 0.882, -14.5), Vector3(11.045, 0.882, -14.5)]
+"values": [Vector3(0.7, 0.882, -12.74), Vector3(0.7, 0.882, -13.1), Vector3(9.495, 0.882, -13.1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,10 +66,10 @@ tracks/1/path = NodePath("modulator:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.06666667, 1, 5.9333334),
+"times": PackedFloat32Array(0.1333332, 0.7333336, 3.3666666),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1.353256, 1.353256, 1.353256, 1), Color(0.16680585, 0.16680583, 0.16680583, 1), Color(0.16680585, 0.16680583, 0.16680583, 1)]
+"values": [Color(1.353256, 1.353256, 1.353256, 1), Color(0.3180199, 0.31801975, 0.31801975, 1), Color(0.3180199, 0.31801975, 0.31801975, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -78,7 +78,7 @@ tracks/2/path = NodePath("modulator:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 1),
+"times": PackedFloat32Array(0.0666666, 0.7333336),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.92, 0.92, 0.92)]
@@ -97,7 +97,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.033333335, 4.9, 5.9666667),
 "transitions": PackedFloat32Array(1, 1.8025012, 1),
 "update": 0,
-"values": [Vector3(-9.445, 0.882, -14.5), Vector3(0.7, 0.882, -14.5), Vector3(0.7, 0.882, -12.74)]
+"values": [Vector3(-9.445, 0.882, -13.1), Vector3(0.7, 0.882, -13.1), Vector3(0.7, 0.882, -12.74)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -109,7 +109,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.033333335, 5.366667, 5.8333335),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0.16680585, 0.16680583, 0.16680583, 1), Color(0.16680585, 0.16680583, 0.16680583, 1), Color(1.353256, 1.353256, 1.353256, 1)]
+"values": [Color(0.3180199, 0.31801975, 0.31801975, 1), Color(0.3180199, 0.31801975, 0.31801975, 1), Color(1.353256, 1.353256, 1.353256, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -127,7 +127,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oguhb"]
 _data = {
 &"RESET": SubResource("Animation_j3v63"),
-&"letThrough": SubResource("Animation_2pkn0"),
+&"letThrough": SubResource("Animation_r5dvv"),
 &"showUp": SubResource("Animation_y6a8i")
 }
 
@@ -206,5 +206,8 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.48096132)
 
 [node name="traitDisplayer" type="Label3D" parent="." unique_id=381937130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.332472, 1.7658873)
+visible = false
+
+[connection signal="animation_finished" from="moveAnimator" to="." method="_on_move_animator_animation_finished"]
 
 [editable path="InteractionComponent"]
