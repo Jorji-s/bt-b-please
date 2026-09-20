@@ -16,8 +16,7 @@ var speciesList:=[]
 var nameList:=[]
 var descList:=[]
 var solarSystemPlanets:=["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto","Europa"]
-var tripStypes:=["One-way","Two-way","Connection"]
-var tripPorpoises=["Business","Vacation","Meeting family","Pleasure ;)","Displeasure","Religious pilgrimage","Religious reasons","Seeking asylum","Immigrating","Death of a loved one","Marriage","To meet a friend"]
+var tripPorpoises=["Business","Vacation","Meeting family","Pleasure","Religion","Asylum","Immigrating","Funeral","Marriage"]
 @onready var move_animator: AnimationPlayer = $moveAnimator
 
 @onready var sprite_list = modulator.get_children()
@@ -112,10 +111,9 @@ func assignTraits(ID):
 	
 	destination=solarSystemPlanets[randi_range(0,solarSystemPlanets.size()-1)]
 	departureLocation=planetList[randi_range(0,planetList.size()-1)]
-	tripType=tripStypes[randi_range(0,tripStypes.size()-1)]
 	tripPurpose=tripPorpoises[randi_range(0,tripPorpoises.size()-1)]
 	tripDate=str(randi_range(1000,9999))+"-"+str(randi_range(0,9999)) #TEMPORARY, JUST ASSIGNS RANDOM NUMBERS
-	IDNumber=str(randi_range(10,99))+"-"+str(randi_range(100,999))+"-"+str(randi_range(1000,9999)) #TEMPORARY, JUST ASSIGNS RANDOM NUMBERS
+	IDNumber=str(randi_range(0,9))+" "+str(randi_range(1,9))+" - "+str(randi_range(1,9))+" "+str(randi_range(1,9))+" "+str(randi_range(1,9))+" - "+str(randi_range(1,9))+" "+str(randi_range(1,9))+" "+str(randi_range(1,9))+" "+str(randi_range(1,9))
 	
 	trait_displayer.text="Species: "+species+"\nName: "+alName+"\nDesc: "+physDesc+"\nBirthdate: "+birthDate+"\npassExpirDate: "+passExpirDate+"\nPlanet of Origin: "+planetOfBirth+"\nDestination:"+destination+"\ndeparture loc: "+departureLocation+"\ntrip Type: "+tripType+"\ntrip Purpose: "+tripPurpose+"\ntrip Date: "+tripDate+"\nID Number: "+IDNumber+"\nIs Good to Go? "+str(shouldLetThrough)+" Should Detain? "+str(shouldDetain)
 
