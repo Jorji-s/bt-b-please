@@ -1041,7 +1041,7 @@ font_size = 15
 [node name="InteractionComponent" parent="detainButton" unique_id=1937609287 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0.42700005, -9.422, 1.0489817)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="detainButton" unique_id=1791197348]
+[node name="detainimator" type="AnimationPlayer" parent="detainButton" unique_id=1791197348]
 libraries/ = SubResource("AnimationLibrary_2b0jq")
 
 [node name="lightContainer" type="Node3D" parent="." unique_id=1054914849]

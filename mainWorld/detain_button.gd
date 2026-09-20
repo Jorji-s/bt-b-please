@@ -3,7 +3,8 @@ extends CSGCombiner3D
 @onready var glow_button: CSGCylinder3D = $glowButton
 @onready var ooo_button: CSGCylinder3D = $oooButton
 @onready var interaction_component: Area3D = $InteractionComponent
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var detainimator: AnimationPlayer = $detainimator
+@onready var animation_player: AnimationPlayer = $"../button/AnimationPlayer"
 
 func _ready() -> void:
 	if Manager.detainUnlocked:
@@ -14,5 +15,5 @@ func _ready() -> void:
 
 
 func _on_interaction_component_interacted() -> void:
-	if animation_player.current_animation!="press":
-		animation_player.play("press")
+	if detainimator.current_animation!="press" && animation_player.current_animation!="pressGreen" && animation_player.current_animation!="pressRed":
+		detainimator.play("press")

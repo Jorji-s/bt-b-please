@@ -87,4 +87,4 @@ func assignTraits(ID):
 	tripDate=str(randi_range(1000,9999))+"-"+str(randi_range(0,9999)) #TEMPORARY, JUST ASSIGNS RANDOM NUMBERS
 	IDNumber=str(randi_range(10,99))+"-"+str(randi_range(100,999))+"-"+str(randi_range(1000,9999)) #TEMPORARY, JUST ASSIGNS RANDOM NUMBERS
 	
-	trait_displayer.text="Species: "+species+"\nName: "+alName+"\nDesc: "+physDesc+"\nBirthdate: "+birthDate+"\npassExpirDate: "+passExpirDate+"\nPlanet of Origin: "+planetOfBirth+"\nDestination:"+destination+"\ndeparture loc: "+departureLocation+"\ntrip Type: "+tripType+"\ntrip Purpose: "+tripPurpose+"\ntrip Date: "+tripDate+"\nID Number: "+IDNumber
+	trait_displayer.text="Species: "+species+"\nName: "+alName+"\nDesc: "+physDesc+"\nBirthdate: "+birthDate+"\npassExpirDate: "+passExpirDate+"\nPlanet of Origin: "+planetOfBirth+"\nDestination:"+destination+"\ndeparture loc: "+departureLocation+"\ntrip Type: "+tripType+"\ntrip Purpose: "+tripPurpose+"\ntrip Date: "+tripDate+"\nID Number: "+IDNumber+"\nIs Good to Go? "+str(shouldLetThrough)
