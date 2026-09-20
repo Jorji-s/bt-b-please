@@ -24,3 +24,21 @@ func randomize_sprite():
 func hide_sprites():
 	for sprite in sprite_list:
 		sprite.visible = false
+
+# Right now all this does is initiates some sample dialog
+# Temporary
+func _on_interaction_component_interacted() -> void:
+	DialogManager.start_dialog(load_lines("res://dialog_lines/alien1.txt"))
+
+# Loads lines from file
+func load_lines(path: String):
+	var lines: Array[String] = []
+	if FileAccess.file_exists(path):
+		var file = FileAccess.open(path, FileAccess.READ)
+		while not file.eof_reached():
+			var line = file.get_line()
+			if line.length() != 0:
+				lines.append(line)
+	return lines
+	
+	

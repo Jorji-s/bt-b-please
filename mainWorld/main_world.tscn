@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bmkw0ltgnnd3d" path="res://mainWorld/light_1.gd" id="8_qvqpt"]
 [ext_resource type="Script" uid="uid://c74y5wx743hd2" path="res://mainWorld/detain_button.gd" id="9_vtxlo"]
 [ext_resource type="PackedScene" uid="uid://bksn65he0b3gu" path="res://interaction/interaction_component.tscn" id="12_cdvnm"]
+[ext_resource type="PackedScene" uid="uid://cyxcoytpp1ojj" path="res://dialog/dialog_ui.tscn" id="13_pc4xd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
 albedo_color = Color(0.23753911, 0.23753914, 0.23753908, 1)
@@ -818,6 +819,12 @@ text = "Printer"
 
 [node name="InteractionComponent" parent="printer/printerObj" unique_id=370772040 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45850444, 0)
+
+[node name="DialogLayer" type="CanvasLayer" parent="." unique_id=1052968968]
+layer = 100
+
+[node name="DialogUI" parent="DialogLayer" unique_id=358119890 instance=ExtResource("13_pc4xd")]
+visible = false
 
 [connection signal="timeout" from="light1/Timer" to="light1" method="_on_timer_timeout"]
 [connection signal="timeout" from="light2/Timer" to="light2" method="_on_timer_timeout"]

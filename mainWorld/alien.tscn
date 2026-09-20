@@ -205,4 +205,6 @@ transform = Transform3D(1.799, 0, 0, 0, 1.799, 0, 0, 0, 1.799, 0, 1.7108908, 1.2
 [node name="playerTracker" parent="InteractionComponent" index="2" unique_id=1082628906]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.48096132)
 
+[connection signal="interacted" from="InteractionComponent" to="." method="_on_interaction_component_interacted"]
+
 [editable path="InteractionComponent"]

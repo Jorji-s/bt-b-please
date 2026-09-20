@@ -12,6 +12,7 @@ extends CharacterBody3D
 @export var acceleration:=47.5
 @export var allow_looking:=false
 @export var paused:=false
+@export var allow_interaction=true
 
 @export var bobSpeed:=10.0
 @export var bobAmount:=0.05
@@ -25,9 +26,13 @@ func _ready() -> void:
 	await get_tree().create_timer(0.2).timeout
 	allow_looking=true
 
+	DialogManager.dialog_started.connect(_on_dialog_started)
+	DialogManager.dialog_finished.connect(_on_dialog_finished)
+
 func _input(event: InputEvent) -> void:
 	#Pause mechanics
-	if event.is_action_pressed("esc"):
+	# asher added: pause key is disabled if dialog manager is active
+	if event.is_action_pressed("esc") and not DialogManager.is_active:
 		if !paused:
 			paused=true
 			pause_lab.visible=true
@@ -36,7 +41,7 @@ func _input(event: InputEvent) -> void:
 			paused=false
 			pause_lab.visible=false
 			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
-
+	
 	#NECK ROTATE
 	#shit was a pain in my ass btw dont confuse MOUSE_MODE_CONFINED_HIDDEN with MOUSE_MODE_CAPTURED because otherwise you will spend 45 minutes trying to figure out why the camera randomly stops turning when in reality its that the mouse is invisibly hitting the edge of the screen FML AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	if event is InputEventMouseMotion && allow_looking && !paused:
@@ -67,7 +72,7 @@ func _physics_process(delta: float) -> void:
 			lastHitObject.hideIcon()
 			lastHitObject=null
 		
-	if interaction_ray.is_colliding() and Input.is_action_just_pressed("Interact"):
+	if interaction_ray.is_colliding() and Input.is_action_just_pressed("Interact") and allow_interaction:
 		var hit_object = interaction_ray.get_collider()
 		hit_object.interact()
 		
@@ -91,3 +96,18 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z,0,acceleration * delta)
 	
 	move_and_slide()
+
+# Disable looking and moving during dialog
+func _on_dialog_started(_lines : Array[String]):
+	allow_looking = false
+	allow_moving = false
+	allow_interaction = false
+	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+
+	
+# Reenable looking and moving after dialog completion
+func _on_dialog_finished():
+	allow_looking = true
+	allow_moving = true
+	allow_interaction = true
+	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED

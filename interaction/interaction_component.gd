@@ -17,12 +17,13 @@ func _process(delta: float) -> void:
 	if player!=null:
 		player_tracker.look_at(player.global_transform.origin, Vector3.UP)
 		sprite_3d.rotate_z(deg_to_rad(90 * delta))
+
 func showIcon(person : Camera3D):
 	sprite_3d.visible=true
 	player=person
-	print(player)
+	#print(player)
 
 func hideIcon():
-	print("HIDDEN")
+	#print("HIDDEN")
 	sprite_3d.visible=false
 	player=null
