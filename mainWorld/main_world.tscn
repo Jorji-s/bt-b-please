@@ -833,6 +833,7 @@ emission = Color(1, 1, 0.9098039, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yupk3"]
 render_priority = -1
+depth_draw_mode = 2
 albedo_color = Color(0.6620339, 0.29155645, 4.813075e-07, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wimhl"]
@@ -1743,11 +1744,10 @@ transform = Transform3D(0.217, 0, 0, 0, 0.217, 0, 0, 0, 0.217, 0, 0.44062972, 0)
 layers = 3
 billboard = 2
 shaded = true
-no_depth_test = true
 sprite_frames = SubResource("SpriteFrames_yupk3")
 animation = &"paper"
 autoplay = "paper"
-frame_progress = 0.2965843
+frame_progress = 0.5022975
 
 [node name="idleAnimator" type="AnimationPlayer" parent="printer/printerObj" unique_id=2032863470]
 libraries/ = SubResource("AnimationLibrary_j3v63")
@@ -1756,8 +1756,6 @@ speed_scale = 1.25
 
 [node name="InteractionComponent" parent="printer/printerObj" unique_id=370772040 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2748313, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="printer" unique_id=981405965]
 
 [node name="DialogLayer" type="CanvasLayer" parent="." unique_id=1052968968]
 layer = 100
