@@ -54,6 +54,7 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="HUD" type="Control" parent="." unique_id=1186715677]
+z_index = 999
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

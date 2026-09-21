@@ -200,14 +200,19 @@ speed_scale = 0.78
 
 [node name="InteractionComponent" parent="." unique_id=340135597 instance=ExtResource("4_r5dvv")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.7108908, 1.2153625)
+causeTurn2Look = true
 
 [node name="playerTracker" parent="InteractionComponent" index="2" unique_id=1082628906]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.48096132)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.042583942, 0, -0.67545223)
 
-[connection signal="interacted" from="InteractionComponent" to="." method="_on_interaction_component_interacted"]
+[node name="lookAtPoint" parent="InteractionComponent" index="3" unique_id=161659975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042583942, 0, -0.67545223)
+
 [node name="traitDisplayer" type="Label3D" parent="." unique_id=381937130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.332472, 1.7658873)
 visible = false
 
 [connection signal="animation_finished" from="moveAnimator" to="." method="_on_move_animator_animation_finished"]
+[connection signal="interacted" from="InteractionComponent" to="." method="_on_interaction_component_interacted"]
+
 [editable path="InteractionComponent"]

@@ -826,6 +826,74 @@ _data = {
 &"press": SubResource("Animation_tklsj")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2031"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.41960785)
+
+[sub_resource type="Animation" id="Animation_s2031"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../InteractionComponent:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.42700005, -9.422, 1.0489817)]
+}
+
+[sub_resource type="Animation" id="Animation_bs1ge"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2.0629792, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../InteractionComponent:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.38, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector3(0.42700005, -9.422, 1.0489817), Vector3(0.42700005, -9.422, 1.0489817), Vector3(0.42700005, 0.5783055, 1.0489998)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dx1ap"]
+_data = {
+&"RESET": SubResource("Animation_s2031"),
+&"open": SubResource("Animation_bs1ge")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yupk3"]
+size = Vector3(0.607666, 0.6196289, 0.23950195)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkpag"]
 albedo_color = Color(1, 1, 0.9098039, 1)
 emission_enabled = true
@@ -1017,6 +1085,7 @@ texture = ExtResource("4_2b0jq")
 
 [node name="passInteractionComponent" parent="tempRoom/North Wall/counterTop/passport" unique_id=340135597 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(5.215, 0, 0, 0, 5.215, 0, 0, 0, 5.215, 0.10438299, -0.06919861, 0)
+causeTurn2Look = true
 
 [node name="tripTicket" type="Sprite3D" parent="tempRoom/North Wall/counterTop" unique_id=1729505305]
 transform = Transform3D(-3.059797e-09, 0.07, 3.059797e-09, 0, -3.059797e-09, 0.07, 0.07, 3.059797e-09, 1.3374798e-16, 30.667, 0.096, -0.182)
@@ -1041,6 +1110,7 @@ line_spacing = 6.64
 
 [node name="InteractionComponent" parent="tempRoom/North Wall/counterTop/tripTicket" unique_id=1173685405 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(9.175, 0, 0, 0, 9.175, 0, 0, 0, 9.175, 0.10438299, -0.06919861, 0)
+causeTurn2Look = true
 
 [node name="CollisionShape3D" parent="tempRoom/North Wall/counterTop/tripTicket/InteractionComponent" index="0" unique_id=285619197]
 transform = Transform3D(0.71, 0, 0, 0, 0.71, 0, 0, 0, 0.71, 0, 0, 0)
@@ -1263,6 +1333,7 @@ Shredder"
 
 [node name="InteractionComponent" parent="tempRoom/shredder" unique_id=548565397 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42836386, 0)
+causeTurn2Look = true
 
 [node name="blastDoor" type="MeshInstance3D" parent="tempRoom" unique_id=1497704008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57336426, 5.6935825, -10.512121)
@@ -1598,6 +1669,30 @@ transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0.42700005, -9.422, 
 [node name="detainimator" type="AnimationPlayer" parent="detainButton" unique_id=1791197348]
 libraries/ = SubResource("AnimationLibrary_2b0jq")
 
+[node name="buttonCover" type="CSGCombiner3D" parent="detainButton" unique_id=354819060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.54, 0.12048745, 0.5677655, 1.048008)
+
+[node name="glassCover" type="CSGBox3D" parent="detainButton/buttonCover" unique_id=1743147315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2931142, 0, 0.07095146)
+size = Vector3(0.605, 0.605, 0.239)
+material = SubResource("StandardMaterial3D_s2031")
+
+[node name="glassCover2" type="CSGBox3D" parent="detainButton/buttonCover" unique_id=1408162520]
+transform = Transform3D(0.95, 0, 3.1292439e-07, 0, 0.95, 0, 0, 0, 0.95000017, 0.2931137, 0, 0.029373169)
+operation = 2
+size = Vector3(0.605, 0.605, 0.32653123)
+material = SubResource("StandardMaterial3D_s2031")
+
+[node name="detainCoverAnim" type="AnimationPlayer" parent="detainButton/buttonCover" unique_id=2008525110]
+libraries/ = SubResource("AnimationLibrary_dx1ap")
+speed_scale = 0.512
+
+[node name="StaticBody3D" type="StaticBody3D" parent="detainButton/buttonCover" unique_id=938864670]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detainButton/buttonCover/StaticBody3D" unique_id=192689332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28941822, 0.0026855469, 0.06921196)
+shape = SubResource("BoxShape3D_yupk3")
+
 [node name="lightContainer" type="Node3D" parent="." unique_id=1054914849]
 
 [node name="light1" type="CSGBox3D" parent="lightContainer" unique_id=814916728]
@@ -1702,6 +1797,7 @@ text = "Computer"
 
 [node name="InteractionComponent" parent="desk/computerObj" unique_id=442796959 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4794302, -0.003651619)
+causeTurn2Look = true
 
 [node name="printer" type="Node3D" parent="." unique_id=793225763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9687514, 1.0488808, 2.5862086)
@@ -1747,7 +1843,7 @@ shaded = true
 sprite_frames = SubResource("SpriteFrames_yupk3")
 animation = &"paper"
 autoplay = "paper"
-frame_progress = 0.5022975
+frame_progress = 0.7657609
 
 [node name="idleAnimator" type="AnimationPlayer" parent="printer/printerObj" unique_id=2032863470]
 libraries/ = SubResource("AnimationLibrary_j3v63")
@@ -1756,6 +1852,7 @@ speed_scale = 1.25
 
 [node name="InteractionComponent" parent="printer/printerObj" unique_id=370772040 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2748313, 0)
+causeTurn2Look = true
 
 [node name="DialogLayer" type="CanvasLayer" parent="." unique_id=1052968968]
 layer = 100

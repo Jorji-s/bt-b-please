@@ -67,3 +67,5 @@ render_priority = 100
 texture = ExtResource("2_bdvdw")
 region_enabled = true
 region_rect = Rect2(0, 0, 28, 28)
+
+[node name="lookAtPoint" type="Marker3D" parent="." unique_id=161659975]

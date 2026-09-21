@@ -33,12 +33,17 @@ var alienID=0;
 @export var passExpirDate:="8675-3090" #needs to be more than the current date to be correct
 @export var planetOfBirth:="Glorp" #Needs to be a real planet to be correct
 
+@export var tickSpecies:="Glorpian"
+@export var tickName:="Gleep Glorp"
 @export var destination:="Mars" #Needs to be a planet in the solar system to be correct
 @export var departureLocation:="Glorp" #Needs to be a real planet to be correct
 @export var tripType:="One-Way" #Doesnt mean anything
 @export var tripPurpose:="Visiting Family" #Needs to match what the alien tells you to be correct
 @export var tripDate:="0712-2029" #Needs to be the current date to be correct
 @export var IDNumber:="51-203-4152" #doesnt mean anything at the moment, suggest an idea if you have it
+
+@export var currentDate1:=0000
+@export var currentDate2:=0000
 
 @export var chanceOfBeingRight:=0.5 #percent chance of the alien being ok to let through, cant be bigger than 1 or less than 0, the lower the number the less chance they have of being right. Will probably change every day
 @export var chanceOfNeedingDetained:=0.1 #percent chance of needing to be detained, only rolls if the person already shouldnt go through
@@ -48,6 +53,7 @@ var decisionMade:=""
 var thingWrong:="Hurt my\nfeelings :("
 
 func _ready():
+	await get_tree().create_timer(0.1).timeout
 	var planetFile := FileAccess.open("res://data text files/planet_names.txt", FileAccess.READ)
 	var content := planetFile.get_as_text()
 	planetList = content.split("\n", false)  # false removes empty lines
@@ -121,16 +127,50 @@ func letThrough(answer: String):
 func assignTraits(ID):
 	species=speciesList[ID]
 	alName=nameList[randi_range(0,nameList.size()-1)]+" "+nameList[randi_range(0,nameList.size()-1)]
+	tickSpecies=species
+	tickName=alName
 	physDesc=descList[ID]
 	birthDate=str(randi_range(1000,9999))+"-"+str(randi_range(1000,9999)) #TEMPORARY, JUST ASSIGNS RANDOM NUMBERS
-	passExpirDate=str(randi_range(1000,9999))+"-"+str(randi_range(1000,9999)) #TEMPORARY, JUST ASSIGNS RANDOM NUMBERS
+	passExpirDate=str(randi_range(currentDate1,9999))+"-"+str(randi_range(currentDate2,9999))
 	planetOfBirth=planetList[randi_range(0,planetList.size()-1)]
 	
 	destination=solarSystemPlanets[randi_range(0,solarSystemPlanets.size()-1)]
 	departureLocation=planetList[randi_range(0,planetList.size()-1)]
 	tripPurpose=tripPorpoises[randi_range(0,tripPorpoises.size()-1)]
-	tripDate=str(randi_range(1000,9999))+"-"+str(randi_range(0,9999)) #TEMPORARY, JUST ASSIGNS RANDOM NUMBERS
+	tripDate=str(currentDate1)+"-"+str(currentDate2) #TEMPORARY, JUST ASSIGNS RANDOM NUMBERS
 	IDNumber=str(randi_range(0,9))+" "+str(randi_range(1,9))+" - "+str(randi_range(1,9))+" "+str(randi_range(1,9))+" "+str(randi_range(1,9))+" - "+str(randi_range(1,9))+" "+str(randi_range(1,9))+" "+str(randi_range(1,9))+" "+str(randi_range(1,9))
+	if !shouldLetThrough:
+		var issue=0
+		if difficulty==1:
+			issue=randi_range(0,2)
+		if issue==0:
+			thingWrong="Expired\nPassport"
+			passExpirDate=str(randi_range(1000,9999))+"-"+str(randi_range(1000,currentDate2-1))
+		if issue==1:
+			thingWrong="Invalid\nTrip Date"
+			var errType=randi_range(0,2)
+			if errType==0:
+				tripDate=str(randi_range(1000,9999))+"-"+str(randi_range(1000,9999))
+			elif errType==1:
+				tripDate=str(currentDate1+randi_range(-5,-1))+"-"+str(currentDate2+randi_range(-1,1))
+			else:
+				tripDate=str(currentDate1+randi_range(1,5))+"-"+str(currentDate2+randi_range(-1,1))
+		if issue==2:
+			thingWrong="Invalid\nDescription"
+			var errType=randi_range(0,1)
+			if errType==0:
+				if ID!=0:
+					physDesc=descList[randi_range(0,ID-1)]
+				else:
+					physDesc=descList[randi_range(1,9)]
+			else:
+				if ID!=10:
+					physDesc=descList[randi_range(ID+1,9)]
+				else:
+					physDesc=descList[randi_range(0,8)]
+		
+		
+		
 	
 	trait_displayer.text="Species: "+species+"\nName: "+alName+"\nDesc: "+physDesc+"\nBirthdate: "+birthDate+"\npassExpirDate: "+passExpirDate+"\nPlanet of Origin: "+planetOfBirth+"\nDestination:"+destination+"\ndeparture loc: "+departureLocation+"\ntrip Type: "+tripType+"\ntrip Purpose: "+tripPurpose+"\ntrip Date: "+tripDate+"\nID Number: "+IDNumber+"\nIs Good to Go? "+str(shouldLetThrough)+" Should Detain? "+str(shouldDetain)
 

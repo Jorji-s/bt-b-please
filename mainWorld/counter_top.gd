@@ -8,8 +8,13 @@ extends CSGBox3D
 
 func _on_alien_at_counter() -> void:
 	docu_animator.play("placeDocuments")
+	interaction_component.global_position.y+=100
+	pass_interaction_component.global_position.y+=100
 	passport.visible=true
 	trip_ticket.visible=true
+	await get_tree().create_timer(0.8).timeout
+	interaction_component.global_position.y-=100
+	pass_interaction_component.global_position.y-=100
 
 
 func _on_alien_left_counter() -> void:

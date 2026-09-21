@@ -21,6 +21,23 @@ extends CharacterBody3D
 var bobTime:=0.0
 var camStartPos:=Vector3.ZERO
 var lastHitObject=null
+var overridingBlur:=false
+
+#better look at, smooth with a tweeen yuuum
+func betterLookAt(target : Vector3):
+	var dir: Vector3 = (target - camera_3d.global_transform.origin).normalized()
+	var flat_dir = Vector3(dir.x, 0, dir.z).normalized()
+	var neck_forward = -neck.global_transform.basis.z
+	var neck_flat_forward = Vector3(neck_forward.x, 0, neck_forward.z).normalized()
+	var yaw = neck.rotation_degrees.y + rad_to_deg(neck_flat_forward.signed_angle_to(flat_dir, Vector3.UP))
+	var pitch = rad_to_deg(asin(dir.y))
+	pitch = clampf(pitch, -80, 80)
+	var looktween := get_tree().create_tween()
+	looktween.set_trans(Tween.TRANS_SINE)
+	looktween.set_ease(Tween.EASE_OUT)
+	looktween.tween_property(neck, "rotation_degrees", Vector3(pitch, yaw, neck.rotation_degrees.z), 0.2)
+
+
 
 func _ready() -> void:
 	camStartPos=camera_3d.position
@@ -35,13 +52,18 @@ func _input(event: InputEvent) -> void:
 	# asher added: pause key is disabled if dialog manager is active
 	if event.is_action_pressed("esc") and not DialogManager.is_active:
 		if !paused:
+			if blurred:
+				overridingBlur=true
+			else:
+				overridingBlur=false
 			blurred=true
 			paused=true
 			pause_lab.visible=true
 			Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 		else:
 			paused=false
-			blurred=false
+			if !overridingBlur:
+				blurred=false
 			pause_lab.visible=false
 			Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	
@@ -61,6 +83,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		var blurTween=create_tween()
 		blurTween.tween_property(camera_3d.attributes,"dof_blur_amount",0,0.5)
+		
 	#gets direction held by keys :D
 	var inputDirX = Input.get_axis("Left", "Right")
 	var inputDirY = Input.get_axis("Up", "Down")
@@ -86,7 +109,7 @@ func _physics_process(delta: float) -> void:
 		
 	if interaction_ray.is_colliding() and Input.is_action_just_pressed("Interact") and allow_interaction:
 		var hit_object = interaction_ray.get_collider()
-		hit_object.interact()
+		hit_object.interact(self)
 		
 	#Cool epic acceleration based movement that feels silky smooth both starting and stopping mmmmm
 	if allow_moving && !paused:

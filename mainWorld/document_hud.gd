@@ -17,6 +17,8 @@ extends Control
 @onready var date_label: Label = $travelCard/dateLabel
 @onready var trip_label: Label = $travelCard/tripLabel
 @onready var desc_label_2: Label = $travelCard/descLabel2
+@onready var look_at_point: Marker3D = $"../../tempRoom/North Wall/counterTop/passport/passInteractionComponent/lookAtPoint"
+@onready var look_at_point_2: Marker3D = $"../../tempRoom/North Wall/counterTop/tripTicket/InteractionComponent/lookAtPoint"
 
 var passOpen:=false
 var tickOpen:=false
@@ -29,16 +31,17 @@ func updateLabels()->void:
 	birth_label.text="DOB - "+alien.birthDate
 	expir_date.text="Expires\n"+alien.passExpirDate
 	
-	name_label_2.text="Name - "+alien.alName
-	species_label_2.text="Species - "+alien.species
+	name_label_2.text="Name - "+alien.tickName
+	species_label_2.text="Species - "+alien.tickSpecies
 	id_num_lab.text="ID - "+alien.IDNumber
-	trip_label.text="Trip Date "+get_parent().get_parent().currentDate
+	date_label.text="Trip Date "+alien.tripDate
 	trip_label.text=alien.departureLocation+" -> "+alien.destination
 	desc_label_2.text="Description - "+alien.physDesc
 
 
 func _on_pass_interaction_component_interacted() -> void:
 	if !tickOpen:
+		#player.betterLookAt(look_at_point.global_position)
 		if docu_hud_animator.current_animation!="showPassport" && get_parent().get_parent().AlienAtCounter:
 			if player.allow_moving:
 				docu_hud_animator.play("showPassport")

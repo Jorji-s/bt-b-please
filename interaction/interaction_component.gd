@@ -7,6 +7,8 @@ extends Area3D
 @onready var player_tracker: Node3D = $playerTracker
 @onready var sprite_3d: Sprite3D = $playerTracker/Sprite3D
 var player=null
+@onready var look_at_point: Marker3D = $lookAtPoint
+@export var causeTurn2Look:=false #turn to true if you want the camera to look at the object when interacted with
 
 func enable()->void:
 	monitorable=true
@@ -20,7 +22,9 @@ func disable()->void:
 
 signal interacted
 
-func interact():
+func interact(body : CharacterBody3D):
+	if causeTurn2Look:
+		body.betterLookAt(look_at_point.global_position)
 	emit_signal("interacted")
 
 func _process(delta: float) -> void:

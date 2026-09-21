@@ -7,12 +7,13 @@ extends CSGCombiner3D
 @onready var animation_player: AnimationPlayer = $"../button/AnimationPlayer"
 @onready var docu_animator: AnimationPlayer = $"../tempRoom/North Wall/counterTop/docuAnimator"
 @onready var alien: Node3D = $"../alien"
+@onready var button_cover: CSGCombiner3D = $buttonCover
 
 func _ready() -> void:
 	if Manager.detainUnlocked:
+		button_cover.visible=true
 		stick_note.visible=false
 		glow_button.visible=true
-		interaction_component.global_position.y+=10
 		ooo_button.visible=false
 
 
