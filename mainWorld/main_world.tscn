@@ -17,16 +17,15 @@
 [ext_resource type="Script" uid="uid://8lbkh8w4t2un" path="res://mainWorld/button.gd" id="10_pc4xd"]
 [ext_resource type="Script" uid="uid://cxkbomuhnw08v" path="res://mainWorld/tv.gd" id="12_2b0jq"]
 [ext_resource type="PackedScene" uid="uid://bksn65he0b3gu" path="res://interaction/interaction_component.tscn" id="12_cdvnm"]
-
-[ext_resource type="PackedScene" uid="uid://cyxcoytpp1ojj" path="res://dialog/dialog_ui.tscn" id="13_pc4xd"]
-
 [ext_resource type="Script" uid="uid://d16kkqxfwxg0f" path="res://mainWorld/document_hud.gd" id="13_4buxl"]
 [ext_resource type="FontFile" uid="uid://bo1mcwmwk54y2" path="res://fonts/pixeloidSans/PixeloidSans-Bold.ttf" id="13_8mfcu"]
 [ext_resource type="Texture2D" uid="uid://bh53bbpe5i1jw" path="res://GUI/passportmenu.png" id="13_isyps"]
+[ext_resource type="PackedScene" uid="uid://cyxcoytpp1ojj" path="res://dialog/dialog_ui.tscn" id="13_pc4xd"]
 [ext_resource type="FontFile" uid="uid://cklety1ec87is" path="res://fonts/RoinertPixels-Regular.ttf" id="14_o56fp"]
 [ext_resource type="Texture2D" uid="uid://dmo5s3eer3efk" path="res://GUI/ticketmenu.png" id="16_a30ig"]
 [ext_resource type="FontFile" uid="uid://drqqqt30cx1gj" path="res://fonts/pixeloidSans/PixeloidSans-Bold.otf" id="18_8mfcu"]
-
+[ext_resource type="Texture2D" uid="uid://dmof2yoearwc7" path="res://decorAssets/printer.png" id="24_m2pnb"]
+[ext_resource type="Texture2D" uid="uid://d2245hfn5uk53" path="res://decorAssets/printer2.png" id="25_8jbd0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
 albedo_color = Color(0.23753911, 0.23753914, 0.23753908, 1)
@@ -289,7 +288,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.6666666),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.025, 0.975, 1), Vector3(0.975, 1.025, 1)]
+"values": [Vector3(1.035, 0.965, 1), Vector3(0.965, 1.035, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j3v63"]
@@ -833,7 +832,35 @@ emission_enabled = true
 emission = Color(1, 1, 0.9098039, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yupk3"]
+render_priority = -1
 albedo_color = Color(0.6620339, 0.29155645, 4.813075e-07, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wimhl"]
+atlas = ExtResource("24_m2pnb")
+region = Rect2(0, 0, 750, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2031"]
+atlas = ExtResource("25_8jbd0")
+region = Rect2(0, 0, 750, 750)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yupk3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wimhl")
+}],
+"loop": 1,
+"name": &"noPaper",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2031")
+}],
+"loop": 1,
+"name": &"paper",
+"speed": 5.0
+}]
 
 [node name="mainWorld" type="Node3D" unique_id=269181359]
 script = ExtResource("1_cso50")
@@ -1450,10 +1477,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = 11.0
-offset_right = -20.0
-offset_bottom = 11.0
+offset_left = -102.0
+offset_top = -94.0
+offset_right = 65.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1711,24 +1738,26 @@ material = SubResource("StandardMaterial3D_yupk3")
 [node name="printerObj" type="Node3D" parent="printer" unique_id=788460647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5597253, 0.6304984, -0.519428)
 
-[node name="Sprite3D" type="Sprite3D" parent="printer/printerObj" unique_id=2126849411]
-transform = Transform3D(0.737, 0, 0, 0, 0.68, 0, 0, 0, 0.70899993, 0, 0.44062972, 0)
+[node name="Sprite3D" type="AnimatedSprite3D" parent="printer/printerObj" unique_id=71121952]
+transform = Transform3D(0.217, 0, 0, 0, 0.217, 0, 0, 0, 0.217, 0, 0.44062972, 0)
+layers = 3
 billboard = 2
 shaded = true
-texture = ExtResource("3_suj5o")
+no_depth_test = true
+sprite_frames = SubResource("SpriteFrames_yupk3")
+animation = &"paper"
+autoplay = "paper"
+frame_progress = 0.2965843
 
 [node name="idleAnimator" type="AnimationPlayer" parent="printer/printerObj" unique_id=2032863470]
 libraries/ = SubResource("AnimationLibrary_j3v63")
 autoplay = &"idle"
-speed_scale = 0.78
-
-[node name="Label3D" type="Label3D" parent="printer/printerObj" unique_id=496796474]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.3306353, 0)
-billboard = 2
-text = "Printer"
+speed_scale = 1.25
 
 [node name="InteractionComponent" parent="printer/printerObj" unique_id=370772040 instance=ExtResource("12_cdvnm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45850444, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2748313, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="printer" unique_id=981405965]
 
 [node name="DialogLayer" type="CanvasLayer" parent="." unique_id=1052968968]
 layer = 100
@@ -1736,9 +1765,6 @@ layer = 100
 [node name="DialogUI" parent="DialogLayer" unique_id=358119890 instance=ExtResource("13_pc4xd")]
 visible = false
 
-[connection signal="timeout" from="light1/Timer" to="light1" method="_on_timer_timeout"]
-[connection signal="timeout" from="light2/Timer" to="light2" method="_on_timer_timeout"]
-[connection signal="timeout" from="light5/Timer" to="light5" method="_on_timer_timeout"]
 [connection signal="interacted" from="tempRoom/North Wall/counterTop/passport/passInteractionComponent" to="Control/documentHUD" method="_on_pass_interaction_component_interacted"]
 [connection signal="interacted" from="tempRoom/North Wall/counterTop/tripTicket/InteractionComponent" to="Control/documentHUD" method="_on_interaction_component_interacted"]
 [connection signal="atCounter" from="alien" to="." method="_on_alien_at_counter"]
