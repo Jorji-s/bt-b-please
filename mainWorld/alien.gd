@@ -118,7 +118,7 @@ func _ready():
 	if dayNumber==10:
 		chanceOfNeedingDetained=0.333
 	if dayNumber>=11:
-		chanceOfNeedingDetained=0.1
+		chanceOfNeedingDetained=0.2
 	
 	
 	
