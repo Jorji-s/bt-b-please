@@ -538,7 +538,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.033333335, 0.5),
 "transitions": PackedFloat32Array(0.3922922, 2.9281716),
 "update": 0,
-"values": [Vector2(0, 1600), Vector2(0, 58.69)]
+"values": [Vector2(0, 1100), Vector2(0, 58.69)]
 }
 
 [sub_resource type="Animation" id="Animation_wimhl"]
@@ -899,8 +899,10 @@ albedo_color = Color(1, 1, 0.9098039, 1)
 emission_enabled = true
 emission = Color(1, 1, 0.9098039, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dc4vm"]
+albedo_color = Color(0.65725046, 0.36867046, 2.8878452e-07, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yupk3"]
-render_priority = -1
 depth_draw_mode = 2
 albedo_color = Color(0.6620339, 0.29155645, 4.813075e-07, 1)
 
@@ -1382,7 +1384,7 @@ text = "Now
 Serving
 A1"
 font = ExtResource("13_8mfcu")
-font_size = 45
+font_size = 43
 outline_size = 30
 line_spacing = 1.64
 autowrap_mode = 3
@@ -1542,6 +1544,7 @@ autowrap_mode = 3
 
 [node name="docuHudAnimator" type="AnimationPlayer" parent="Control/documentHUD" unique_id=148286205]
 libraries/ = SubResource("AnimationLibrary_wimhl")
+speed_scale = 1.35
 
 [node name="pixelinator" type="ColorRect" parent="Control" unique_id=531488582]
 material = SubResource("ShaderMaterial_oguhb")
@@ -1650,7 +1653,7 @@ font = ExtResource("8_0hpoc")
 font_size = 39
 
 [node name="stickNote" type="MeshInstance3D" parent="detainButton" unique_id=1736072087]
-transform = Transform3D(1, 0, 0, 0, 0.1512608, -0.9884939, 0, 0.9884939, 0.1512608, 0.42616272, 0.59212136, 1.0633774)
+transform = Transform3D(1, 0, 0, 0, 0.1512608, -0.9884939, 0, 0.9884939, 0.1512608, 0.42616272, 0.59212136, 1.1701279)
 mesh = SubResource("PlaneMesh_isyps")
 
 [node name="Label3D" type="Label3D" parent="detainButton/stickNote" unique_id=132389194]
@@ -1756,25 +1759,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.715246, 0.2164371, -6.8278
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4839754, 0.6765022, -2.8861337)
 use_collision = true
 size = Vector3(0.21435547, 1.4210205, 1)
-material = SubResource("StandardMaterial3D_yupk3")
+material = SubResource("StandardMaterial3D_dc4vm")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="desk" unique_id=1073083871]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1382203, 0.6765022, 0.40927076)
 use_collision = true
 size = Vector3(0.21435547, 1.4210205, 1)
-material = SubResource("StandardMaterial3D_yupk3")
+material = SubResource("StandardMaterial3D_dc4vm")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="desk" unique_id=228753367]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0636783, 1.430886, -2.8861337)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7868862, 1.430886, -2.8861337)
 use_collision = true
-size = Vector3(3.3625576, 0.172, 1.245)
-material = SubResource("StandardMaterial3D_yupk3")
+size = Vector3(1.9161421, 0.172, 1.245)
+material = SubResource("StandardMaterial3D_dc4vm")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="desk" unique_id=1713449834]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.159318, 1.430886, -1.3014913)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.159318, 1.430886, -1.363997)
 use_collision = true
-size = Vector3(1.3441796, 0.172, 4.0644298)
-material = SubResource("StandardMaterial3D_yupk3")
+size = Vector3(1.3441796, 0.172, 4.1894417)
+material = SubResource("StandardMaterial3D_dc4vm")
 
 [node name="computerObj" type="Node3D" parent="desk" unique_id=750809125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2836776, 1.5882263, -1.5857844)

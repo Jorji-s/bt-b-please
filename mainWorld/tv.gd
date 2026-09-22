@@ -5,6 +5,12 @@ extends CSGCombiner3D
 @onready var tv_label: Label3D = $TVSCREEN/tvLabel
 
 
+func _ready() -> void:
+	tv_label.text="Quota: "+str(get_parent().quota)+"\nServed: 0"
+
+func updateTV()->void:
+	tv_label.text="Quota: "+str(get_parent().quota)+"\nServed: 0"
+
 func _on_alien_right_choice() -> void:
 	tv_animator.play("flashGreen")
 	tv_label.visible=false
@@ -18,6 +24,6 @@ func _on_alien_wrong_choice(reason: String) -> void:
 func _on_tv_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name!="RESET":
 		get_parent().aliensServed+=1
-	tv_label.text="Now\nServing:\nA"+str(get_parent().aliensServed+1)
+	tv_label.text="Quota: "+str(get_parent().quota)+"\nServed: "+str(get_parent().aliensServed+1)
 	tv_label.visible=true
 	tv_animator.play("RESET")

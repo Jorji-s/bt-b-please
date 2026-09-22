@@ -1,2 +1,3 @@
 extends Node
-@export var detainUnlocked:=true
+@export var detainUnlocked:=false
+@export var day:=1
