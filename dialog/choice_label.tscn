@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bamc0ahe5yj0x"]
+
+[ext_resource type="Script" uid="uid://4uxrv35d21ov" path="res://dialog/choice_label.gd" id="1_0svsj"]
+[ext_resource type="FontFile" uid="uid://cklety1ec87is" path="res://fonts/RoinertPixels-Regular.ttf" id="2_s5pyr"]
+[ext_resource type="Texture2D" uid="uid://n6ebffehmm8u" path="res://GUI/selector.png" id="3_s5pyr"]
+
+[node name="ChoiceLabel" type="Panel" unique_id=424416036]
+custom_minimum_size = Vector2(0, 80)
+custom_maximum_size = Vector2(-1, 80)
+offset_right = 328.0
+offset_bottom = 80.0
+script = ExtResource("1_0svsj")
+
+[node name="Label" type="Label" parent="." unique_id=966932750]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_s5pyr")
+theme_override_font_sizes/font_size = 57
+text = "Next"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Selector" type="TextureRect" parent="." unique_id=1293831753]
+visible = false
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_s5pyr")
+flip_h = true

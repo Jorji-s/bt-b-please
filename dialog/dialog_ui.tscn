@@ -1,42 +1,85 @@
 [gd_scene format=3 uid="uid://cyxcoytpp1ojj"]
 
 [ext_resource type="Script" uid="uid://dtc0h2px0qmnd" path="res://dialog/dialog_ui.gd" id="1_khtep"]
+[ext_resource type="Texture2D" uid="uid://b1neivo5dvhx3" path="res://GUI/textBoxNoTent.png" id="2_fby3n"]
+[ext_resource type="Texture2D" uid="uid://bg04bd53dwhas" path="res://GUI/textBoxwTentBlackTransp.png" id="2_tffci"]
+[ext_resource type="FontFile" uid="uid://cklety1ec87is" path="res://fonts/RoinertPixels-Regular.ttf" id="3_dql1l"]
+[ext_resource type="PackedScene" uid="uid://bamc0ahe5yj0x" path="res://dialog/choice_label.tscn" id="4_a1u1v"]
 
 [node name="DialogUI" type="Control" unique_id=358119890]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 300.0
-offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_khtep")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1655757067]
+[node name="Background" type="TextureRect" parent="." unique_id=2110944223]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -650.0
+offset_top = -392.0
+offset_right = 650.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_fby3n")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1688320804]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -627.0
+offset_top = -346.0
+offset_right = 616.0
+offset_bottom = -24.005005
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1371241892]
-custom_minimum_size = Vector2(800, 300)
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=486479346]
+custom_minimum_size = Vector2(855.86, 0)
 layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 44
 
-[node name="TextDisplay" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=671509114]
+[node name="TextDisplay" type="RichTextLabel" parent="HBoxContainer/MarginContainer" unique_id=671509114]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 32
+theme_override_fonts/normal_font = ExtResource("3_dql1l")
+theme_override_font_sizes/normal_font_size = 45
+scroll_active = false
 
-[node name="ContinueButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=312271894]
-custom_minimum_size = Vector2(0, 50)
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1371241892]
+custom_minimum_size = Vector2(381.465, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Continue"
+
+[node name="Continue Button" parent="HBoxContainer/VBoxContainer" unique_id=1503932663 instance=ExtResource("4_a1u1v")]
+layout_mode = 2
+
+[node name="Selector" parent="HBoxContainer/VBoxContainer/Continue Button" index="1" unique_id=1293831753]
+visible = true
+
+[node name="Foreground" type="TextureRect" parent="." unique_id=1912304745]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -650.0
+offset_top = -392.0
+offset_right = 650.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_tffci")
+
+[editable path="HBoxContainer/VBoxContainer/Continue Button"]
