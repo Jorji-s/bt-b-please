@@ -36,7 +36,7 @@ func updateLabels()->void:
 	id_num_lab.text="ID - "+alien.IDNumber
 	date_label.text="Trip Date "+alien.tripDate
 	trip_label.text=alien.departureLocation+" -> "+alien.destination
-	desc_label_2.text="Description - "+alien.physDesc
+	desc_label_2.text="Description - "+alien.tickDesc
 
 
 func _on_pass_interaction_component_interacted() -> void:

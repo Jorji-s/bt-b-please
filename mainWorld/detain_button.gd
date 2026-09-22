@@ -9,6 +9,13 @@ extends CSGCombiner3D
 @onready var alien: Node3D = $"../alien"
 @onready var button_cover: CSGCombiner3D = $buttonCover
 
+func updateButton()->void:
+	if Manager.detainUnlocked:
+		button_cover.visible=true
+		stick_note.visible=false
+		glow_button.visible=true
+		ooo_button.visible=false
+
 func _ready() -> void:
 	if Manager.detainUnlocked:
 		button_cover.visible=true
