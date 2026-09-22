@@ -28,6 +28,8 @@
 [ext_resource type="Script" uid="uid://d1b5wj0htogvy" path="res://mainWorld/computer_obj.gd" id="24_s2031"]
 [ext_resource type="Texture2D" uid="uid://mlrkuxvv854f" path="res://GUI/computerbootscreen.png" id="24_wimhl"]
 [ext_resource type="Texture2D" uid="uid://d2245hfn5uk53" path="res://decorAssets/printer2.png" id="25_8jbd0"]
+[ext_resource type="Texture2D" uid="uid://73u4jpm25lcg" path="res://GUI/computerHomescreen.png" id="26_bs1ge"]
+[ext_resource type="Shader" uid="uid://dmjxd4riwhdwb" path="res://mainWorld/computerBetterEffect.gdshader" id="27_dx1ap"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
 albedo_color = Color(0.23753911, 0.23753914, 0.23753908, 1)
@@ -904,6 +906,32 @@ emission = Color(1, 1, 0.9098039, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dc4vm"]
 albedo_color = Color(0.65725046, 0.36867046, 2.8878452e-07, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q21vg"]
+resource_local_to_scene = true
+shader = ExtResource("27_dx1ap")
+shader_parameter/brightness = 0.9910000470725
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 1.1
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.0
+shader_parameter/corner_soften = 0.06
+shader_parameter/vignette = 0.38
+shader_parameter/scanline_strength = 0.95
+shader_parameter/scanline_density = 1.15
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.22
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 1.6
+shader_parameter/luma_smear_px = 2.2
+shader_parameter/jitter_px = 0.30000001425
+shader_parameter/wobble_px = 0.50000002375
+shader_parameter/tape_noise = 0.22
+shader_parameter/tape_lines = 0.35
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.58000002755
+shader_parameter/glow_threshold = 0.65
+
 [sub_resource type="Animation" id="Animation_dx1ap"]
 length = 0.001
 tracks/0/type = "value"
@@ -929,6 +957,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bootScreen/CanvasLayer/effectCont:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
 }
 
 [sub_resource type="Animation" id="Animation_dc4vm"]
@@ -957,6 +997,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bootScreen/CanvasLayer/effectCont:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335, 0.16666669, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 0.048), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ytqs8"]
@@ -1621,6 +1673,7 @@ offset_right = 65.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="button" type="CSGCombiner3D" parent="." unique_id=176519841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8061442, 1.7957144, -11.20402)
@@ -1885,6 +1938,17 @@ scale = Vector2(1e-05, 1e-05)
 scale = Vector2(1.58, 1.58)
 texture = ExtResource("24_wimhl")
 
+[node name="progressBar" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen" unique_id=1159017196]
+offset_left = -131.01266
+offset_top = 126.582275
+offset_right = -124.93266
+offset_bottom = 139.04828
+metadata/_edit_use_anchors_ = true
+
+[node name="homeScreen" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen" unique_id=817901030]
+visible = false
+texture = ExtResource("26_bs1ge")
+
 [node name="fade2White" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen" unique_id=2111792324]
 anchors_preset = 15
 anchor_right = 1.0
@@ -1895,12 +1959,42 @@ offset_right = -400.0
 offset_bottom = -300.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="progressBar" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen" unique_id=1159017196]
-offset_left = -131.01265
-offset_top = 126.58226
-offset_right = -131.01265
-offset_bottom = 139.87326
+[node name="CanvasLayer" type="CanvasLayer" parent="desk/computerObj/computerHUD/bootScreen" unique_id=1124578331]
+
+[node name="effectCont" type="Control" parent="desk/computerObj/computerHUD/bootScreen/CanvasLayer" unique_id=1234281298]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+
+[node name="ColorRect" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen/CanvasLayer/effectCont" unique_id=346627908]
+z_index = 4
+material = SubResource("ShaderMaterial_q21vg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -652.00006
+offset_top = -494.0
+offset_right = 147.99994
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.58, 1.58)
+offset_transform_enabled = true
 
 [node name="puterimatir" type="AnimationPlayer" parent="desk/computerObj/computerHUD" unique_id=1786558577]
 libraries/ = SubResource("AnimationLibrary_ytqs8")
