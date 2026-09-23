@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dpfxuwxfmrxun" path="res://player/player.tscn" id="1_6axsh"]
 [ext_resource type="Script" uid="uid://d0e7a1cfirpev" path="res://mainWorld/main_world.gd" id="1_cso50"]
-[ext_resource type="Texture2D" uid="uid://b8338l3ifxyla" path="res://decorAssets/tempPlantBTB.png" id="2_0hpoc"]
 [ext_resource type="PackedScene" uid="uid://bfpqmt6gop8pd" path="res://mainWorld/alien.tscn" id="3_2pkn0"]
 [ext_resource type="Texture2D" uid="uid://d3kdp3t6ul116" path="res://icon.svg" id="3_suj5o"]
 [ext_resource type="Script" uid="uid://dqrwc4asj05j0" path="res://mainWorld/counter_top.gd" id="3_tklsj"]
@@ -11,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dyhtxki58xp0y" path="res://aliens/alienGuy.png" id="4_oguhb"]
 [ext_resource type="Shader" uid="uid://b3bmm50e2txu5" path="res://SkyStar.gdshader" id="5_2pkn0"]
 [ext_resource type="Shader" uid="uid://c6ibdkvw1wv8h" path="res://mainWorld/postProcessPixelation.gdshader" id="5_cn18u"]
+[ext_resource type="Texture2D" uid="uid://cdi4ofxr4a5e4" path="res://decorAssets/it_plant.png" id="7_pf7i5"]
 [ext_resource type="FontFile" uid="uid://co063nbobiyy7" path="res://fonts/BoldsPixels.ttf" id="8_0hpoc"]
+[ext_resource type="Texture2D" uid="uid://b3670mufmyucp" path="res://decorAssets/cooler.png" id="8_bgcyd"]
 [ext_resource type="Script" uid="uid://bmkw0ltgnnd3d" path="res://mainWorld/light_1.gd" id="8_qvqpt"]
 [ext_resource type="Script" uid="uid://c74y5wx743hd2" path="res://mainWorld/detain_button.gd" id="9_vtxlo"]
 [ext_resource type="Script" uid="uid://8lbkh8w4t2un" path="res://mainWorld/button.gd" id="10_pc4xd"]
@@ -29,7 +30,16 @@
 [ext_resource type="Texture2D" uid="uid://mlrkuxvv854f" path="res://GUI/computerbootscreen.png" id="24_wimhl"]
 [ext_resource type="Texture2D" uid="uid://d2245hfn5uk53" path="res://decorAssets/printer2.png" id="25_8jbd0"]
 [ext_resource type="Texture2D" uid="uid://73u4jpm25lcg" path="res://GUI/computerHomescreen.png" id="26_bs1ge"]
+[ext_resource type="Texture2D" uid="uid://dwp8ddkqr0ach" path="res://decorAssets/computer.png" id="26_nlkp2"]
 [ext_resource type="Shader" uid="uid://dmjxd4riwhdwb" path="res://mainWorld/computerBetterEffect.gdshader" id="27_dx1ap"]
+[ext_resource type="Texture2D" uid="uid://cpmm71kl6ro87" path="res://GUI/textIcon.png" id="27_ytqs8"]
+[ext_resource type="Texture2D" uid="uid://dctnnj7mivi75" path="res://GUI/cursorBTB.png" id="28_dc4vm"]
+[ext_resource type="Script" uid="uid://p6r5yoqce01t" path="res://mainWorld/planet_text_icon.gd" id="28_n70o4"]
+[ext_resource type="Texture2D" uid="uid://bhwn8wh3kxt2" path="res://GUI/emailIcon.png" id="29_iupfl"]
+[ext_resource type="Texture2D" uid="uid://cemr76n3jjckx" path="res://GUI/docxfile.png" id="30_tnf0g"]
+[ext_resource type="Texture2D" uid="uid://c2jc3fj0tl2un" path="res://GUI/document.png" id="31_t0hcu"]
+[ext_resource type="Script" uid="uid://6d1oxt20r4l1" path="res://mainWorld/documentHand.gd" id="32_pf7i5"]
+[ext_resource type="Script" uid="uid://cn8a28j611vyp" path="res://mainWorld/printer.gd" id="37_7fyfl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
 albedo_color = Color(0.23753911, 0.23753914, 0.23753908, 1)
@@ -906,6 +916,192 @@ emission = Color(1, 1, 0.9098039, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dc4vm"]
 albedo_color = Color(0.65725046, 0.36867046, 2.8878452e-07, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_p3mhs"]
+line_spacing = -4.225
+font_size = 7
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yupk3"]
+size = Vector2(40, 40)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pf7i5"]
+line_spacing = -4.225
+font = ExtResource("13_8mfcu")
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_al8ky"]
+line_spacing = -4.225
+font = ExtResource("13_8mfcu")
+font_size = 10
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3mhs"]
+size = Vector2(42.90323, 41.612854)
+
+[sub_resource type="LabelSettings" id="LabelSettings_655eb"]
+line_spacing = 2.0
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_na4tk"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_655eb"]
+
+[sub_resource type="Animation" id="Animation_pf7i5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bgcyd"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlkp2"]
+_data = {
+&"RESET": SubResource("Animation_pf7i5"),
+&"open": SubResource("Animation_bgcyd")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_bgcyd"]
+line_spacing = -6.19
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_nlkp2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_7fyfl"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_al8ky"]
+_data = {
+&"RESET": SubResource("Animation_nlkp2"),
+&"open": SubResource("Animation_7fyfl")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_nlkp2"]
+line_spacing = -4.5
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f6ehp"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tkpag"]
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_na4tk"]
+size = Vector2(85.32776, 70.75952)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7fyfl"]
+line_spacing = -4.68
+paragraph_spacing = -1.0
+font_size = 7
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fyfl"]
+
+[sub_resource type="Animation" id="Animation_chl5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_al8ky"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(4, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_chl5m"]
+_data = {
+&"RESET": SubResource("Animation_chl5m"),
+&"open": SubResource("Animation_al8ky")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q21vg"]
 resource_local_to_scene = true
 shader = ExtResource("27_dx1ap")
@@ -916,7 +1112,7 @@ shader_parameter/gamma = 1.05
 shader_parameter/curvature = 0.0
 shader_parameter/corner_soften = 0.06
 shader_parameter/vignette = 0.38
-shader_parameter/scanline_strength = 0.95
+shader_parameter/scanline_strength = 0.50400002394
 shader_parameter/scanline_density = 1.15
 shader_parameter/interlace_strength = 0.2
 shader_parameter/mask_strength = 0.22
@@ -931,6 +1127,9 @@ shader_parameter/roll_speed = 0.1
 shader_parameter/roll_strength = 0.15
 shader_parameter/glow_strength = 0.58000002755
 shader_parameter/glow_threshold = 0.65
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n70o4"]
+size = Vector2(25, 25)
 
 [sub_resource type="Animation" id="Animation_dx1ap"]
 length = 0.001
@@ -969,6 +1168,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("blackOut:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_dc4vm"]
@@ -1009,6 +1220,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 0.048), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("blackOut:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ytqs8"]
@@ -1302,10 +1525,10 @@ autoplay = &"speen"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.759958, -0.14243433, -9.3840475)
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/plant" unique_id=1979014534]
-transform = Transform3D(2.52, 0, 0, 0, 2.404, 0, 0, 0, 2.464, 0.0001282692, 1.894799, -3.33786e-05)
+transform = Transform3D(0.425, 0, 0, 0, 0.407, 0, 0, 0, 0.417, 0.0001282692, 1.894799, -3.33786e-05)
 billboard = 2
 shaded = true
-texture = ExtResource("2_0hpoc")
+texture = ExtResource("7_pf7i5")
 
 [node name="idleAnimator" type="AnimationPlayer" parent="tempRoom/plant" unique_id=171126882]
 libraries/ = SubResource("AnimationLibrary_j3v63")
@@ -1322,10 +1545,10 @@ shape = SubResource("CylinderShape3D_yupk3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.364511, -0.14243433, 1.7115402)
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/plant2" unique_id=880425221]
-transform = Transform3D(2.52, 0, 0, 0, 2.404, 0, 0, 0, 2.464, 0, 1.8975184, 0)
+transform = Transform3D(0.425, 0, 0, 0, 0.407, 0, 0, 0, 0.417, 0, 1.8975184, 0)
 billboard = 2
 shaded = true
-texture = ExtResource("2_0hpoc")
+texture = ExtResource("7_pf7i5")
 
 [node name="idleAnimator" type="AnimationPlayer" parent="tempRoom/plant2" unique_id=1327946929]
 libraries/ = SubResource("AnimationLibrary_j3v63")
@@ -1412,21 +1635,20 @@ font_size = 64
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.464869, 0.42486072, -3.5600553)
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/waterCooler" unique_id=1862972956]
-transform = Transform3D(0.737, 0, 0, 0, 2.05, 0, 0, 0, 0.709, 0, 1.1247246, 0)
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 1.1247246, 0)
 billboard = 2
 shaded = true
-texture = ExtResource("3_suj5o")
+texture = ExtResource("8_bgcyd")
 
 [node name="idleAnimator" type="AnimationPlayer" parent="tempRoom/waterCooler" unique_id=863040209]
 libraries/ = SubResource("AnimationLibrary_j3v63")
 autoplay = &"idle"
 speed_scale = 0.78
 
-[node name="Label3D" type="Label3D" parent="tempRoom/waterCooler" unique_id=284209208]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 2.8341281, 0)
-billboard = 2
-text = "Water
-Cooler"
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="tempRoom/waterCooler" unique_id=1242523454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8908161, 0)
+visible = false
+use_collision = true
 
 [node name="shredder" type="Node3D" parent="tempRoom" unique_id=1208042769]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.464869, 0.42486072, -5.6394634)
@@ -1528,6 +1750,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="documentHUD" type="Control" parent="Control" unique_id=39100511]
 layout_mode = 1
@@ -1542,6 +1765,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("13_4buxl")
 
 [node name="passport" type="Sprite2D" parent="Control/documentHUD" unique_id=387958256]
@@ -1673,6 +1897,7 @@ offset_right = 65.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="button" type="CSGCombiner3D" parent="." unique_id=176519841]
@@ -1900,20 +2125,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2836776, 1.5882263, -1.5857
 script = ExtResource("24_s2031")
 
 [node name="Sprite3D" type="Sprite3D" parent="desk/computerObj" unique_id=261977611]
-transform = Transform3D(0.737, 0, 0, 0, 0.68, 0, 0, 0, 0.70899993, 0, 0.44062972, 0)
+transform = Transform3D(0.162, 0, 0, 0, 0.144, 0, 0, 0, 0.153, 0, 0.44062972, 0)
 billboard = 2
 shaded = true
-texture = ExtResource("3_suj5o")
+texture = ExtResource("26_nlkp2")
 
 [node name="idleAnimator" type="AnimationPlayer" parent="desk/computerObj" unique_id=1754234536]
 libraries/ = SubResource("AnimationLibrary_j3v63")
 autoplay = &"idle"
 speed_scale = 0.78
-
-[node name="Label3D" type="Label3D" parent="desk/computerObj" unique_id=1369042253]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.3306353, 0)
-billboard = 2
-text = "Computer"
 
 [node name="InteractionComponent" parent="desk/computerObj" unique_id=442796959 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4794302, -0.003651619)
@@ -1935,21 +2155,821 @@ grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 
 [node name="bootScreen" type="Sprite2D" parent="desk/computerObj/computerHUD" unique_id=277209628]
-scale = Vector2(1.58, 1.58)
+scale = Vector2(1.55, 1.55)
 texture = ExtResource("24_wimhl")
 
 [node name="progressBar" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen" unique_id=1159017196]
 offset_left = -131.01266
 offset_top = 126.582275
-offset_right = -124.93266
+offset_right = -131.01266
 offset_bottom = 139.04828
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="homeScreen" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen" unique_id=817901030]
 visible = false
 texture = ExtResource("26_bs1ge")
 
+[node name="planetTextIcon" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=1960257729]
+z_index = 1
+position = Vector2(335, -235)
+scale = Vector2(2, 2)
+texture = ExtResource("27_ytqs8")
+script = ExtResource("28_n70o4")
+document2Open = 1
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetTextIcon" unique_id=774759178]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 11.048386
+offset_right = 4.0
+offset_bottom = 34.048386
+grow_horizontal = 2
+text = "planets.txt"
+label_settings = SubResource("LabelSettings_p3mhs")
+horizontal_alignment = 1
+
+[node name="planCover" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetTextIcon" unique_id=688946986]
+visible = false
+z_index = -1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -16.0
+offset_right = 4.0
+offset_bottom = 24.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.39215687)
+
+[node name="Area2D" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetTextIcon" unique_id=46965644]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetTextIcon/Area2D" unique_id=1077983742]
+position = Vector2(0, 3.9516127)
+shape = SubResource("RectangleShape2D_yupk3")
+
+[node name="wantedTextIcon2" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=141842161]
+z_index = 1
+position = Vector2(335, -135)
+scale = Vector2(2, 2)
+texture = ExtResource("27_ytqs8")
+script = ExtResource("28_n70o4")
+document2Open = 2
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedTextIcon2" unique_id=1533843581]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 11.048386
+offset_right = 4.0
+offset_bottom = 34.048386
+grow_horizontal = 2
+text = "wanted.txt"
+label_settings = SubResource("LabelSettings_p3mhs")
+horizontal_alignment = 1
+
+[node name="planCover" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedTextIcon2" unique_id=372143761]
+visible = false
+z_index = -1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -16.0
+offset_right = 4.0
+offset_bottom = 24.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.39215687)
+
+[node name="Area2D" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedTextIcon2" unique_id=1444965996]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedTextIcon2/Area2D" unique_id=536321247]
+position = Vector2(0, 3.9516127)
+shape = SubResource("RectangleShape2D_yupk3")
+
+[node name="blacklistTextIcon3" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=90856585]
+z_index = 1
+position = Vector2(335, -35)
+scale = Vector2(2, 2)
+texture = ExtResource("27_ytqs8")
+script = ExtResource("28_n70o4")
+document2Open = 3
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/blacklistTextIcon3" unique_id=1394579041]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 11.048386
+offset_right = 4.0
+offset_bottom = 34.048386
+grow_horizontal = 2
+text = "blacklist.txt"
+label_settings = SubResource("LabelSettings_p3mhs")
+horizontal_alignment = 1
+
+[node name="planCover" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/blacklistTextIcon3" unique_id=1485349147]
+visible = false
+z_index = -1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -16.0
+offset_right = 4.0
+offset_bottom = 24.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.39215687)
+
+[node name="Area2D" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/blacklistTextIcon3" unique_id=889250246]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/blacklistTextIcon3/Area2D" unique_id=373628979]
+position = Vector2(0, 3.9516127)
+shape = SubResource("RectangleShape2D_yupk3")
+
+[node name="emailIcon" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=328219752]
+z_index = 1
+position = Vector2(-335, -235)
+scale = Vector2(1.9999999, 1.9999999)
+texture = ExtResource("29_iupfl")
+script = ExtResource("28_n70o4")
+document2Open = 5
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/emailIcon" unique_id=750961124]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 11.048386
+offset_right = 4.0
+offset_bottom = 34.048386
+grow_horizontal = 2
+text = "Inbox"
+label_settings = SubResource("LabelSettings_p3mhs")
+horizontal_alignment = 1
+
+[node name="planCover" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/emailIcon" unique_id=1471164970]
+visible = false
+z_index = -1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -16.0
+offset_right = 4.0
+offset_bottom = 24.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.39215687)
+
+[node name="Area2D" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/emailIcon" unique_id=659612458]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/emailIcon/Area2D" unique_id=1685448911]
+position = Vector2(0, 3.9516127)
+shape = SubResource("RectangleShape2D_yupk3")
+
+[node name="passIcon" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=687218124]
+z_index = 1
+position = Vector2(-335, -135)
+scale = Vector2(1.9999999, 1.9999999)
+texture = ExtResource("30_tnf0g")
+script = ExtResource("28_n70o4")
+document2Open = 4
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/passIcon" unique_id=590642961]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 11.048386
+offset_right = 4.0
+offset_bottom = 34.048386
+grow_horizontal = 2
+text = "EarthSlip.ps"
+label_settings = SubResource("LabelSettings_p3mhs")
+horizontal_alignment = 1
+
+[node name="planCover" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/passIcon" unique_id=485912092]
+visible = false
+z_index = -1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = -16.0
+offset_right = 4.0
+offset_bottom = 24.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.39215687)
+
+[node name="Area2D" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/passIcon" unique_id=941789860]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/passIcon/Area2D" unique_id=1505339312]
+position = Vector2(0, 3.9516127)
+shape = SubResource("RectangleShape2D_yupk3")
+
+[node name="dateLabel" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=1908376390]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.0968
+offset_top = 269.67743
+offset_right = -5.096863
+offset_bottom = 292.67743
+grow_horizontal = 2
+text = "Date: 0000-0000 "
+label_settings = SubResource("LabelSettings_pf7i5")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="timeLabel" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=780594943]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -221.2903
+offset_top = 270.96774
+offset_right = -119.3548
+offset_bottom = 293.96774
+grow_horizontal = 2
+text = "3:15 PM"
+label_settings = SubResource("LabelSettings_al8ky")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=1267775202]
+position = Vector2(-389.67743, 268.3871)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/Area2D" unique_id=361011761]
+position = Vector2(11.451614, 10.8063965)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_p3mhs")
+debug_color = Color(0.7157562, 0.47581333, 0.23286384, 0.41960785)
+
+[node name="planetList" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=1834980850]
+visible = false
+z_index = 1
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 45.5, 180, 153)
+script = ExtResource("32_pf7i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList" unique_id=455167605]
+position = Vector2(0, -86.615585)
+scale = Vector2(1, 0.556)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 1, 180, 38)
+
+[node name="Sprite2D2" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList" unique_id=2141158707]
+position = Vector2(0, 78.41737)
+scale = Vector2(1, 0.556)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 203.5, 180, 36.5)
+
+[node name="planetText1" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList" unique_id=1950771728]
+offset_left = -75.48387
+offset_top = -67.01124
+offset_right = -1.6128693
+offset_bottom = 229.98877
+scale = Vector2(1, 0.556)
+text = "Gritabos
+Chanzara
+Cibbippe
+Luania
+Nithonus
+Stretehines
+Thulcandra
+Perelandra
+Viritrilbia
+Glundandra
+Talvore
+Harus
+Pheetune
+Malacandra"
+label_settings = SubResource("LabelSettings_655eb")
+horizontal_alignment = 1
+
+[node name="planetText2" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList" unique_id=1512961016]
+offset_left = -10.967742
+offset_top = -67.01086
+offset_right = 73.03226
+offset_bottom = 251.98914
+scale = Vector2(1, 0.556)
+text = "Treyulia
+Cemunope
+Drov 8XZN
+Comia MP64
+Thelnaotis
+Ecceliv
+Chelosie
+Liutune
+Bechiruta
+Zasatune
+Griea 7N1
+Nao ID
+Xubbatis
+Wolftopia"
+label_settings = SubResource("LabelSettings_655eb")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList" unique_id=1363696933]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.5484
+offset_top = -80.199615
+offset_right = -16.5484
+offset_bottom = -57.199615
+grow_horizontal = 2
+scale = Vector2(1, 0.556)
+text = "Authorized Planets"
+label_settings = SubResource("LabelSettings_na4tk")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList" unique_id=976300893]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.83871
+offset_top = -80.199615
+offset_right = -17.838715
+offset_bottom = -57.199615
+grow_horizontal = 2
+scale = Vector2(1, 0.556)
+text = "_______________________"
+label_settings = SubResource("LabelSettings_na4tk")
+horizontal_alignment = 1
+
+[node name="closeDocument" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList" unique_id=2060285906]
+position = Vector2(74.83871, -88.754234)
+scale = Vector2(1, 0.556)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList/closeDocument" unique_id=2496538]
+shape = SubResource("RectangleShape2D_655eb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList" unique_id=1784773541]
+libraries/ = SubResource("AnimationLibrary_nlkp2")
+speed_scale = 2.0
+
+[node name="wantedList" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=801484839]
+visible = false
+z_index = 1
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 45.5, 180, 153)
+script = ExtResource("32_pf7i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList" unique_id=121051397]
+position = Vector2(0, -86.615585)
+scale = Vector2(1, 2)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 1, 180, 38)
+
+[node name="Sprite2D2" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList" unique_id=1058031240]
+position = Vector2(0, 78.41737)
+scale = Vector2(1, 2)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 203.5, 180, 36.5)
+
+[node name="wantedCriminals" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList" unique_id=1905207453]
+offset_left = -75.48387
+offset_top = -28.387102
+offset_right = 71.61293
+offset_bottom = 34.03224
+scale = Vector2(1, 2)
+label_settings = SubResource("LabelSettings_bgcyd")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList" unique_id=374985803]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.83868
+offset_top = -61.935463
+offset_right = -17.838684
+offset_bottom = -38.935463
+grow_horizontal = 2
+scale = Vector2(1, 2)
+text = "_______________________"
+label_settings = SubResource("LabelSettings_na4tk")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList" unique_id=1309296753]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.5484
+offset_top = -61.935493
+offset_right = -16.5484
+offset_bottom = -38.935493
+grow_horizontal = 2
+scale = Vector2(1, 2)
+text = "Wanted Criminals"
+label_settings = SubResource("LabelSettings_na4tk")
+horizontal_alignment = 1
+
+[node name="closeDocument" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList" unique_id=1537006198]
+position = Vector2(76.12903, -98.0645)
+scale = Vector2(1, 2)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList/closeDocument" unique_id=531409632]
+shape = SubResource("RectangleShape2D_655eb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList" unique_id=369590853]
+libraries/ = SubResource("AnimationLibrary_al8ky")
+speed_scale = 2.0
+
+[node name="bannedPlanetList" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=8055768]
+visible = false
+z_index = 1
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 45.5, 180, 153)
+script = ExtResource("32_pf7i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList" unique_id=1723092029]
+position = Vector2(0, -86.615585)
+scale = Vector2(1, 2)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 1, 180, 38)
+
+[node name="Sprite2D2" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList" unique_id=46967497]
+position = Vector2(0, 78.41737)
+scale = Vector2(1, 2)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 203.5, 180, 36.5)
+
+[node name="planList1" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList" unique_id=221840681]
+offset_left = -70.96776
+offset_top = -28.387102
+offset_right = -0.64512634
+offset_bottom = 34.03224
+scale = Vector2(1, 2)
+label_settings = SubResource("LabelSettings_nlkp2")
+horizontal_alignment = 1
+
+[node name="planList2" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList" unique_id=2083162080]
+offset_top = -28.387
+offset_right = 67.09674
+offset_bottom = 33.548454
+scale = Vector2(1, 2)
+label_settings = SubResource("LabelSettings_nlkp2")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList" unique_id=276045292]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.83868
+offset_top = -61.935463
+offset_right = -17.838684
+offset_bottom = -38.935463
+grow_horizontal = 2
+scale = Vector2(1, 2)
+text = "_______________________"
+label_settings = SubResource("LabelSettings_na4tk")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList" unique_id=912399890]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.5484
+offset_top = -61.935493
+offset_right = -16.5484
+offset_bottom = -38.935493
+grow_horizontal = 2
+scale = Vector2(1, 2)
+text = "Blacklisted Planets"
+label_settings = SubResource("LabelSettings_na4tk")
+horizontal_alignment = 1
+
+[node name="closeDocument" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList" unique_id=891205456]
+position = Vector2(76.12903, -98.0645)
+scale = Vector2(1, 2)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList/closeDocument" unique_id=1962786473]
+shape = SubResource("RectangleShape2D_655eb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList" unique_id=2095605122]
+libraries/ = SubResource("AnimationLibrary_al8ky")
+speed_scale = 2.0
+
+[node name="printMenu" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=534454259]
+visible = false
+z_index = 1
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 45.5, 180, 153)
+script = ExtResource("32_pf7i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" unique_id=797078741]
+position = Vector2(0, -86.615585)
+scale = Vector2(1, 2)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 1, 180, 38)
+
+[node name="Sprite2D2" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" unique_id=814724193]
+position = Vector2(0, 78.41737)
+scale = Vector2(1, 2)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0, 203.5, 180, 36.5)
+
+[node name="Label3" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" unique_id=1045019975]
+offset_left = -70.0
+offset_top = -24.516113
+offset_right = 70.0
+offset_bottom = -1.5161133
+scale = Vector2(1, 2)
+text = "Print EarthSlip.ps?"
+label_settings = SubResource("LabelSettings_f6ehp")
+
+[node name="Label2" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" unique_id=1765761791]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.83868
+offset_top = -61.935463
+offset_right = -17.838684
+offset_bottom = -38.935463
+grow_horizontal = 2
+scale = Vector2(1, 2)
+text = "_______________________"
+label_settings = SubResource("LabelSettings_na4tk")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" unique_id=605354199]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.5484
+offset_top = -61.935493
+offset_right = -16.5484
+offset_bottom = -38.935493
+grow_horizontal = 2
+scale = Vector2(1, 2)
+text = "Print Menu"
+label_settings = SubResource("LabelSettings_na4tk")
+horizontal_alignment = 1
+
+[node name="closeDocument" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" unique_id=134585836]
+position = Vector2(76.12903, -98.0645)
+scale = Vector2(1, 2)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/closeDocument" unique_id=1086334299]
+shape = SubResource("RectangleShape2D_655eb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" unique_id=294596564]
+libraries/ = SubResource("AnimationLibrary_al8ky")
+speed_scale = 2.0
+
+[node name="printConfirm" type="Node2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" unique_id=1794411044]
+position = Vector2(0, 41.29)
+scale = Vector2(0.62, 0.62)
+
+[node name="Sprite2D" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printConfirm" unique_id=683072022]
+position = Vector2(26.4834, 18.755829)
+scale = Vector2(0.17, 0.34)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(8, 27, 30.063019, 209)
+
+[node name="Sprite2D2" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printConfirm" unique_id=627418685]
+position = Vector2(66.33162, 18.756)
+scale = Vector2(0.82, 0.34)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(34.558075, 27, 96.545135, 209)
+
+[node name="Sprite2D3" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printConfirm" unique_id=1735726567]
+position = Vector2(106.179794, 18.755829)
+scale = Vector2(0.17, 0.34)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(168.383, 27, 7.6170044, 209)
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printConfirm" unique_id=328580066]
+offset_left = 36.42039
+offset_top = -35.379307
+offset_right = 96.420395
+offset_bottom = 14.620693
+scale = Vector2(1, 2)
+text = "Yes"
+label_settings = SubResource("LabelSettings_tkpag")
+
+[node name="clickYes" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printConfirm" unique_id=2077501968]
+position = Vector2(35.379814, -4.161823)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printConfirm/clickYes" unique_id=1134718143]
+position = Vector2(29.136318, 22.89282)
+shape = SubResource("RectangleShape2D_na4tk")
+
+[node name="printDeny" type="Node2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" unique_id=139063378]
+position = Vector2(0, 41.29)
+scale = Vector2(-0.62, 0.62)
+
+[node name="Sprite2D" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printDeny" unique_id=511348941]
+position = Vector2(26.4834, 18.755829)
+scale = Vector2(0.17, 0.34)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(8, 27, 30.063019, 209)
+
+[node name="Sprite2D2" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printDeny" unique_id=1617250207]
+position = Vector2(66.33162, 18.756)
+scale = Vector2(0.82, 0.34)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(34.558075, 27, 96.545135, 209)
+
+[node name="Sprite2D3" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printDeny" unique_id=143383387]
+position = Vector2(106.179794, 18.755829)
+scale = Vector2(0.17, 0.34)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(168.383, 27, 7.6170044, 209)
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printDeny" unique_id=1891813382]
+offset_left = 90.5307
+offset_top = -35.379307
+offset_right = 140.5307
+offset_bottom = 14.620693
+scale = Vector2(-1, 2)
+text = "No"
+label_settings = SubResource("LabelSettings_tkpag")
+
+[node name="clickNo" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printDeny" unique_id=485632972]
+position = Vector2(35.379814, -4.161823)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printDeny/clickNo" unique_id=2122090326]
+position = Vector2(29.136318, 22.89282)
+shape = SubResource("RectangleShape2D_na4tk")
+
+[node name="messages" type="Node2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen" unique_id=438183682]
+z_index = 1
+scale = Vector2(4, 1)
+script = ExtResource("32_pf7i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=785990780]
+position = Vector2(0.64512324, -143.58064)
+scale = Vector2(0.7, 1)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(33, 1, 120, 38)
+
+[node name="Sprite2D2" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=1842323444]
+position = Vector2(-42.096813, -143.58064)
+scale = Vector2(0.5, 1)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0.474, 1, 33, 38)
+
+[node name="Sprite2D4" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=2052694398]
+position = Vector2(-42.096813, -31.32258)
+scale = Vector2(0.5, 1)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0.474, 36.479347, 33, 188.91309)
+
+[node name="Sprite2D5" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=1320339879]
+position = Vector2(-42.096813, 72.5484)
+scale = Vector2(0.5, 1)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(0.5, 210.604, 33, 27.687)
+
+[node name="Sprite2D7" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=1378444718]
+position = Vector2(43.487057, 72.5484)
+scale = Vector2(0.5, 1)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(157.5, 210.604, 20.5, 27.687)
+
+[node name="Sprite2D6" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=539921295]
+position = Vector2(2.4193134, 72.548386)
+scale = Vector2(0.62, 1)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(34.274582, 210.604, 122.67288, 27.686996)
+
+[node name="Sprite2D3" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=980078191]
+position = Vector2(45.48383, -143.58064)
+scale = Vector2(0.25, 1)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(155.17389, 1, 24.62146, 38)
+
+[node name="Sprite2D8" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=971482212]
+position = Vector2(43.362057, -35.893894)
+scale = Vector2(0.5, 1.002)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(157, 36, 21, 189)
+
+[node name="Sprite2D9" type="Sprite2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=2060310342]
+position = Vector2(0.6451186, -32.612892)
+scale = Vector2(0.775, 1.602)
+texture = ExtResource("31_t0hcu")
+region_enabled = true
+region_rect = Rect2(38.208496, 76.32155, 97.48468, 118.59601)
+
+[node name="notifications" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=1548385090]
+offset_left = -41.93549
+offset_top = -90.967735
+offset_right = 119.67743
+offset_bottom = -9.032257
+scale = Vector2(0.5, 2)
+text = "9021-3026 - Hey Glarnk, just wanted to welcome you on the job! Don't have a whole lot to tell you, just confirm names and descriptions when you check documents! Good luck!"
+label_settings = SubResource("LabelSettings_7fyfl")
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=410790672]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.35484
+offset_top = -129.03223
+offset_right = 134.64516
+offset_bottom = -106.03221
+grow_horizontal = 2
+scale = Vector2(0.5, 2)
+text = "_________________________"
+label_settings = SubResource("LabelSettings_na4tk")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=1112523253]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.129074
+offset_top = -129.03226
+offset_right = 110.870926
+offset_bottom = -106.03224
+grow_horizontal = 2
+scale = Vector2(0.5, 2)
+text = "Recent Messages"
+label_settings = SubResource("LabelSettings_na4tk")
+horizontal_alignment = 1
+
+[node name="closeDocument" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=796805816]
+position = Vector2(44.999996, -146.45163)
+scale = Vector2(1, 2)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages/closeDocument" unique_id=790409691]
+position = Vector2(-0.16129035, -0.96774185)
+scale = Vector2(0.23, 0.48)
+shape = SubResource("RectangleShape2D_7fyfl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" unique_id=1548497312]
+libraries/ = SubResource("AnimationLibrary_chl5m")
+speed_scale = 2.0
+
 [node name="fade2White" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen" unique_id=2111792324]
+z_index = 5
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1959,7 +2979,21 @@ offset_right = -400.0
 offset_bottom = -300.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+mouse_filter = 2
+
+[node name="topRight" type="Control" parent="desk/computerObj/computerHUD/bootScreen/fade2White" unique_id=1589941035]
+anchors_preset = 0
+offset_left = 800.00006
+offset_right = 840.00006
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="bottomLeft" type="Control" parent="desk/computerObj/computerHUD/bootScreen/fade2White" unique_id=569517132]
+anchors_preset = 0
+offset_top = 600.0
+offset_right = 40.000004
+offset_bottom = 640.0
+mouse_filter = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="desk/computerObj/computerHUD/bootScreen" unique_id=1124578331]
 
@@ -1977,6 +3011,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="desk/computerObj/computerHUD/bootScreen/CanvasLayer/effectCont" unique_id=346627908]
 z_index = 4
@@ -1987,20 +3022,55 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -652.00006
-offset_top = -494.0
-offset_right = 147.99994
-offset_bottom = 106.0
+offset_left = -640.00006
+offset_top = -485.00003
+offset_right = 159.99994
+offset_bottom = 114.99997
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.58, 1.58)
+scale = Vector2(1.55, 1.55)
 offset_transform_enabled = true
+mouse_filter = 2
+
+[node name="cursor" type="TextureRect" parent="desk/computerObj/computerHUD/bootScreen" unique_id=1623306589]
+z_index = 3
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(0.75, 0.75)
+mouse_filter = 2
+texture = ExtResource("28_dc4vm")
+
+[node name="Area2D" type="Area2D" parent="desk/computerObj/computerHUD/bootScreen/cursor" unique_id=1796871326]
+position = Vector2(16.344088, 12.043012)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk/computerObj/computerHUD/bootScreen/cursor/Area2D" unique_id=2103452550]
+position = Vector2(0.8602151, 5.16129)
+shape = SubResource("RectangleShape2D_n70o4")
 
 [node name="puterimatir" type="AnimationPlayer" parent="desk/computerObj/computerHUD" unique_id=1786558577]
 libraries/ = SubResource("AnimationLibrary_ytqs8")
 
+[node name="minuteTimer" type="Timer" parent="desk/computerObj/computerHUD" unique_id=1098687222]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="blackOut" type="ColorRect" parent="desk/computerObj/computerHUD" unique_id=935609117]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+layout_mode = 0
+offset_left = -4888.0
+offset_top = -2306.0
+offset_right = 5112.0
+offset_bottom = 2694.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.627451)
+
 [node name="printer" type="Node3D" parent="." unique_id=793225763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9687514, 1.0488808, 2.5862086)
+script = ExtResource("37_7fyfl")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="printer" unique_id=1502162821]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.11039543, -0.20645827, 0)
@@ -2041,9 +3111,8 @@ layers = 3
 billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_yupk3")
-animation = &"paper"
-autoplay = "paper"
-frame_progress = 0.7657609
+animation = &"noPaper"
+autoplay = "noPaper"
 
 [node name="idleAnimator" type="AnimationPlayer" parent="printer/printerObj" unique_id=2032863470]
 libraries/ = SubResource("AnimationLibrary_j3v63")
@@ -2054,11 +3123,14 @@ speed_scale = 1.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2748313, 0)
 causeTurn2Look = true
 
+[node name="Timer" type="Timer" parent="printer" unique_id=1922828740]
+
 [node name="DialogLayer" type="CanvasLayer" parent="." unique_id=1052968968]
 layer = 100
 
 [node name="DialogUI" parent="DialogLayer" unique_id=358119890 instance=ExtResource("13_pc4xd")]
 visible = false
+mouse_filter = 1
 
 [connection signal="interacted" from="tempRoom/North Wall/counterTop/passport/passInteractionComponent" to="Control/documentHUD" method="_on_pass_interaction_component_interacted"]
 [connection signal="interacted" from="tempRoom/North Wall/counterTop/tripTicket/InteractionComponent" to="Control/documentHUD" method="_on_interaction_component_interacted"]
@@ -2076,7 +3148,37 @@ visible = false
 [connection signal="timeout" from="lightContainer/light1/Timer" to="lightContainer/light1" method="_on_timer_timeout"]
 [connection signal="timeout" from="lightContainer/light2/Timer" to="lightContainer/light2" method="_on_timer_timeout"]
 [connection signal="timeout" from="lightContainer/light3/Timer" to="lightContainer/light3" method="_on_timer_timeout"]
+[connection signal="printDocu" from="desk/computerObj" to="printer" method="_on_computer_obj_print_docu"]
 [connection signal="interacted" from="desk/computerObj/InteractionComponent" to="desk/computerObj" method="_on_interaction_component_interacted"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/planetTextIcon/Area2D" to="desk/computerObj/computerHUD/bootScreen/homeScreen/planetTextIcon" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/planetTextIcon/Area2D" to="desk/computerObj/computerHUD/bootScreen/homeScreen/planetTextIcon" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedTextIcon2/Area2D" to="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedTextIcon2" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedTextIcon2/Area2D" to="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedTextIcon2" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/blacklistTextIcon3/Area2D" to="desk/computerObj/computerHUD/bootScreen/homeScreen/blacklistTextIcon3" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/blacklistTextIcon3/Area2D" to="desk/computerObj/computerHUD/bootScreen/homeScreen/blacklistTextIcon3" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/emailIcon/Area2D" to="desk/computerObj/computerHUD/bootScreen/homeScreen/emailIcon" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/emailIcon/Area2D" to="desk/computerObj/computerHUD/bootScreen/homeScreen/emailIcon" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/passIcon/Area2D" to="desk/computerObj/computerHUD/bootScreen/homeScreen/passIcon" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/passIcon/Area2D" to="desk/computerObj/computerHUD/bootScreen/homeScreen/passIcon" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/Area2D" to="desk/computerObj" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/Area2D" to="desk/computerObj" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList/closeDocument" to="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList" method="_on_close_document_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList/closeDocument" to="desk/computerObj/computerHUD/bootScreen/homeScreen/planetList" method="_on_close_document_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList/closeDocument" to="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList" method="_on_close_document_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList/closeDocument" to="desk/computerObj/computerHUD/bootScreen/homeScreen/wantedList" method="_on_close_document_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList/closeDocument" to="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList" method="_on_close_document_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList/closeDocument" to="desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList" method="_on_close_document_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/closeDocument" to="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" method="_on_close_document_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/closeDocument" to="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" method="_on_close_document_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printConfirm/clickYes" to="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" method="_on_click_yes_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printConfirm/clickYes" to="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" method="_on_click_no_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printDeny/clickNo" to="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" method="_on_click_no_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu/printDeny/clickNo" to="desk/computerObj/computerHUD/bootScreen/homeScreen/printMenu" method="_on_click_no_area_exited"]
+[connection signal="area_entered" from="desk/computerObj/computerHUD/bootScreen/homeScreen/messages/closeDocument" to="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" method="_on_close_document_area_entered"]
+[connection signal="area_exited" from="desk/computerObj/computerHUD/bootScreen/homeScreen/messages/closeDocument" to="desk/computerObj/computerHUD/bootScreen/homeScreen/messages" method="_on_close_document_area_exited"]
+[connection signal="timeout" from="desk/computerObj/computerHUD/minuteTimer" to="desk/computerObj" method="_on_minute_timer_timeout"]
+[connection signal="interacted" from="printer/printerObj/InteractionComponent" to="printer" method="_on_interaction_component_interacted"]
+[connection signal="timeout" from="printer/Timer" to="printer" method="_on_timer_timeout"]
 
 [editable path="tempRoom/North Wall/counterTop/passport/passInteractionComponent"]
 [editable path="tempRoom/North Wall/counterTop/tripTicket/InteractionComponent"]

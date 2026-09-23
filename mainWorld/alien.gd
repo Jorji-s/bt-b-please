@@ -67,7 +67,7 @@ func _ready():
 	var planetFile := FileAccess.open("res://data text files/planet_names.txt", FileAccess.READ)
 	var content := planetFile.get_as_text()
 	planetList = content.split("\n", false)  # false removes empty lines
-	var bannedPlanCount=randi_range(3,10)
+	var bannedPlanCount=randi_range(2,8)
 	bannedPlanets.resize(bannedPlanCount)
 	var increment=0
 	var startInd=randi_range(0,planetList.size()-bannedPlanCount-1)
@@ -118,7 +118,7 @@ func _ready():
 	if dayNumber==10:
 		chanceOfNeedingDetained=0.333
 	if dayNumber>=11:
-		chanceOfNeedingDetained=0.2
+		chanceOfNeedingDetained=0.4
 	
 	
 	
