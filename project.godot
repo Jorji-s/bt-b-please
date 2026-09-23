@@ -84,6 +84,7 @@ UI_DOWN={
 [layer_names]
 
 3d_physics/layer_4="Interactables"
+2d_physics/layer_9="computerMouse"
 
 [physics]
 

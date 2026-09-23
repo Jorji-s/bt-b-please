@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://bfpqmt6gop8pd"]
 
-[ext_resource type="Texture2D" uid="uid://cwen80ifw6akr" path="res://aliens/potatoMan.webp" id="1_6jog0"]
 [ext_resource type="Script" uid="uid://dapj5orj6tdxf" path="res://mainWorld/alien.gd" id="1_7a0mi"]
-[ext_resource type="Texture2D" uid="uid://dyhtxki58xp0y" path="res://aliens/alienGuy.png" id="2_7a0mi"]
+[ext_resource type="Texture2D" uid="uid://b5kk0i88hjggg" path="res://aliens/alien1.png" id="2_r5dvv"]
+[ext_resource type="Texture2D" uid="uid://baosp3fbo3c1g" path="res://aliens/alien2.png" id="3_r5dvv"]
+[ext_resource type="Texture2D" uid="uid://doyafg8mao6y1" path="res://aliens/alien3.png" id="4_0x4rn"]
 [ext_resource type="PackedScene" uid="uid://bksn65he0b3gu" path="res://interaction/interaction_component.tscn" id="4_r5dvv"]
+[ext_resource type="Texture2D" uid="uid://dcskof7qf3jwm" path="res://aliens/alien4.png" id="5_img5a"]
+[ext_resource type="Texture2D" uid="uid://b843m6y2axqxv" path="res://aliens/alien5.png" id="6_behxn"]
+[ext_resource type="Texture2D" uid="uid://du6php1rjf3wi" path="res://aliens/alien6.png" id="7_pclem"]
+[ext_resource type="Texture2D" uid="uid://dpuhvud51yflc" path="res://aliens/alien7.png" id="8_b6ic3"]
+[ext_resource type="Texture2D" uid="uid://3ot13d51jqg7" path="res://aliens/alien8.png" id="9_lcu7x"]
+[ext_resource type="Texture2D" uid="uid://rwev285yphgn" path="res://aliens/alien9.png" id="10_g5het"]
+[ext_resource type="Texture2D" uid="uid://mdmqila5tqa4" path="res://aliens/alien10.png" id="11_4q766"]
 
 [sub_resource type="Animation" id="Animation_j3v63"]
 length = 0.001
@@ -175,19 +183,84 @@ script = ExtResource("1_7a0mi")
 [node name="modulator" type="Sprite3D" parent="." unique_id=1325607719]
 modulate = Color(1.353256, 1.353256, 1.353256, 1)
 
-[node name="humanGuy" type="Sprite3D" parent="modulator" unique_id=2065964243]
-transform = Transform3D(0.67599994, 0, 0, 0, 0.743, 0, 0, 0, 0.724, 0, 2, 0)
+[node name="alien1" type="Sprite3D" parent="modulator" unique_id=2065964243]
+transform = Transform3D(0.186, 0, 0, 0, 0.207, 0, 0, 0, 0.20200002, 0, 1.6732626, 0.43918896)
+visible = false
 billboard = 2
 shaded = true
 texture_filter = 0
-texture = ExtResource("1_6jog0")
+texture = ExtResource("2_r5dvv")
 
-[node name="testAlien1" type="Sprite3D" parent="modulator" unique_id=792184365]
-transform = Transform3D(3.5359998, 0, 0, 0, 3.878, 0, 0, 0, 3.788, 0, 2, 0)
+[node name="alien2" type="Sprite3D" parent="modulator" unique_id=2067964543]
+transform = Transform3D(0.186, 0, 0, 0, 0.207, 0, 0, 0, 0.20200002, 0.026266098, 1.6823945, 0.43919086)
+visible = false
 billboard = 2
 shaded = true
 texture_filter = 0
-texture = ExtResource("2_7a0mi")
+texture = ExtResource("3_r5dvv")
+
+[node name="alien3" type="Sprite3D" parent="modulator" unique_id=1713594500]
+transform = Transform3D(0.186, 0, 0, 0, 0.207, 0, 0, 0, 0.20200002, 0.026266098, 1.6823945, 0.43919086)
+visible = false
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("4_0x4rn")
+
+[node name="alien4" type="Sprite3D" parent="modulator" unique_id=286186700]
+transform = Transform3D(0.186, 0, 0, 0, 0.207, 0, 0, 0, 0.20200002, 0.026266098, 1.5081646, 0.43919086)
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("5_img5a")
+
+[node name="alien5" type="Sprite3D" parent="modulator" unique_id=1516685578]
+transform = Transform3D(0.186, 0, 0, 0, 0.207, 0, 0, 0, 0.20200002, 0.22097492, 1.5081646, 0.43919086)
+visible = false
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("6_behxn")
+
+[node name="alien6" type="Sprite3D" parent="modulator" unique_id=1460897488]
+transform = Transform3D(0.18599999, 0, 0, 0, 0.20699999, 0, 0, 0, 0.20200002, 0.026266098, 1.6989946, 0.43919086)
+visible = false
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("7_pclem")
+
+[node name="alien7" type="Sprite3D" parent="modulator" unique_id=1841882597]
+transform = Transform3D(0.186, 0, 0, 0, 0.207, 0, 0, 0, 0.20200002, 0.026266098, 1.8384807, 0.43919086)
+visible = false
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("8_b6ic3")
+
+[node name="alien8" type="Sprite3D" parent="modulator" unique_id=205408959]
+transform = Transform3D(0.186, 0, 0, 0, 0.207, 0, 0, 0, 0.20200002, 0.026266098, 1.8384807, 0.43919086)
+visible = false
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("9_lcu7x")
+
+[node name="alien9" type="Sprite3D" parent="modulator" unique_id=1596889366]
+transform = Transform3D(0.186, 0, 0, 0, 0.207, 0, 0, 0, 0.20200002, 0.026266098, 1.9721196, 0.43919086)
+visible = false
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("10_g5het")
+
+[node name="alien10" type="Sprite3D" parent="modulator" unique_id=1038508920]
+transform = Transform3D(0.186, 0, 0, 0, 0.207, 0, 0, 0, 0.20200002, 0.026266098, 1.9721196, 0.43919086)
+visible = false
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("11_4q766")
 
 [node name="moveAnimator" type="AnimationPlayer" parent="." unique_id=10282502]
 libraries/ = SubResource("AnimationLibrary_oguhb")
