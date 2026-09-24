@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://becdep4jejknl"]
+
+[ext_resource type="Shader" uid="uid://b3bmm50e2txu5" path="res://SkyStar.gdshader" id="1_spxpv"]
+[ext_resource type="Shader" uid="uid://c6ibdkvw1wv8h" path="res://mainWorld/postProcessPixelation.gdshader" id="2_geb7p"]
+[ext_resource type="PackedScene" uid="uid://d2fhtt8gynxye" path="res://mainWorld/spacestation_model.tscn" id="2_ghp2b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_geb7p"]
+shader = ExtResource("1_spxpv")
+shader_parameter/space_color = Color(0.001, 0.0005, 0.01, 1)
+shader_parameter/space_blue = Color(0.004, 0.002, 0.025, 1)
+shader_parameter/star_brightness = 2.3
+shader_parameter/twinkle_speed = 0.8
+shader_parameter/star_movement = 0.0008
+
+[sub_resource type="Sky" id="Sky_j3v63"]
+sky_material = SubResource("ShaderMaterial_geb7p")
+radiance_size = 6
+
+[sub_resource type="Environment" id="Environment_ghp2b"]
+background_mode = 2
+sky = SubResource("Sky_j3v63")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ghp2b"]
+shader = ExtResource("2_geb7p")
+shader_parameter/size = Vector2(32, 28)
+shader_parameter/pixel_scale = 0.2
+
+[node name="mainMenu" type="Node3D" unique_id=1154841514]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=784424890]
+environment = SubResource("Environment_ghp2b")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2043405292]
+transform = Transform3D(1, 0, 0, 0, 0.9705283, 0.24098715, 0, -0.24098715, 0.9705283, -0.39265358, 0.6869571, 4.9276505)
+
+[node name="Control" type="Control" parent="." unique_id=1511193397]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pixelinator" type="ColorRect" parent="Control" unique_id=136026534]
+visible = false
+material = SubResource("ShaderMaterial_ghp2b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -94.0
+offset_right = 65.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=239909482]
+transform = Transform3D(0.8433149, -0.5374198, 0, 0.5374198, 0.8433149, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="spacestation_02" parent="Node3D" unique_id=1004164570 instance=ExtResource("2_ghp2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -3.6672313, 1.9841843, -1.7031529)
+surface_material_override/0 = null
