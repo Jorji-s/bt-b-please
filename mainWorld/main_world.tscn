@@ -3220,6 +3220,7 @@ mouse_filter = 1
 [connection signal="leftCounter" from="alien" to="." method="_on_alien_left_counter"]
 [connection signal="leftCounter" from="alien" to="tempRoom/North Wall/counterTop" method="_on_alien_left_counter"]
 [connection signal="rightChoice" from="alien" to="TV" method="_on_alien_right_choice"]
+[connection signal="updateTalking" from="alien" to="player" method="_on_alien_update_talking"]
 [connection signal="wrongChoice" from="alien" to="TV" method="_on_alien_wrong_choice"]
 [connection signal="animation_finished" from="TV/tvAnimator" to="TV" method="_on_tv_animator_animation_finished"]
 [connection signal="interacted" from="button/greenButton/GreenComponent" to="button" method="_on_green_component_interacted"]
@@ -3260,6 +3261,7 @@ mouse_filter = 1
 [connection signal="timeout" from="desk/computerObj/computerHUD/minuteTimer" to="desk/computerObj" method="_on_minute_timer_timeout"]
 [connection signal="interacted" from="printer/printerObj/InteractionComponent" to="printer" method="_on_interaction_component_interacted"]
 [connection signal="timeout" from="printer/Timer" to="printer" method="_on_timer_timeout"]
+[connection signal="dialogueFin" from="DialogLayer/DialogUI" to="alien" method="_on_dialog_ui_dialogue_fin"]
 
 [editable path="tempRoom/North Wall/counterTop/passport/passInteractionComponent"]
 [editable path="tempRoom/North Wall/counterTop/tripTicket/InteractionComponent"]

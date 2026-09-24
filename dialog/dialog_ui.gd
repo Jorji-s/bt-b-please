@@ -8,6 +8,9 @@ extends Control
 @onready var next_label: Panel = $"HBoxContainer/VBoxContainer/Continue Button"
 const CHOICE_LAB = preload("uid://bamc0ahe5yj0x")
 @onready var selector: TextureRect = $Selector
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+signal dialogueFin
 
 # Time it takes for text to fill out in the text box
 @export var text_duration := 0.5
@@ -27,15 +30,15 @@ func _ready() -> void:
 	DialogManager.dialog_finished.connect(_on_dialog_finished)
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("UI_Interact"):
+	if event.is_action_pressed("Interact"):
 		DialogManager.register_choice(current_choice)
 		choice_made.emit()
-	if event.is_action_pressed("UI_UP"):
+	if event.is_action_pressed("Up"):
 		if current_choice > 0:
 			unselect_choice_label(current_choice)
 			current_choice -= 1
 			select_choice_label(current_choice)
-	if event.is_action_pressed("UI_DOWN"):
+	if event.is_action_pressed("Down"):
 		if current_choice < current_max_choices - 1:
 			unselect_choice_label(current_choice)
 			current_choice += 1
@@ -51,15 +54,17 @@ func unselect_choice_label(index: int):
 
 func _on_dialog_started(lines : Array[String]):
 	visible = true
+	
 	text_display.text = ""
 	enter_anim()
-	await anim_tween.finished
+	await get_tree().create_timer(anim_duration).timeout
 	display_lines(lines)
 
 func _on_dialog_finished():
 	exit_anim()
-	await anim_tween.finished
+	await get_tree().create_timer(anim_duration).timeout
 	visible = false
+	dialogueFin.emit()
 
 # Runs through the provided array of lines and displays the dialog
 # Handles regular lines and special ones like choices and results
@@ -133,9 +138,7 @@ func show_line(line : String):
 	
 # Simple tween animations
 func enter_anim():
-	anim_tween = create_tween()
-	anim_tween.tween_property(self,"position",Vector2(0,0),anim_duration)
+	animation_player.play("popUp")
 	
 func exit_anim():
-	anim_tween = create_tween()
-	anim_tween.tween_property(self,"position",Vector2(0,300),anim_duration)
+	animation_player.play("goDown")

@@ -137,7 +137,6 @@ func _on_dialog_started(_lines : Array[String]):
 	allow_looking = false
 	allow_moving = false
 	allow_interaction = false
-	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 
 	
 # Reenable looking and moving after dialog completion
@@ -146,3 +145,8 @@ func _on_dialog_finished():
 	allow_moving = true
 	allow_interaction = true
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+
+
+func _on_alien_update_talking(yesnt: bool) -> void:
+	allow_looking=!yesnt
+	allow_moving=!yesnt

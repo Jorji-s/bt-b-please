@@ -6,6 +6,96 @@
 [ext_resource type="FontFile" uid="uid://cklety1ec87is" path="res://fonts/RoinertPixels-Regular.ttf" id="3_dql1l"]
 [ext_resource type="PackedScene" uid="uid://bamc0ahe5yj0x" path="res://dialog/choice_label.tscn" id="4_a1u1v"]
 
+[sub_resource type="Animation" id="Animation_a1u1v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kdv4k"]
+resource_name = "goDown"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1.4142141, 0.9999988),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 400)]
+}
+
+[sub_resource type="Animation" id="Animation_8xdyk"]
+resource_name = "popUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.96666664),
+"transitions": PackedFloat32Array(0.21763737, 1),
+"update": 0,
+"values": [Vector2(0, 400), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qdh2"]
+_data = {
+&"RESET": SubResource("Animation_a1u1v"),
+&"goDown": SubResource("Animation_kdv4k"),
+&"popUp": SubResource("Animation_8xdyk")
+}
+
+[sub_resource type="Animation" id="Animation_4qdh2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/VBoxContainer/Continue Button/Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(302, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ikq3i"]
+resource_name = "bob"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/VBoxContainer/Continue Button/Selector:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.01999998, 0.4466667, 0.94666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(282, 0), Vector2(292, 0), Vector2(282, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kdv4k"]
+_data = {
+&"RESET": SubResource("Animation_4qdh2"),
+&"bob": SubResource("Animation_ikq3i")
+}
+
 [node name="DialogUI" type="Control" unique_id=358119890]
 layout_mode = 3
 anchors_preset = 15
@@ -13,7 +103,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
 script = ExtResource("1_khtep")
+anim_duration = 0.7
 
 [node name="Background" type="TextureRect" parent="." unique_id=2110944223]
 layout_mode = 1
@@ -37,15 +130,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -627.0
-offset_top = -346.0
-offset_right = 616.0
-offset_bottom = -24.005005
+offset_left = -614.0
+offset_top = -337.0
+offset_right = 628.0
+offset_bottom = -39.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=486479346]
-custom_minimum_size = Vector2(855.86, 0)
+custom_minimum_size = Vector2(830.125, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 44
@@ -53,8 +146,10 @@ theme_override_constants/margin_right = 44
 [node name="TextDisplay" type="RichTextLabel" parent="HBoxContainer/MarginContainer" unique_id=671509114]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
 theme_override_fonts/normal_font = ExtResource("3_dql1l")
-theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/normal_font_size = 48
 scroll_active = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1371241892]
@@ -66,6 +161,8 @@ layout_mode = 2
 
 [node name="Selector" parent="HBoxContainer/VBoxContainer/Continue Button" index="1" unique_id=1293831753]
 visible = true
+offset_left = -80.0
+offset_right = 0.0
 
 [node name="Foreground" type="TextureRect" parent="." unique_id=1912304745]
 layout_mode = 1
@@ -81,5 +178,12 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("2_tffci")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=81043376]
+libraries/ = SubResource("AnimationLibrary_4qdh2")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1617086400]
+libraries/ = SubResource("AnimationLibrary_kdv4k")
+autoplay = &"bob"
 
 [editable path="HBoxContainer/VBoxContainer/Continue Button"]

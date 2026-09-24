@@ -9,6 +9,8 @@ signal leftCounter
 signal wrongChoice(reason : String)
 signal rightChoice
 
+@export var talking:=false
+
 #as this number goes up, the issues that documents could have get more obscure and harder to notice
 @export var dayNumber:=1
 var planetList:=[]
@@ -61,6 +63,8 @@ var alienID=0;
 var sentAway:=false
 var decisionMade:=""
 var thingWrong:="Hurt my\nfeelings :("
+
+signal updateTalking(yesnt : bool)
 
 func _ready():
 	await get_tree().create_timer(0.1).timeout
@@ -151,6 +155,9 @@ func hide_sprites():
 # Right now all this does is initiates some sample dialog
 # Temporary
 func _on_interaction_component_interacted() -> void:
+	interaction_component.position.y+=20
+	talking=true
+	updateTalking.emit(true)
 	DialogManager.start_dialog(load_lines("res://dialog_lines/alien1.txt"))
 
 # Loads lines from file
@@ -352,3 +359,10 @@ func _on_move_animator_animation_finished(anim_name: StringName) -> void:
 		decisionMade=""
 		move_animator.play("showUp")
 		
+
+
+func _on_dialog_ui_dialogue_fin() -> void:
+	updateTalking.emit(false)
+	await get_tree().create_timer(0.5).timeout
+	interaction_component.position.y-=20
+	talking=false
