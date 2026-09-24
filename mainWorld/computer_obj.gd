@@ -17,6 +17,7 @@ var hours:=3
 var mousePos := Vector2.ZERO
 signal printDocu
 var hasDocuOpen:=false
+@onready var sprite_3d: Sprite3D = $Sprite3D
 
 
 @export var showsPlanetList:=false
@@ -84,6 +85,10 @@ func _input(event):
 				home_screen.visible=false
 		
 func _process(delta: float) -> void:
+	if sprite_3d!=null:
+		sprite_3d.look_at(player.global_position)
+		sprite_3d.rotation.x=0
+		sprite_3d.rotation.z=0
 	mousePos.x = clamp(mousePos.x,  bottom_left.global_position.x, top_right.global_position.x-32*1.55)
 	mousePos.y = clamp(mousePos.y, top_right.global_position.y, bottom_left.global_position.y-37)
 	cursor.global_position = mousePos

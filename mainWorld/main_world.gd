@@ -9,6 +9,7 @@ extends Node3D
 @export var quota:=3
 @onready var detain_button: CSGCombiner3D = $detainButton
 @onready var tv: CSGCombiner3D = $TV
+@onready var beer_desk: Node3D = $desk/beerDesk
 
 @export var AlienAtCounter:=false
 @export var aliensServed:=-1
@@ -23,6 +24,8 @@ extends Node3D
 func _ready() -> void:
 	day=Manager.day
 	alien.dayNumber=day
+	if day>4:
+		beer_desk.visible=true
 	if day>6:
 		Manager.detainUnlocked=true
 	else:

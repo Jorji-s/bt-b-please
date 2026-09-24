@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dpfxuwxfmrxun" path="res://player/player.tscn" id="1_6axsh"]
 [ext_resource type="Script" uid="uid://d0e7a1cfirpev" path="res://mainWorld/main_world.gd" id="1_cso50"]
-[ext_resource type="Texture2D" uid="uid://natr2fws1r6w" path="res://decorAssets/exitdoor.png" id="2_6o1xe"]
 [ext_resource type="PackedScene" uid="uid://bfpqmt6gop8pd" path="res://mainWorld/alien.tscn" id="3_2pkn0"]
 [ext_resource type="Texture2D" uid="uid://d3kdp3t6ul116" path="res://icon.svg" id="3_suj5o"]
 [ext_resource type="Script" uid="uid://dqrwc4asj05j0" path="res://mainWorld/counter_top.gd" id="3_tklsj"]
@@ -11,15 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://dyhtxki58xp0y" path="res://aliens/alienGuy.png" id="4_oguhb"]
 [ext_resource type="Shader" uid="uid://b3bmm50e2txu5" path="res://SkyStar.gdshader" id="5_2pkn0"]
 [ext_resource type="Shader" uid="uid://c6ibdkvw1wv8h" path="res://mainWorld/postProcessPixelation.gdshader" id="5_cn18u"]
-[ext_resource type="Script" uid="uid://bq3ooaqg1151w" path="res://mainWorld/plant.gd" id="7_mnyur"]
 [ext_resource type="Texture2D" uid="uid://cdi4ofxr4a5e4" path="res://decorAssets/it_plant.png" id="7_pf7i5"]
 [ext_resource type="FontFile" uid="uid://co063nbobiyy7" path="res://fonts/BoldsPixels.ttf" id="8_0hpoc"]
-[ext_resource type="Script" uid="uid://o6068hgywsgm" path="res://mainWorld/water_cooler.gd" id="8_5a4a1"]
 [ext_resource type="Texture2D" uid="uid://b3670mufmyucp" path="res://decorAssets/cooler.png" id="8_bgcyd"]
 [ext_resource type="Script" uid="uid://bmkw0ltgnnd3d" path="res://mainWorld/light_1.gd" id="8_qvqpt"]
-[ext_resource type="Script" uid="uid://beymalf6nxt54" path="res://mainWorld/plant_2.gd" id="8_uq6u8"]
 [ext_resource type="Texture2D" uid="uid://cpmsjxmqgiesf" path="res://decorAssets/shredder.png" id="9_chl5m"]
-[ext_resource type="Script" uid="uid://bbtsf1y6u6iun" path="res://mainWorld/shredder.gd" id="9_hmnlg"]
 [ext_resource type="Script" uid="uid://c74y5wx743hd2" path="res://mainWorld/detain_button.gd" id="9_vtxlo"]
 [ext_resource type="Script" uid="uid://8lbkh8w4t2un" path="res://mainWorld/button.gd" id="10_pc4xd"]
 [ext_resource type="Script" uid="uid://cxkbomuhnw08v" path="res://mainWorld/tv.gd" id="12_2b0jq"]
@@ -48,11 +43,6 @@
 [ext_resource type="Script" uid="uid://cn8a28j611vyp" path="res://mainWorld/printer.gd" id="37_7fyfl"]
 [ext_resource type="Script" uid="uid://cn7g23ucmbt2j" path="res://mainWorld/cofee_mug.gd" id="38_0ma3e"]
 [ext_resource type="Texture2D" uid="uid://b7lrmyx04rws6" path="res://decorAssets/mug.png" id="38_fm20r"]
-[ext_resource type="Texture2D" uid="uid://rkiyfkdqblmv" path="res://decorAssets/plant.png" id="40_0ma3e"]
-[ext_resource type="Texture2D" uid="uid://e6wv7t35g7tn" path="res://decorAssets/papers.png" id="41_cdtn7"]
-[ext_resource type="Texture2D" uid="uid://c0ivxnvnte4qs" path="res://decorAssets/duck.png" id="41_iahri"]
-[ext_resource type="Texture2D" uid="uid://bkbf6uas1at44" path="res://decorAssets/beer.png" id="41_u5bxb"]
-[ext_resource type="Script" uid="uid://dheml56a34x4o" path="res://mainWorld/printer_obj.gd" id="45_4dcx6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
 albedo_color = Color(0.23753911, 0.23753914, 0.23753908, 1)
@@ -91,8 +81,14 @@ height = 3.2597656
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pkn0"]
 albedo_color = Color(0.6337567, 0.6337568, 0.6337567, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6o1xe"]
-albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_na4tk"]
+albedo_color = Color(0.92629945, 2.5027991e-06, 1.540184e-06, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_655eb"]
+material = SubResource("StandardMaterial3D_na4tk")
+size = Vector2(2.5, 4.25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oguhb"]
 albedo_color = Color(0.36971408, 0.16448101, 0, 1)
@@ -1364,20 +1360,15 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.51
 use_collision = true
 size = Vector3(6.508812, 6.7991858, 7.9614916)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="tempRoom/SouthWall2" unique_id=259708346]
-transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0.15097064, -0.56604004, -3.7518764)
-size = Vector3(2.6953735, 4.2424316, 0.62890625)
-material = SubResource("StandardMaterial3D_6o1xe")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tempRoom/SouthWall2" unique_id=1040231254]
+transform = Transform3D(1, 0, 3.8213714e-15, -3.821371e-15, 4.371139e-08, 1, 0, -1, 4.371139e-08, 2.0861626e-07, -0.56057215, -3.9947839)
+mesh = SubResource("PlaneMesh_655eb")
 
-[node name="Sprite3D" type="Sprite3D" parent="tempRoom/SouthWall2" unique_id=2013680574]
-transform = Transform3D(-0.21, 0, -3.1709117e-08, 0, 0.21, 0, 3.1709117e-08, 0, -0.21, 0.15163493, -0.5672145, -3.8619668)
-shaded = true
-texture = ExtResource("2_6o1xe")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="tempRoom/SouthWall2" unique_id=1741746107]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15097064, -0.56604004, -3.9847865)
-operation = 2
-size = Vector3(2.6953735, 4.2424316, 1.0761719)
+[node name="Label3D" type="Label3D" parent="tempRoom/SouthWall2/MeshInstance3D" unique_id=689996044]
+transform = Transform3D(-1, -8.742278e-08, 0, -3.5527137e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, 0, 0.009050727, 0.81341815)
+text = "EXIT"
+font = ExtResource("8_0hpoc")
+font_size = 156
 
 [node name="hallwayHall" type="CSGBox3D" parent="tempRoom" unique_id=1129147606]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.17886448, 2.8996105, -16.767189)
@@ -1535,10 +1526,10 @@ autoplay = &"speen"
 
 [node name="plant" type="Node3D" parent="tempRoom" unique_id=1982274289]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.759958, -0.14243433, -9.3840475)
-script = ExtResource("7_mnyur")
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/plant" unique_id=1979014534]
 transform = Transform3D(0.425, 0, 0, 0, 0.407, 0, 0, 0, 0.417, 0.0001282692, 1.894799, -3.33786e-05)
+billboard = 2
 shaded = true
 texture = ExtResource("7_pf7i5")
 
@@ -1555,10 +1546,10 @@ shape = SubResource("CylinderShape3D_yupk3")
 
 [node name="plant2" type="Node3D" parent="tempRoom" unique_id=1629669448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.364511, -0.14243433, 1.7115402)
-script = ExtResource("8_uq6u8")
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/plant2" unique_id=880425221]
 transform = Transform3D(0.425, 0, 0, 0, 0.407, 0, 0, 0, 0.417, 0, 1.8975184, 0)
+billboard = 2
 shaded = true
 texture = ExtResource("7_pf7i5")
 
@@ -1645,10 +1636,10 @@ font_size = 64
 
 [node name="waterCooler" type="Node3D" parent="tempRoom" unique_id=916951152]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.464869, 0.42486072, -3.5600553)
-script = ExtResource("8_5a4a1")
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/waterCooler" unique_id=1862972956]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 1.1247246, 0)
+billboard = 2
 shaded = true
 texture = ExtResource("8_bgcyd")
 
@@ -1664,10 +1655,10 @@ use_collision = true
 
 [node name="shredder" type="Node3D" parent="tempRoom" unique_id=1208042769]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.464869, 0.42486072, -5.6394634)
-script = ExtResource("9_hmnlg")
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/shredder" unique_id=181646176]
 transform = Transform3D(0.16, 0, 0, 0, 0.152, 0, 0, 0, 0.154, 0, 0.36664748, 0)
+billboard = 2
 shaded = true
 texture = ExtResource("9_chl5m")
 
@@ -1679,10 +1670,6 @@ speed_scale = 0.78
 [node name="InteractionComponent" parent="tempRoom/shredder" unique_id=548565397 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42836386, 0)
 causeTurn2Look = true
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="tempRoom/shredder" unique_id=621791557]
-visible = false
-use_collision = true
 
 [node name="blastDoor" type="MeshInstance3D" parent="tempRoom" unique_id=1497704008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57336426, 5.6935825, -10.512121)
@@ -2136,6 +2123,7 @@ script = ExtResource("24_s2031")
 
 [node name="Sprite3D" type="Sprite3D" parent="desk/computerObj" unique_id=261977611]
 transform = Transform3D(0.162, 0, 0, 0, 0.144, 0, 0, 0, 0.153, 0, 0.44062972, 0)
+billboard = 2
 shaded = true
 texture = ExtResource("26_nlkp2")
 
@@ -3078,11 +3066,12 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.627451)
 
 [node name="cofeeMug" type="Node3D" parent="desk" unique_id=941167092]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3872352, 1.3664763, -0.5372653)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3872352, 1.3664763, -0.7205157)
 script = ExtResource("38_0ma3e")
 
 [node name="Sprite3D" type="Sprite3D" parent="desk/cofeeMug" unique_id=929955353]
 transform = Transform3D(0.16, 0, 0, 0, 0.152, 0, 0, 0, 0.154, 0, 0.36664748, 0)
+billboard = 2
 shaded = true
 texture = ExtResource("38_fm20r")
 
@@ -3091,63 +3080,9 @@ libraries/ = SubResource("AnimationLibrary_j3v63")
 autoplay = &"idle"
 speed_scale = 0.78
 
-[node name="plantDesk" type="Node3D" parent="desk" unique_id=1533064435]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2342377, 1.3664763, -2.8597703)
-script = ExtResource("38_0ma3e")
-
-[node name="Sprite3D" type="Sprite3D" parent="desk/plantDesk" unique_id=1154123513]
-transform = Transform3D(0.3, 0, 0, 0, 0.288, 0, 0, 0, 0.289, 0, 0.68134725, 0)
-shaded = true
-texture = ExtResource("40_0ma3e")
-
-[node name="idleAnimator" type="AnimationPlayer" parent="desk/plantDesk" unique_id=1545005186]
-libraries/ = SubResource("AnimationLibrary_j3v63")
-autoplay = &"idle"
-speed_scale = 0.78
-
-[node name="beerDesk" type="Node3D" parent="desk" unique_id=691264404]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20196, 1.3664763, -2.2723908)
-visible = false
-script = ExtResource("38_0ma3e")
-
-[node name="Sprite3D" type="Sprite3D" parent="desk/beerDesk" unique_id=680964876]
-transform = Transform3D(0.11999999, 0, 0, 0, 0.11299999, -9.8787725e-09, 0, 9.878773e-09, 0.113, -0.13482761, 0.3629043, 0.035707474)
-flip_h = true
-shaded = true
-texture = ExtResource("41_u5bxb")
-
-[node name="idleAnimator" type="AnimationPlayer" parent="desk/beerDesk" unique_id=839758598]
-libraries/ = SubResource("AnimationLibrary_j3v63")
-autoplay = &"idle"
-speed_scale = 0.78
-
-[node name="papers1" type="Node3D" parent="desk" unique_id=1652720076]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9547582, -0.05219388, -2.8597703)
-script = ExtResource("38_0ma3e")
-
-[node name="Sprite3D" type="Sprite3D" parent="desk/papers1" unique_id=886522110]
-transform = Transform3D(0.3, 0, 0, 0, 0.288, 0, 0, 0, 0.289, 0, 0.49487382, 0)
-shaded = true
-texture = ExtResource("41_cdtn7")
-
-[node name="idleAnimator" type="AnimationPlayer" parent="desk/papers1" unique_id=55806537]
-libraries/ = SubResource("AnimationLibrary_j3v63")
-autoplay = &"idle"
-speed_scale = 0.78
-
-[node name="deskDuck" type="Node3D" parent="desk" unique_id=1453931660]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.070582, 1.3664763, -2.9212422)
-script = ExtResource("38_0ma3e")
-
-[node name="Sprite3D" type="Sprite3D" parent="desk/deskDuck" unique_id=1926293787]
-transform = Transform3D(0.15, 0, 0, 0, 0.14, 0, 0, 0, 0.141, 0, 0.348261, 0)
-shaded = true
-texture = ExtResource("41_iahri")
-
-[node name="idleAnimator" type="AnimationPlayer" parent="desk/deskDuck" unique_id=843213116]
-libraries/ = SubResource("AnimationLibrary_j3v63")
-autoplay = &"idle"
-speed_scale = 0.78
+[node name="InteractionComponent" parent="desk/cofeeMug" unique_id=2141650002 instance=ExtResource("12_cdvnm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42836386, 0)
+causeTurn2Look = true
 
 [node name="printer" type="Node3D" parent="." unique_id=793225763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9687514, 1.0488808, 2.5862086)
@@ -3185,11 +3120,11 @@ material = SubResource("StandardMaterial3D_yupk3")
 
 [node name="printerObj" type="Node3D" parent="printer" unique_id=788460647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5597253, 0.6304984, -0.519428)
-script = ExtResource("45_4dcx6")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="printer/printerObj" unique_id=71121952]
 transform = Transform3D(0.217, 0, 0, 0, 0.217, 0, 0, 0, 0.217, 0, 0.44062972, 0)
 layers = 3
+billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_yupk3")
 animation = &"noPaper"
