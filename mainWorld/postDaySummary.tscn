@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://bn2sumu63n0i3"]
+
+[ext_resource type="Script" uid="uid://1l7v13y3pp34" path="res://mainWorld/post_day_summary.gd" id="1_eu6ws"]
+[ext_resource type="FontFile" uid="uid://bo1mcwmwk54y2" path="res://fonts/pixeloidSans/PixeloidSans-Bold.ttf" id="1_p4oiy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p3mhs"]
+line_spacing = 7.865
+paragraph_spacing = -4.185
+font = ExtResource("1_p4oiy")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_eu6ws"]
+font = ExtResource("1_p4oiy")
+font_size = 76
+
+[sub_resource type="Theme" id="Theme_yupk3"]
+default_font = ExtResource("1_p4oiy")
+default_font_size = 76
+
+[sub_resource type="Animation" id="Animation_eu6ws"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ui316"]
+resource_name = "fdeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4sqh8"]
+_data = {
+&"RESET": SubResource("Animation_eu6ws"),
+&"fdeIn": SubResource("Animation_ui316")
+}
+
+[node name="Node2D" type="Node2D" unique_id=2046529554]
+script = ExtResource("1_eu6ws")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1878821271]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="ColorRect" unique_id=1844003977]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="updatedValues" type="Label" parent="ColorRect/Control" unique_id=746509833]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -597.5
+offset_top = 153.0
+offset_right = 597.5
+offset_bottom = 956.0
+grow_horizontal = 2
+text = "
+Valid Individuals let through: 20
+Valid Individuals sent back: 2
+
+Invalid Individuals let through: 4
+ Invalid Individuals sent back: 10
+
+Blacklisted Individuals detained: 3
+Blacklisted Individuals missed: 2
+Non-blacklisted Individuals detained: 3
+
+Time taken: 00:00
+Total Score: 17980"
+label_settings = SubResource("LabelSettings_p3mhs")
+horizontal_alignment = 1
+
+[node name="dayLabel" type="Label" parent="ColorRect/Control" unique_id=175805068]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = 60.0
+offset_right = 480.0
+offset_bottom = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Day 1 Summary"
+label_settings = SubResource("LabelSettings_eu6ws")
+horizontal_alignment = 1
+
+[node name="dayLabel2" type="Label" parent="ColorRect/Control" unique_id=1895212870]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.0001
+offset_top = 85.0
+offset_right = 422.0001
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "____________________
+"
+label_settings = SubResource("LabelSettings_eu6ws")
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/Control" unique_id=816324997]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 971.0
+offset_right = 300.0
+offset_bottom = 1171.0
+grow_horizontal = 2
+theme = SubResource("Theme_yupk3")
+bbcode_enabled = true
+text = "Grade: ?"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1957526430]
+offset_right = 2018.0
+offset_bottom = 1115.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=259122205]
+libraries/ = SubResource("AnimationLibrary_4sqh8")
+autoplay = &"fdeIn"
+speed_scale = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1848219794]
+position = Vector2(960, 540)

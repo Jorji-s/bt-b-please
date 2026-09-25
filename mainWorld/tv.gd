@@ -24,6 +24,7 @@ func _on_alien_wrong_choice(reason: String) -> void:
 func _on_tv_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name!="RESET":
 		get_parent().aliensServed+=1
+		
 	tv_label.text="Quota: "+str(get_parent().quota)+"\nServed: "+str(get_parent().aliensServed+1)
 	tv_label.visible=true
 	tv_animator.play("RESET")

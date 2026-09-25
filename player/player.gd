@@ -35,7 +35,7 @@ func betterLookAt(target : Vector3):
 	var looktween := get_tree().create_tween()
 	looktween.set_trans(Tween.TRANS_SINE)
 	looktween.set_ease(Tween.EASE_OUT)
-	looktween.tween_property(neck, "rotation_degrees", Vector3(pitch, yaw, neck.rotation_degrees.z), 0.2)
+	looktween.tween_property(neck, "rotation_degrees", Vector3(pitch, yaw, neck.rotation_degrees.z), 0.5)
 
 
 

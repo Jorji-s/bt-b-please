@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dpfxuwxfmrxun" path="res://player/player.tscn" id="1_6axsh"]
 [ext_resource type="Script" uid="uid://d0e7a1cfirpev" path="res://mainWorld/main_world.gd" id="1_cso50"]
 [ext_resource type="Texture2D" uid="uid://natr2fws1r6w" path="res://decorAssets/exitdoor.png" id="2_6o1xe"]
+[ext_resource type="Script" uid="uid://ih1q7egw03rp" path="res://mainWorld/south_wall_2.gd" id="2_ce8pv"]
 [ext_resource type="PackedScene" uid="uid://bfpqmt6gop8pd" path="res://mainWorld/alien.tscn" id="3_2pkn0"]
 [ext_resource type="Texture2D" uid="uid://d3kdp3t6ul116" path="res://icon.svg" id="3_suj5o"]
 [ext_resource type="Script" uid="uid://dqrwc4asj05j0" path="res://mainWorld/counter_top.gd" id="3_tklsj"]
@@ -93,6 +94,47 @@ albedo_color = Color(0.6337567, 0.6337568, 0.6337567, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6o1xe"]
 albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_na4tk"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_6o1xe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ce8pv"]
+resource_name = "openDoor"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.2588164, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kwoeb"]
+_data = {
+&"RESET": SubResource("Animation_6o1xe"),
+&"openDoor": SubResource("Animation_ce8pv")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oguhb"]
 albedo_color = Color(0.36971408, 0.16448101, 0, 1)
@@ -1363,21 +1405,54 @@ size = Vector3(2.343, 3.664, 3.89)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5151808, 2.8996105, -0.2651794)
 use_collision = true
 size = Vector3(6.508812, 6.7991858, 7.9614916)
+script = ExtResource("2_ce8pv")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="tempRoom/SouthWall2" unique_id=259708346]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0.15097064, -0.56604004, -3.7518764)
 size = Vector3(2.6953735, 4.2424316, 0.62890625)
 material = SubResource("StandardMaterial3D_6o1xe")
 
-[node name="Sprite3D" type="Sprite3D" parent="tempRoom/SouthWall2" unique_id=2013680574]
-transform = Transform3D(-0.21, 0, -3.1709117e-08, 0, 0.21, 0, 3.1709117e-08, 0, -0.21, 0.15163493, -0.5672145, -3.8619668)
+[node name="CSGBox3D" type="CSGBox3D" parent="tempRoom/SouthWall2" unique_id=1741746107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15097064, -0.56604004, -4.1869655)
+operation = 2
+size = Vector3(2.6953735, 4.2424316, 0.67181396)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="tempRoom/SouthWall2" unique_id=1272433339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15097064, -0.5615387, -1.0193019)
+operation = 2
+size = Vector3(2.6953735, 4.188263, 7.007141)
+material = SubResource("StandardMaterial3D_na4tk")
+
+[node name="Node3D" type="Node3D" parent="tempRoom/SouthWall2" unique_id=1833687277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4967446, 0, -3.8637185)
+
+[node name="exitDoor" type="Sprite3D" parent="tempRoom/SouthWall2/Node3D" unique_id=2013680574]
+transform = Transform3D(-0.21, 0, -3.1709117e-08, 0, 0.21, 0, 3.1709117e-08, 0, -0.21, -1.3451097, -0.5672145, 0.0017515421)
 shaded = true
 texture = ExtResource("2_6o1xe")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="tempRoom/SouthWall2" unique_id=1741746107]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15097064, -0.56604004, -3.9847865)
-operation = 2
-size = Vector3(2.6953735, 4.2424316, 1.0761719)
+[node name="doorAnima" type="AnimationPlayer" parent="tempRoom/SouthWall2/Node3D" unique_id=1747617408]
+libraries/ = SubResource("AnimationLibrary_kwoeb")
+speed_scale = 0.648
+
+[node name="exitInteract" parent="tempRoom/SouthWall2" unique_id=340135597 instance=ExtResource("12_cdvnm")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -20, -2.694)
+
+[node name="Sprite3D" parent="tempRoom/SouthWall2/exitInteract/playerTracker" parent_id_path=PackedInt32Array(340135597, 1082628906) index="0" unique_id=113376739]
+transform = Transform3D(1, 0, 1.040834e-14, 0, 1, 0, -1.040834e-14, 0, 1, 0.03739556, -0.23053664, -0.33206445)
+fixed_size = false
+
+[node name="lookAtPoint" parent="tempRoom/SouthWall2/exitInteract" index="3" unique_id=161659975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, -0.131778, 0.6739763)
+
+[node name="Marker3D" type="Marker3D" parent="tempRoom/SouthWall2" unique_id=1903814709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14561176, -1.435318, -5.480089)
+
+[node name="finalMover" type="Marker3D" parent="tempRoom/SouthWall2" unique_id=213758545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14561146, -1.435318, 1.3259118)
+
+[node name="looker" type="Marker3D" parent="tempRoom/SouthWall2" unique_id=2033516476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14561144, -0.6365123, 2.317807)
 
 [node name="hallwayHall" type="CSGBox3D" parent="tempRoom" unique_id=1129147606]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.17886448, 2.8996105, -16.767189)
@@ -1435,7 +1510,7 @@ modulate = Color(0, 0, 0, 0)
 shaded = true
 texture = ExtResource("4_2b0jq")
 
-[node name="passInteractionComponent" parent="tempRoom/North Wall/counterTop/passport" unique_id=340135597 instance=ExtResource("12_cdvnm")]
+[node name="passInteractionComponent" parent="tempRoom/North Wall/counterTop/passport" unique_id=790421007 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(5.215, 0, 0, 0, 5.215, 0, 0, 0, 5.215, 0.10438299, -0.06919861, 0)
 causeTurn2Look = true
 
@@ -1688,6 +1763,12 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57336426, 5.6935825, -10.512121)
 mesh = SubResource("BoxMesh_yupk3")
 surface_material_override/0 = SubResource("StandardMaterial3D_4buxl")
+
+[node name="doorCol" type="CSGBox3D" parent="tempRoom" unique_id=665786308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4286656, 2.053103, -0.38869214)
+visible = false
+use_collision = true
+size = Vector3(0.119628906, 4.91803, 2.8081055)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=675719265]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -3213,6 +3294,7 @@ layer = 100
 visible = false
 mouse_filter = 1
 
+[connection signal="interacted" from="tempRoom/SouthWall2/exitInteract" to="tempRoom/SouthWall2" method="_on_interaction_component_interacted"]
 [connection signal="interacted" from="tempRoom/North Wall/counterTop/passport/passInteractionComponent" to="Control/documentHUD" method="_on_pass_interaction_component_interacted"]
 [connection signal="interacted" from="tempRoom/North Wall/counterTop/tripTicket/InteractionComponent" to="Control/documentHUD" method="_on_interaction_component_interacted"]
 [connection signal="atCounter" from="alien" to="." method="_on_alien_at_counter"]
@@ -3263,6 +3345,7 @@ mouse_filter = 1
 [connection signal="timeout" from="printer/Timer" to="printer" method="_on_timer_timeout"]
 [connection signal="dialogueFin" from="DialogLayer/DialogUI" to="alien" method="_on_dialog_ui_dialogue_fin"]
 
+[editable path="tempRoom/SouthWall2/exitInteract"]
 [editable path="tempRoom/North Wall/counterTop/passport/passInteractionComponent"]
 [editable path="tempRoom/North Wall/counterTop/tripTicket/InteractionComponent"]
 [editable path="button/greenButton/GreenComponent"]

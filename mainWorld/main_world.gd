@@ -20,6 +20,10 @@ extends Node3D
 @onready var plan_list_2: Label = $desk/computerObj/computerHUD/bootScreen/homeScreen/bannedPlanetList/planList2
 @onready var notifications: Label = $desk/computerObj/computerHUD/bootScreen/homeScreen/messages/notifications
 @onready var computer_obj: Node3D = $desk/computerObj
+@onready var exit_interact: Area3D = $tempRoom/SouthWall2/exitInteract
+
+
+
 
 func _ready() -> void:
 	day=Manager.day
@@ -43,10 +47,10 @@ func _ready() -> void:
 	
 	if day==1:
 		quota=3
-		notifications.text="9021-3026 - Hey Glarnk, just wanted to welcome you on the job! Don't have a whole lot to tell you, just confirm names and descriptions when you check documents! Good luck"
+		notifications.text="9020-3026 - WELCOME NEW EMPLOYEE\nUSE THE BUTTONS TO THE RIGHT OF YOUR DESK TO LET PEOPLE IN. DO NOT LET PEOPLE WITH IMPROPER DOCUMENTS IN. LEAVE ONCE QUOTA IS MET. SCREEN WILL GIVE FEEDBACK.\n\n\n9021-3026 - Hey Glarnk, just wanted to welcome you on the job! Don't have a whole lot to tell you, just confirm names and descriptions when you check documents!\nI always forget, good luck"
 	if day==2:
 		quota=5
-		notifications.text="9021-3026 - Hey Glarnk, just wanted to welcome you on the job! Don't have a whole lot to tell you, just confirm names and descriptions when you check documents! Good luck\n\n\n9022-3026 - Sup Glarnk, I was wondering if you were doing anything after your shift today? My old drinking buddy got transfered, and I need a new one. You any good at space pool?"
+		notifications.text="9021-3026 - Hey Glarnk, just wanted to welcome you on the job! Don't have a whole lot to tell you, just confirm names and descriptions when you check documents!\nI always forget, good luck\n\n\n9022-3026 - Sup Glarnk, I was wondering if you were doing anything after your shift today? My old drinking buddy got transfered, and I need a new one. You any good at space pool?"
 	if day==3:
 		quota=7
 		notifications.text="9022-3026 - Sup Glarnk, I was wondering if you were doing anything after your shift today? My old drinking buddy got transfered, and I need a new one. You any good at space pool?\n\n\n9023-3026 - Hey Glarnk, some people have been getting by with invalid trip tickets, make sure you are checking the date! It needs to be today's date, not before or after."
@@ -85,6 +89,8 @@ func _ready() -> void:
 		notifications.text="9031-3026 - NEW ANNOUNCEMENT:\nGALACTIC WAR HAS ERUPTED. ALL PLANETS BELONGING TO THE ENEMY HAVE BEEN BLACKLISTED. DETAIN ANYONE FROM OR LEAVING FROM BLACKLISTED PLANETS\n\n\n9032-3026 - NEW ANNOUNCEMENT:\nENEMY FLEETS ARE APPROACHING THIS SECTOR. MANAGERIAL PERSONAL PLEASE REPORT TO DESIGNATED ESCAPE PODS. ESSENTIAL STAFF BEHAVE AS USUAL"
 	if day>14:
 		quota=day*4
+		
+	Manager.quotaRef=quota
 	
 	
 	tv.updateTV()
@@ -104,6 +110,9 @@ func _ready() -> void:
 		plan_list_2.text+=bannedPlans[f+bannedPlans.size()/2]+"\n"
 	print(criminalList)
 
+func _process(delta: float) -> void:
+	Manager.timeTaken+=1*delta
+
 
 
 @export var currentDate:="6231-2032"
@@ -120,3 +129,12 @@ func _on_alien_left_counter() -> void:
 	if(Manager.detainUnlocked):
 		detain_cover_anim.play_backwards("open")
 	AlienAtCounter=false
+	await get_tree().create_timer(5.0).timeout
+	print(aliensServed)
+	if aliensServed>=quota-2:
+		print("DONEW ITH THE DAY")
+		doneDay()
+	
+func doneDay()->void:
+	alien.done=true
+	exit_interact.global_position.y+=20

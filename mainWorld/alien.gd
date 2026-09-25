@@ -9,6 +9,8 @@ signal leftCounter
 signal wrongChoice(reason : String)
 signal rightChoice
 
+@export var done:=false
+
 @export var talking:=false
 
 #as this number goes up, the issues that documents could have get more obscure and harder to notice
@@ -331,33 +333,48 @@ func _on_move_animator_animation_finished(anim_name: StringName) -> void:
 		if shouldDetain:
 			if decisionMade=="yes" || decisionMade=="no":
 				wrongChoice.emit(thingWrong)
+				Manager.missedDetains+=1
 			else:
 				rightChoice.emit()
+				Manager.correctDetains+=1
 		else:
 			if shouldLetThrough:
 				if decisionMade=="yes":
 					if needsEarthDocument:
 						if hasEarthDocument:
 							rightChoice.emit()
+							Manager.validThough+=1;
 						else:
 							wrongChoice.emit(thingWrong)
+							Manager.crimThough+=1;
 					else:
 						rightChoice.emit()
+						Manager.validThough+=1;
 				elif decisionMade=="no":
 					wrongChoice.emit("Valid\n Individual\nRejected")
+					Manager.validAway+=1;
 				else:
 					wrongChoice.emit("Valid\n Individual\nDetained")
+					Manager.falseDetains+=1;
 			else:
 				if decisionMade=="no":
 					rightChoice.emit()
+					Manager.crimAway+=1;
 				elif decisionMade=="yes":
 					wrongChoice.emit(thingWrong)
+					Manager.crimThough+=1;
 				else:
 					wrongChoice.emit("Unlawful\nDetainment")
+					Manager.falseDetains+=1
 		await get_tree().create_timer(randi_range(2,7)).timeout
-		randomize_sprite()
-		decisionMade=""
-		move_animator.play("showUp")
+		if !done:
+			randomize_sprite()
+			decisionMade=""
+			move_animator.play("showUp")
+			await get_tree().create_timer(2.0).timeout
+			if done:
+				move_animator.play("showUp")
+				move_animator.speed_scale=0
 		
 
 
