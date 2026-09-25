@@ -8,6 +8,7 @@ extends Node2D
 @export var ecorrectDetains:=0
 @export var etimeTaken:=0.0
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var updated_values: Label = $ColorRect/Control/updatedValues
 @onready var day_label: Label = $ColorRect/Control/dayLabel
@@ -16,6 +17,7 @@ extends Node2D
 
 var totalScore:=0
 var rank:=0
+var multiploed:=false
 var etotalscore:=0
 
 func _ready() -> void:
@@ -101,36 +103,47 @@ func _ready() -> void:
 	await get_tree().create_timer(1.0).timeout
 	if totalScore<0:
 		rank=1
+	Manager.dayEarningMoney=totalScore
 	while totalScore>0:
 		totalScore-=10
 		rank+=10
 		await get_tree().create_timer(0.005).timeout
+	await get_tree().create_timer(2.0).timeout
+	animation_player.play_backwards("fdeIn")
+	await get_tree().create_timer(0.6).timeout
+	get_tree().change_scene_to_file("res://mainWorld/totalSummary.tscn")
 
 func _process(delta: float) -> void:	
 	updated_values.text="\nValid Individuals let through: "+str(evalidThough)+" +$"+str(evalidThough*100)+"\nValid Individuals sent back: "+str(evalidAway)+" -$"+str(evalidAway*150)+"\n\nInvalid Individuals let through: "+str(ecrimThough)+" -$"+str(ecrimThough*75)+"\nInvalid Individuals sent back: "+str(ecrimAway)+" +$"+str(ecrimAway*50)+"\n\nBlacklisted Individuals detained: "+str(ecorrectDetains)+" +$"+str(ecorrectDetains*250)+"\nBlacklisted Individuals missed: "+str(emissedDetains)+" -$"+str(emissedDetains*500)+"\nNon-Blacklisted Individuals detained: "+str(efalseDetains)+" -$"+str(efalseDetains*1000)
 	updated_values.text+="\n\nTime taken: "+str(int(etimeTaken/60))+":"+str(int(etimeTaken)-int(etimeTaken/60)*60).pad_zeros(2)
-	if etimeTaken<Manager.quotaRef*60:
-		updated_values.text+=" +$"+str(int(Manager.quotaRef*60-etimeTaken)*5)
-	else:
+	if etimeTaken>Manager.quotaRef*60:
 		updated_values.text+=" -$"+str(int(etimeTaken-Manager.quotaRef*60)*5)
+	else:
+		updated_values.text+=" +$"+str(int(Manager.quotaRef*60-etimeTaken)*5)
 	updated_values.text+="\nTotal Money Earned: $"+str(etotalscore)
 	
 	if rank!=0:
-		if rank<10:
-			rich_text_label.text="Grade: [color=brown]F"
-		elif rank<200:
-			rich_text_label.text="Grade: [color=blue]D"
-		elif rank<400:
-			rich_text_label.text="Grade: [color=yellow]C"
-		elif rank<800:
-			rich_text_label.text="Grade: [color=orange]B"
-		elif rank<1600:
-			rich_text_label.text="Grade: [color=red]A"
+		if evalidAway==0 && ecrimThough==0 && emissedDetains==0 && efalseDetains==0 && etimeTaken<Manager.quotaRef*60:
+			rich_text_label.text="Grade: [color=pink]P"
+			if !multiploed:
+				multiploed=true
+				Manager.dayEarningMoney*=2
+				var totalTween2=create_tween()
+				totalTween2.tween_property(self,"etotalscore",Manager.dayEarningMoney,0.5)
 		else:
-			rich_text_label.text="Grade: [color=lime]S"
+			if rank<10:
+				rich_text_label.text="Grade: [color=brown]F"
+			elif rank<500:
+				rich_text_label.text="Grade: [color=blue]D"
+			elif rank<1000:
+				rich_text_label.text="Grade: [color=yellow]C"
+			elif rank<1500:
+				rich_text_label.text="Grade: [color=orange]B"
+			elif rank<2000:
+				rich_text_label.text="Grade: [color=red]A"
+			else:
+				rich_text_label.text="Grade: [color=lime]S"
 		
-		if totalScore<=0:
-			if evalidAway==0 && ecrimThough==0 && emissedDetains==0 && efalseDetains==0 && etimeTaken<Manager.quotaRef*60:
-				rich_text_label.text="Grade: [color=pink]P"
+	
 			
 		

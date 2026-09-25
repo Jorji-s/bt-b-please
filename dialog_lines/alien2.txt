@@ -1,0 +1,5 @@
+Zho’afturneen sirgoop, arek’ta glorp‑plorblem vash’ta myn’gleepersh?                     Shpeelok gloopa’rek ta zho’guddeen?
+[CHOICE] Gloop’ta vish’famuleen. Zho’weathorglop ta‑noween. Shlorp’ta gloopa’rek? Guddeen, baddorp? Shpeelok myn’jewelogrop gloop‑guddeen. | Good | Bad | Meh
+[RESULT] Osh glorp‑guddeen ta’heer! Taka’kare sirgoop, en’gloop zho’wundorglop’deen!
+[RESULT] Osh baddorp‑ulax, shpeesh’orry ta’heer. En’wayeen, arek’ta myn’jewelogrop gloop‑guddeen?
+[RESULT] Been there man. Happens to all of us. Anyway, are my documents good?

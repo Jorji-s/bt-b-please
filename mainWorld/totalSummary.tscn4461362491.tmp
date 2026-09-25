@@ -1,21 +1,21 @@
-[gd_scene format=3 uid="uid://bn2sumu63n0i3"]
+[gd_scene format=3 uid="uid://dvsjs56e285hx"]
 
-[ext_resource type="Script" uid="uid://1l7v13y3pp34" path="res://mainWorld/post_day_summary.gd" id="1_eu6ws"]
-[ext_resource type="FontFile" uid="uid://bo1mcwmwk54y2" path="res://fonts/pixeloidSans/PixeloidSans-Bold.ttf" id="1_p4oiy"]
+[ext_resource type="Script" uid="uid://dj6rgjxa8edki" path="res://mainWorld/total_summary.gd" id="1_g6xv8"]
+[ext_resource type="FontFile" uid="uid://bo1mcwmwk54y2" path="res://fonts/pixeloidSans/PixeloidSans-Bold.ttf" id="2_y76pj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p3mhs"]
 line_spacing = 7.865
 paragraph_spacing = -4.185
-font = ExtResource("1_p4oiy")
+font = ExtResource("2_y76pj")
 font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_eu6ws"]
-font = ExtResource("1_p4oiy")
+font = ExtResource("2_y76pj")
 font_size = 76
 
-[sub_resource type="Theme" id="Theme_yupk3"]
-default_font = ExtResource("1_p4oiy")
-default_font_size = 76
+[sub_resource type="Theme" id="Theme_p3mhs"]
+default_font = ExtResource("2_y76pj")
+default_font_size = 30
 
 [sub_resource type="Animation" id="Animation_eu6ws"]
 length = 0.001
@@ -54,7 +54,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D" unique_id=2046529554]
-script = ExtResource("1_eu6ws")
+script = ExtResource("1_g6xv8")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1878821271]
 anchors_preset = 5
@@ -63,6 +63,7 @@ anchor_right = 0.5
 offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" parent="ColorRect" unique_id=1844003977]
@@ -87,18 +88,13 @@ offset_right = 597.5
 offset_bottom = 956.0
 grow_horizontal = 2
 text = "
-Valid Individuals let through: 20
-Valid Individuals sent back: 2
+Day 1/14
 
-Invalid Individuals let through: 4
- Invalid Individuals sent back: 10
+Savings Goal: $14000
 
-Blacklisted Individuals detained: 3
-Blacklisted Individuals missed: 2
-Non-blacklisted Individuals detained: 3
+Current Savings: $300
 
-Time taken: 00:00
-Total Score: 17980"
+"
 label_settings = SubResource("LabelSettings_p3mhs")
 horizontal_alignment = 1
 
@@ -115,7 +111,7 @@ offset_right = 480.0
 offset_bottom = 249.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Day 1 Summary"
+text = "Total Summary"
 label_settings = SubResource("LabelSettings_eu6ws")
 horizontal_alignment = 1
 
@@ -137,24 +133,44 @@ text = "____________________
 label_settings = SubResource("LabelSettings_eu6ws")
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/Control" unique_id=816324997]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -300.0
-offset_top = 971.0
-offset_right = 300.0
-offset_bottom = 1171.0
-grow_horizontal = 2
-theme = SubResource("Theme_yupk3")
-bbcode_enabled = true
-text = "Grade: ?"
-horizontal_alignment = 1
+[node name="Button" type="Button" parent="ColorRect/Control" unique_id=236436104]
+layout_mode = 0
+offset_left = -631.0
+offset_top = 575.0
+offset_right = 20.0
+offset_bottom = 741.0
+theme = SubResource("Theme_p3mhs")
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.83137256, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.5372549, 0, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_constants/align_to_largest_stylebox = 0
+text = "Upgrade Computer Boot Time
+Cost: $1500"
+flat = true
+
+[node name="Button2" type="Button" parent="ColorRect/Control" unique_id=1853516746]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 575.0
+offset_right = 671.0
+offset_bottom = 741.0
+theme = SubResource("Theme_p3mhs")
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.83137256, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.5372549, 0, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_constants/align_to_largest_stylebox = 0
+text = "Upgrade Printer Print Time
+Cost: $2500"
+flat = true
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1957526430]
 offset_right = 2018.0
 offset_bottom = 1115.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=259122205]
@@ -164,3 +180,5 @@ speed_scale = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1848219794]
 position = Vector2(960, 540)
+
+[connection signal="pressed" from="ColorRect/Control/Button" to="." method="_on_button_pressed"]

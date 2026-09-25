@@ -10,3 +10,7 @@ func _process(delta: float) -> void:
 		sprite_3d.look_at(player.global_position)
 		sprite_3d.rotation.x=0
 		sprite_3d.rotation.z=0
+
+
+func _on_interaction_component_interacted() -> void:
+	player.holdingPaper=false

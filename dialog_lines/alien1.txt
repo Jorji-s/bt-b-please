@@ -1,9 +1,1 @@
-This is some sample dialog.
-Hello human!
-I'm a very cool alien.
-I want to go back home to planet Florp.
-[CHOICE] Will you help me? | Yes | No | Maybe
-[RESULT] Yayy that's awesome, I appreciate it!
-[RESULT] Oh no, what am I gonna do...
-[RESULT] Uh...
-Bye.
+Zho’afturneen sirgoop, arek’ta glorp‑plorblem vash’ta myn’gleepersh?                     Shpeelok gloopa’rek ta zho’guddeen?

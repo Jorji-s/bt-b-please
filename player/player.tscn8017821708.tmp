@@ -91,47 +91,44 @@ collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="holdingPaper" type="Node3D" parent="neck" unique_id=1888186840]
-transform = Transform3D(-0.26674914, 0.5650199, 0.014913591, 0.56413895, 0.26716572, -0.0315402, -0.034888387, 2.4447218e-08, -0.6240255, -0.5019226, 0.011615515, -0.94085085)
+[node name="Node3D" type="Node3D" parent="neck/Camera3D" unique_id=1888186840]
+transform = Transform3D(-0.42679855, 0.904032, 0.023861695, 0.9026223, 0.42746502, -0.050464313, -0.055821396, 0, -0.99844086, -0.9316493, 0.011615515, -1.7918028)
 
-[node name="tripTicket" type="Sprite3D" parent="neck/holdingPaper" unique_id=88104589]
+[node name="tripTicket" type="Sprite3D" parent="neck/Camera3D/Node3D" unique_id=88104589]
 transform = Transform3D(-3.059797e-09, 0.07, 3.059797e-09, 0, -3.059797e-09, 0.07, 0.07, 3.059797e-09, 1.3374798e-16, 0, 0, -0.70903003)
 shaded = true
-no_depth_test = true
 texture = ExtResource("3_yw30f")
 region_enabled = true
 region_rect = Rect2(0, 0, 1920, 464.10577)
 
-[node name="tripTicket2" type="Sprite3D" parent="neck/holdingPaper" unique_id=227438498]
+[node name="tripTicket2" type="Sprite3D" parent="neck/Camera3D/Node3D" unique_id=227438498]
 transform = Transform3D(-3.059797e-09, 0.07, 3.059797e-09, 0, -3.059797e-09, 0.07, 0.07, 3.059797e-09, 1.3374798e-16, -0.29946786, 0, -0.70903003)
 shaded = true
-no_depth_test = true
 texture = ExtResource("3_yw30f")
 region_enabled = true
 region_rect = Rect2(0, 477.46646, 1920, 405.73624)
 
-[node name="tripTicket3" type="Sprite3D" parent="neck/holdingPaper" unique_id=2047226664]
+[node name="tripTicket3" type="Sprite3D" parent="neck/Camera3D/Node3D" unique_id=2047226664]
 transform = Transform3D(-3.059797e-09, 0.07, 3.059797e-09, 0, -3.059797e-09, 0.07, 0.07, 3.059797e-09, 1.3374798e-16, -0.5778665, 0, -0.70903003)
 shaded = true
-no_depth_test = true
 texture = ExtResource("3_yw30f")
 region_enabled = true
 region_rect = Rect2(0, 477.46646, 1920, 405.73624)
 
-[node name="tripTicket4" type="Sprite3D" parent="neck/holdingPaper" unique_id=2100090933]
+[node name="tripTicket4" type="Sprite3D" parent="neck/Camera3D/Node3D" unique_id=2100090933]
 transform = Transform3D(-3.059797e-09, 0.07, 3.059797e-09, 0, -3.059797e-09, 0.07, 0.07, 3.059797e-09, 1.3374798e-16, -0.8431082, 0, -0.70903003)
 shaded = true
-no_depth_test = true
 texture = ExtResource("3_yw30f")
 region_enabled = true
 region_rect = Rect2(0, 477.46646, 1920, 520.23596)
 
-[node name="Label3D" type="Label3D" parent="neck/holdingPaper" unique_id=800432851]
-transform = Transform3D(1.3969839e-09, 0.0952, 3.7136232e-09, 5.5783073e-11, -3.7351886e-09, 0.0952, 0.095200144, 1.3038516e-08, -4.4151457e-10, -0.529166, 0.06086397, -0.75388604)
-shaded = true
-no_depth_test = true
+[node name="Label3D" type="Label3D" parent="neck/Camera3D/Node3D" unique_id=800432851]
+transform = Transform3D(-4.161324e-09, 0.0952, 4.161324e-09, 0, -4.161324e-09, 0.0952, 0.0952, 4.161324e-09, 1.8189725e-16, -0.45501336, 0.028453112, -0.7016456)
 modulate = Color(0, 0, 0, 1)
-text = "
+text = "EARTH PASS — INTERSTELLAR ENTRY AUTHORIZATION  
+Terran Border & Hospitality Office, Sol‑III — Revision Gleep‑7
+
+Pursuant to the Galactic Wanderer Safety & Snacking Act (GWSSA‑88), Section 4, Sub‑Clause 9‑Gleep, all non‑Terran entities seeking temporary presence within the Sol System must obtain an officially sanctioned EARTH PASS.
 
 By accepting this document, the bearer acknowledges the following legally binding stipulations, codified under Terran Interplanetary Ordinance TIO‑12‑Blue:
 

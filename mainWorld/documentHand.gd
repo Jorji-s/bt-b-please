@@ -37,7 +37,8 @@ func _on_deny_print_pressed() -> void:
 
 
 func _on_click_no_area_entered(area: Area2D) -> void:
-	coption=1
+	if computer_obj.hasDocuOpen:
+		coption=1
 
 
 func _on_click_no_area_exited(area: Area2D) -> void:
@@ -45,4 +46,5 @@ func _on_click_no_area_exited(area: Area2D) -> void:
 
 
 func _on_click_yes_area_entered(area: Area2D) -> void:
-	coption=2
+	if computer_obj.hasDocuOpen:
+		coption=2

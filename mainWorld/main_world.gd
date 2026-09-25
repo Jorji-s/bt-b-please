@@ -21,6 +21,7 @@ extends Node3D
 @onready var notifications: Label = $desk/computerObj/computerHUD/bootScreen/homeScreen/messages/notifications
 @onready var computer_obj: Node3D = $desk/computerObj
 @onready var exit_interact: Area3D = $tempRoom/SouthWall2/exitInteract
+@onready var player: CharacterBody3D = $player
 
 
 
@@ -28,6 +29,7 @@ extends Node3D
 func _ready() -> void:
 	day=Manager.day
 	alien.dayNumber=day
+	curDate1=9020+day
 	if day>4:
 		beer_desk.visible=true
 	if day>6:
@@ -138,3 +140,9 @@ func _on_alien_left_counter() -> void:
 func doneDay()->void:
 	alien.done=true
 	exit_interact.global_position.y+=20
+
+
+func _on_interaction_component_interacted() -> void:
+	if player.holdingPaper:
+		player.holdingPaper=false
+		alien.hasEarthDocument=true

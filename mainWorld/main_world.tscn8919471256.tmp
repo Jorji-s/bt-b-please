@@ -54,7 +54,6 @@
 [ext_resource type="Texture2D" uid="uid://c0ivxnvnte4qs" path="res://decorAssets/duck.png" id="41_iahri"]
 [ext_resource type="Texture2D" uid="uid://bkbf6uas1at44" path="res://decorAssets/beer.png" id="41_u5bxb"]
 [ext_resource type="Script" uid="uid://dheml56a34x4o" path="res://mainWorld/printer_obj.gd" id="45_4dcx6"]
-[ext_resource type="AudioStream" uid="uid://rp7n4ou4e0nh" path="res://sounds/objectSounds/freesound_community-printer-scan-68679.mp3" id="54_kwoeb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
 albedo_color = Color(0.23753911, 0.23753914, 0.23753908, 1)
@@ -3288,13 +3287,7 @@ speed_scale = 1.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2748313, 0)
 
 [node name="Timer" type="Timer" parent="printer" unique_id=1922828740]
-wait_time = 9999.0
 one_shot = true
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="printer" unique_id=295559053]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5977764, 0.9342036, -0.5256152)
-stream = ExtResource("54_kwoeb")
-volume_db = -14.525
 
 [node name="DialogLayer" type="CanvasLayer" parent="." unique_id=1052968968]
 layer = 100

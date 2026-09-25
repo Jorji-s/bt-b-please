@@ -59,7 +59,7 @@ var alienID=0;
 @export var currentDate1:=0000
 @export var currentDate2:=0000
 
-@export var chanceOfBeingRight:=0.35 #percent chance of the alien being ok to let through, cant be bigger than 1 or less than 0, the lower the number the less chance they have of being right. Will probably change every day
+@export var chanceOfBeingRight:=0.5 #percent chance of the alien being ok to let through, cant be bigger than 1 or less than 0, the lower the number the less chance they have of being right. Will probably change every day
 @export var chanceOfNeedingDetained:=0.0 #percent chance of needing to be detained, only rolls if the person already shouldnt go through
 @onready var interaction_component: Area3D = $InteractionComponent
 var sentAway:=false
@@ -67,6 +67,7 @@ var decisionMade:=""
 var thingWrong:="Hurt my\nfeelings :("
 
 signal updateTalking(yesnt : bool)
+
 
 func _ready():
 	await get_tree().create_timer(0.1).timeout
@@ -208,6 +209,7 @@ func assignTraits(ID):
 	
 	if shouldLetThrough:
 		if destination=="Earth" && dayNumber>=5:
+			print("NEEDS EAETH PASS")
 			needsEarthDocument=true
 			thingWrong="Missing\nProper\nDocuments"
 	
@@ -237,7 +239,6 @@ func assignTraits(ID):
 		if dayNumber>=11:
 			issue=randi_range(0,9) #final gauntlet
 		
-		print(issue)
 		
 		if shouldDetain:
 			if banPlanet:
@@ -325,10 +326,11 @@ func assignTraits(ID):
 
 
 func _on_move_animator_animation_finished(anim_name: StringName) -> void:
-	print(bannedPlanets)
 	if anim_name=="showUp" && !sentAway:
 		atCounter.emit()
+		
 		interaction_component.enable()
+		interaction_component.position=Vector3(0,1.711,1.215)
 	if sentAway:
 		if shouldDetain:
 			if decisionMade=="yes" || decisionMade=="no":
@@ -368,6 +370,9 @@ func _on_move_animator_animation_finished(anim_name: StringName) -> void:
 					Manager.falseDetains+=1
 		await get_tree().create_timer(randi_range(2,7)).timeout
 		if !done:
+			hide_sprites()
+			randomize()
+			print(str(num_sprites) + " alien designs loaded.")
 			randomize_sprite()
 			decisionMade=""
 			move_animator.play("showUp")

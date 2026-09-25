@@ -1,9 +1,9 @@
 Large, black eyes and a blue, lanky body
 Orange crab-shaped body and stalk eyes
 Green and goopy, with 3 eyes
-Tall and wide, large red eyes and black body
+Tall and wide, red eyes and black body
 Tall and thin, with 1 eye and orange skin
-Yellow tentacles and body with one large eye
+Yellow tentacles and one large eye
 Large and plant-like, with a purple head
 Large, pink body and 5 eyes
 Tall and thin, with ears and white skin
@@ -11,9 +11,9 @@ Small, red, roach shaped body
 Large, black eyes and a green, lanky body
 Pink crab-shaped body and stalk eyes
 Blue and goopy, with 3 eyes
-Tall and wide, large blue eyes and white body
+Tall and wide, blue eyes and white body
 Tall and thin, with 1 eye and red skin
-Blue tentacles and body with one large eye
+Blue tentacles and one large eye
 Large and plant-like, with a yellow head
 Large, orange body and 5 eyes
 Tall and thin, with ears and yellow skin
@@ -21,9 +21,9 @@ Small, brown, roach shaped body
 Large, black eyes and a yellow, lanky body
 Green crab-shaped body and stalk eyes
 Yellow and goopy, with 3 eyes
-Tall and wide, large purple eyes and yellow body
+Tall and wide, purple eyes and yellow body
 Tall and thin, with 1 eye and blue skin
-White tentacles and body with one large eye
+White tentacles and one large eye
 Large and plant-like, with a blue head
 Large, purple body and 5 eyes
 Tall and thin, with ears and orange skin

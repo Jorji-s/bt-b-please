@@ -15,9 +15,12 @@ extends CharacterBody3D
 @export var allow_interaction=true
 @export var blurred:=false
 
+@export var holdingPaper:=false
+
 @export var bobSpeed:=10.0
 @export var bobAmount:=0.05
 @export var bobReturn:=10.0
+@onready var holding_paper: Node3D = $neck/holdingPaper
 var bobTime:=0.0
 var camStartPos:=Vector3.ZERO
 var lastHitObject=null
@@ -77,6 +80,7 @@ func _input(event: InputEvent) -> void:
 		
 		
 func _physics_process(delta: float) -> void:
+	holding_paper.visible=holdingPaper
 	if blurred:
 		var blurTween=create_tween()
 		blurTween.tween_property(camera_3d.attributes,"dof_blur_amount",0.3,0.5)
