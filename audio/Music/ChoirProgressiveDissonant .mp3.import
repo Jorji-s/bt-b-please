@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7lj5c1tmpgnk"
+path="res://.godot/imported/ChoirProgressiveDissonant .mp3-451a0bb5748efab091dc050ba03b201f.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/ChoirProgressiveDissonant .mp3"
+dest_files=["res://.godot/imported/ChoirProgressiveDissonant .mp3-451a0bb5748efab091dc050ba03b201f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
