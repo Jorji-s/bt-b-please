@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://8lbkh8w4t2un" path="res://mainWorld/button.gd" id="10_pc4xd"]
 [ext_resource type="Script" uid="uid://cxkbomuhnw08v" path="res://mainWorld/tv.gd" id="12_2b0jq"]
 [ext_resource type="PackedScene" uid="uid://bksn65he0b3gu" path="res://interaction/interaction_component.tscn" id="12_cdvnm"]
+[ext_resource type="Texture2D" uid="uid://lj07wha7apvi" path="res://decorAssets/alienkittyposter.png" id="12_ljp70"]
 [ext_resource type="Script" uid="uid://d16kkqxfwxg0f" path="res://mainWorld/document_hud.gd" id="13_4buxl"]
 [ext_resource type="FontFile" uid="uid://bo1mcwmwk54y2" path="res://fonts/pixeloidSans/PixeloidSans-Bold.ttf" id="13_8mfcu"]
 [ext_resource type="Texture2D" uid="uid://bh53bbpe5i1jw" path="res://GUI/passportmenu.png" id="13_isyps"]
@@ -365,7 +366,7 @@ _data = {
 height = 2.2519531
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc4xd"]
-albedo_color = Color(0.7019608, 1, 1, 1)
+albedo_texture = ExtResource("12_ljp70")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yupk3"]
 material = SubResource("StandardMaterial3D_pc4xd")
@@ -1653,25 +1654,8 @@ shape = SubResource("CylinderShape3D_yupk3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7831004, -5.875281)
 
 [node name="stickNote" type="MeshInstance3D" parent="tempRoom/poster1" unique_id=1981213603]
-transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0.42616272, 0.59212136, 2.342939)
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0.42616272, 0.16353679, 2.342939)
 mesh = SubResource("PlaneMesh_yupk3")
-
-[node name="Label3D" type="Label3D" parent="tempRoom/poster1/stickNote" unique_id=1626167250]
-transform = Transform3D(1, 0, 0, 0, -4.4703484e-08, 1, 0, -1, -4.4703484e-08, 0, 0.0003080368, 4.696846e-05)
-modulate = Color(0, 0, 0, 1)
-outline_modulate = Color(0, 0, 0, 0)
-text = "POSTER
-ABOUT
-SMTH
-IDUNNO
-IM
-GONNA
-FIGURE
-IT
-OUT
-LATER"
-font = ExtResource("8_0hpoc")
-font_size = 64
 
 [node name="poster3" type="Node3D" parent="tempRoom" unique_id=817254512]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.824092, 2.7831004, -1.4022778)

@@ -95,6 +95,7 @@ func _process(delta: float) -> void:
 	
 	if compOn && !onMainScreen:
 		if progress_bar.size.x<maxBarSize:
+			Input.warp_mouse(Vector2.ZERO)
 			await get_tree().create_timer(randf_range(0.25,0.5)).timeout
 			if progress_bar.size.x<maxBarSize:
 				if progress_bar.size.x>maxBarSize*0.25 && maxBarSize*0.8>progress_bar.size.x:
