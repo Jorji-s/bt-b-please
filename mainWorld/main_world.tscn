@@ -4,12 +4,16 @@
 [ext_resource type="Script" uid="uid://d0e7a1cfirpev" path="res://mainWorld/main_world.gd" id="1_cso50"]
 [ext_resource type="Texture2D" uid="uid://natr2fws1r6w" path="res://decorAssets/exitdoor.png" id="2_6o1xe"]
 [ext_resource type="Script" uid="uid://ih1q7egw03rp" path="res://mainWorld/south_wall_2.gd" id="2_ce8pv"]
+[ext_resource type="Texture2D" uid="uid://kpl3qwc3v5ch" path="res://decorAssets/spr_floor.png" id="2_ekunv"]
 [ext_resource type="PackedScene" uid="uid://bfpqmt6gop8pd" path="res://mainWorld/alien.tscn" id="3_2pkn0"]
+[ext_resource type="Texture2D" uid="uid://n73j44dvtngd" path="res://decorAssets/spr_wall.png" id="3_ok1w3"]
 [ext_resource type="Texture2D" uid="uid://d3kdp3t6ul116" path="res://icon.svg" id="3_suj5o"]
 [ext_resource type="Script" uid="uid://dqrwc4asj05j0" path="res://mainWorld/counter_top.gd" id="3_tklsj"]
 [ext_resource type="Texture2D" uid="uid://cmcqbxknr85p3" path="res://GUI/passportAsset2.png" id="4_2b0jq"]
 [ext_resource type="Texture2D" uid="uid://bq0vce4j3tb2k" path="res://GUI/ticketAsset.png" id="4_fwici"]
 [ext_resource type="Texture2D" uid="uid://dyhtxki58xp0y" path="res://aliens/alienGuy.png" id="4_oguhb"]
+[ext_resource type="Texture2D" uid="uid://diomn7mpr1hda" path="res://decorAssets/fuse.png" id="4_os2us"]
+[ext_resource type="Texture2D" uid="uid://dxsvk4ccyi0pb" path="res://decorAssets/spr_ceilTile.png" id="4_siy3m"]
 [ext_resource type="Shader" uid="uid://b3bmm50e2txu5" path="res://SkyStar.gdshader" id="5_2pkn0"]
 [ext_resource type="Shader" uid="uid://c6ibdkvw1wv8h" path="res://mainWorld/postProcessPixelation.gdshader" id="5_cn18u"]
 [ext_resource type="Script" uid="uid://bq3ooaqg1151w" path="res://mainWorld/plant.gd" id="7_mnyur"]
@@ -28,8 +32,10 @@
 [ext_resource type="Texture2D" uid="uid://lj07wha7apvi" path="res://decorAssets/alienkittyposter.png" id="12_ljp70"]
 [ext_resource type="Script" uid="uid://d16kkqxfwxg0f" path="res://mainWorld/document_hud.gd" id="13_4buxl"]
 [ext_resource type="FontFile" uid="uid://bo1mcwmwk54y2" path="res://fonts/pixeloidSans/PixeloidSans-Bold.ttf" id="13_8mfcu"]
+[ext_resource type="Texture2D" uid="uid://bjtb3tdomj8fa" path="res://decorAssets/coffeposter.png" id="13_56amd"]
 [ext_resource type="Texture2D" uid="uid://bh53bbpe5i1jw" path="res://GUI/passportmenu.png" id="13_isyps"]
 [ext_resource type="PackedScene" uid="uid://cyxcoytpp1ojj" path="res://dialog/dialog_ui.tscn" id="13_pc4xd"]
+[ext_resource type="Texture2D" uid="uid://ov2vpcdl7iwt" path="res://decorAssets/GLEEPGLORPPOSTER.png" id="14_ekunv"]
 [ext_resource type="FontFile" uid="uid://cklety1ec87is" path="res://fonts/RoinertPixels-Regular.ttf" id="14_o56fp"]
 [ext_resource type="Texture2D" uid="uid://dmo5s3eer3efk" path="res://GUI/ticketmenu.png" id="16_a30ig"]
 [ext_resource type="FontFile" uid="uid://drqqqt30cx1gj" path="res://fonts/pixeloidSans/PixeloidSans-Bold.otf" id="18_8mfcu"]
@@ -48,9 +54,11 @@
 [ext_resource type="Texture2D" uid="uid://c2jc3fj0tl2un" path="res://GUI/document.png" id="31_t0hcu"]
 [ext_resource type="Script" uid="uid://6d1oxt20r4l1" path="res://mainWorld/documentHand.gd" id="32_pf7i5"]
 [ext_resource type="Script" uid="uid://cn8a28j611vyp" path="res://mainWorld/printer.gd" id="37_7fyfl"]
+[ext_resource type="Texture2D" uid="uid://cbix03wu6heay" path="res://decorAssets/spr_ceilLight.png" id="37_umhf6"]
 [ext_resource type="Script" uid="uid://cn7g23ucmbt2j" path="res://mainWorld/cofee_mug.gd" id="38_0ma3e"]
 [ext_resource type="Texture2D" uid="uid://b7lrmyx04rws6" path="res://decorAssets/mug.png" id="38_fm20r"]
 [ext_resource type="Texture2D" uid="uid://rkiyfkdqblmv" path="res://decorAssets/plant.png" id="40_0ma3e"]
+[ext_resource type="Texture2D" uid="uid://cmbopa165cu0o" path="res://player/Idle (32x32).png" id="40_sksdw"]
 [ext_resource type="Texture2D" uid="uid://e6wv7t35g7tn" path="res://decorAssets/papers.png" id="41_cdtn7"]
 [ext_resource type="Texture2D" uid="uid://c0ivxnvnte4qs" path="res://decorAssets/duck.png" id="41_iahri"]
 [ext_resource type="Texture2D" uid="uid://bkbf6uas1at44" path="res://decorAssets/beer.png" id="41_u5bxb"]
@@ -58,17 +66,23 @@
 [ext_resource type="AudioStream" uid="uid://rp7n4ou4e0nh" path="res://sounds/objectSounds/freesound_community-printer-scan-68679.mp3" id="54_kwoeb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
-albedo_color = Color(0.23753911, 0.23753914, 0.23753908, 1)
+albedo_texture = ExtResource("2_ekunv")
+uv1_scale = Vector3(10, 10, 10)
+uv2_scale = Vector3(5, 5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cn18u"]
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekunv"]
+albedo_texture = ExtResource("3_ok1w3")
+uv1_scale = Vector3(4.79, 13, 13)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isyps"]
-albedo_color = Color(0.4390491, 0.43904912, 0.43904912, 1)
+albedo_color = Color(0.8392157, 0.94509804, 0.9490196, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o56fp"]
-albedo_color = Color(0.52156866, 0, 0, 1)
+albedo_color = Color(0.8057856, 0.7428752, 1, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4buxl"]
 material = SubResource("StandardMaterial3D_o56fp")
@@ -83,7 +97,7 @@ bottom_radius = 0.11669922
 height = 1.2314758
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3mhs"]
-albedo_color = Color(0.52040946, 0.5204096, 1.92523e-07, 1)
+albedo_color = Color(0.7464083, 0.9926842, 0.9999998, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yupk3"]
 material = SubResource("StandardMaterial3D_p3mhs")
@@ -93,6 +107,12 @@ height = 3.2597656
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pkn0"]
 albedo_color = Color(0.6337567, 0.6337568, 0.6337567, 1)
+albedo_texture = ExtResource("4_siy3m")
+uv1_scale = Vector3(17.8, 17.8, 17.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umhf6"]
+albedo_texture = ExtResource("3_ok1w3")
+uv1_scale = Vector3(5.31, 7.39, 6.89)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6o1xe"]
 albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
@@ -137,6 +157,10 @@ _data = {
 &"RESET": SubResource("Animation_6o1xe"),
 &"openDoor": SubResource("Animation_ce8pv")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_os2us"]
+albedo_texture = ExtResource("3_ok1w3")
+uv1_scale = Vector3(4.71, 69.32, 69.32)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oguhb"]
 albedo_color = Color(0.36971408, 0.16448101, 0, 1)
@@ -372,12 +396,18 @@ albedo_texture = ExtResource("12_ljp70")
 material = SubResource("StandardMaterial3D_pc4xd")
 size = Vector2(2, 3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ok1w3"]
+albedo_texture = ExtResource("13_56amd")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tklsj"]
 albedo_color = Color(0.7019608, 0.6509804, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2b0jq"]
 material = SubResource("StandardMaterial3D_tklsj")
 size = Vector2(2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_siy3m"]
+albedo_texture = ExtResource("14_ekunv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwici"]
 albedo_color = Color(0.7019608, 1, 0.5176471, 1)
@@ -629,10 +659,10 @@ _data = {
 &"showTicket": SubResource("Animation_wimhl")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oguhb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_os2us"]
 shader = ExtResource("5_cn18u")
 shader_parameter/size = Vector2(32, 28)
-shader_parameter/pixel_scale = 0.2
+shader_parameter/pixel_scale = 0.125
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvqpt"]
 albedo_color = Color(0.18000486, 0.18000486, 0.18000486, 1)
@@ -960,12 +990,19 @@ _data = {
 size = Vector3(0.607666, 0.6196289, 0.23950195)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkpag"]
+shading_mode = 0
 albedo_color = Color(1, 1, 0.9098039, 1)
-emission_enabled = true
-emission = Color(1, 1, 0.9098039, 1)
+albedo_texture = ExtResource("37_umhf6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sksdw"]
+albedo_color = Color(1, 1, 0.9098039, 1)
+albedo_texture = ExtResource("37_umhf6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dc4vm"]
 albedo_color = Color(0.65725046, 0.36867046, 2.8878452e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htt7w"]
+albedo_color = Color(0.23584792, 0.117607184, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p3mhs"]
 line_spacing = -4.225
@@ -1328,9 +1365,9 @@ script = ExtResource("1_cso50")
 [node name="tempRoom" type="Node3D" parent="." unique_id=1931434415]
 
 [node name="tempFloor" type="CSGBox3D" parent="tempRoom" unique_id=1874531789]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28087494, -3.925415)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8217095, -0.28087494, -3.5059834)
 use_collision = true
-size = Vector3(100, 1, 13.437256)
+size = Vector3(13.317017, 1, 13.437256)
 material = SubResource("StandardMaterial3D_y6a8i")
 
 [node name="tempFloor2" type="CSGBox3D" parent="tempRoom" unique_id=1009557694]
@@ -1343,6 +1380,7 @@ material = SubResource("StandardMaterial3D_cn18u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0099945, 2.8996105, -3.785595)
 use_collision = true
 size = Vector3(1, 6.7991858, 13.504555)
+material = SubResource("StandardMaterial3D_ekunv")
 
 [node name="FUSEbOX" type="CSGBox3D" parent="tempRoom" unique_id=2086164446]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3725686, 2.571105, -6.771892)
@@ -1366,11 +1404,12 @@ mesh = SubResource("CylinderMesh_suj5o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3721333, -0.34305716)
 mesh = SubResource("CylinderMesh_yupk3")
 
-[node name="Label3D" type="Label3D" parent="tempRoom/FUSEbOX" unique_id=2055098936]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.25467968, 0, 0)
-text = "Fuse
-Box
-(Useless)"
+[node name="Sprite3D" type="Sprite3D" parent="tempRoom/FUSEbOX" unique_id=1506484720]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -0.25419283, -0.08243942, 0)
+shaded = true
+texture = ExtResource("4_os2us")
+region_enabled = true
+region_rect = Rect2(0, 54.2369, 600, 796.4201)
 
 [node name="hallwayCeiling" type="CSGBox3D" parent="tempRoom" unique_id=1822689936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22468185, 6.373057, -13.801619)
@@ -1379,15 +1418,21 @@ size = Vector3(88.31421, 0.61630034, 6.933693)
 material = SubResource("StandardMaterial3D_cn18u")
 
 [node name="hallwayCeiling2" type="CSGBox3D" parent="tempRoom" unique_id=629978875]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9277344, 6.373057, -3.7740793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2786165, 6.373057, -3.43854)
 use_collision = true
-size = Vector3(16.634827, 0.61630034, 13.54891)
+size = Vector3(17, 0.616, 17)
 material = SubResource("StandardMaterial3D_2pkn0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="tempRoom/hallwayCeiling2" unique_id=1075756111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2933961, 0, 7.7311687)
+operation = 2
+size = Vector3(21.835083, 1, 2.5760498)
 
 [node name="WestWall" type="CSGBox3D" parent="tempRoom" unique_id=1259893795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.680297, 2.8996105, -3.749321)
 use_collision = true
 size = Vector3(1, 6.7991858, 13.515396)
+material = SubResource("StandardMaterial3D_ekunv")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="tempRoom" unique_id=1963976928]
 use_collision = true
@@ -1396,17 +1441,20 @@ use_collision = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.3557901, 2.8996105, 2.8530273)
 use_collision = true
 size = Vector3(0.2876587, 6.7991858, 19.503235)
+material = SubResource("StandardMaterial3D_ekunv")
 
 [node name="SouthWall2" type="CSGBox3D" parent="tempRoom/CSGCombiner3D" unique_id=2110089613]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.345908, 3.5104084, 3.880646)
 operation = 2
 use_collision = true
 size = Vector3(2.343, 3.664, 3.89)
+material = SubResource("StandardMaterial3D_ekunv")
 
 [node name="SouthWall2" type="CSGBox3D" parent="tempRoom" unique_id=59571012]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5151808, 2.8996105, -0.2651794)
 use_collision = true
 size = Vector3(6.508812, 6.7991858, 7.9614916)
+material = SubResource("StandardMaterial3D_umhf6")
 script = ExtResource("2_ce8pv")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="tempRoom/SouthWall2" unique_id=259708346]
@@ -1488,12 +1536,14 @@ use_collision = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.8128643, 2.8926847, -10.343408)
 use_collision = true
 size = Vector3(0.19251709, 6.7854013, 83.782616)
+material = SubResource("StandardMaterial3D_os2us")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="tempRoom/North Wall" unique_id=826029441]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.7, 3.011, -10.608463)
 operation = 2
 use_collision = true
 size = Vector3(0.83607423, 2.555, 4.852)
+material = SubResource("StandardMaterial3D_ekunv")
 
 [node name="counterTop" type="CSGBox3D" parent="tempRoom/North Wall" unique_id=1106626385]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.70380306, 1.6712942, -10.35441)
@@ -1662,46 +1712,16 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.8
 
 [node name="stickNote" type="MeshInstance3D" parent="tempRoom/poster3" unique_id=890943571]
 transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0.42616272, 0.59212136, 2.342939)
+material_override = SubResource("StandardMaterial3D_ok1w3")
 mesh = SubResource("PlaneMesh_2b0jq")
-
-[node name="Label3D" type="Label3D" parent="tempRoom/poster3/stickNote" unique_id=931367008]
-transform = Transform3D(1, 0, 0, 0, -4.4703484e-08, 1, 0, -1, -4.4703484e-08, 0, 0.0003080368, 4.696846e-05)
-modulate = Color(0, 0, 0, 1)
-outline_modulate = Color(0, 0, 0, 0)
-text = "yOU
-wont believe
-it
-but I also
-dont know
-what to do
-with this
-poster
-as well
-Crazy"
-font = ExtResource("8_0hpoc")
-font_size = 64
 
 [node name="poster2" type="Node3D" parent="tempRoom" unique_id=1707099446]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.313924, 2.4833722, -5.875281)
 
 [node name="stickNote" type="MeshInstance3D" parent="tempRoom/poster2" unique_id=837906389]
-transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0.42616272, 0.59212136, 2.342939)
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0.42616272, 0.7515881, 2.342939)
+material_override = SubResource("StandardMaterial3D_siy3m")
 mesh = SubResource("PlaneMesh_tklsj")
-
-[node name="Label3D" type="Label3D" parent="tempRoom/poster2/stickNote" unique_id=374911920]
-transform = Transform3D(1, 0, 0, 0, -4.4703484e-08, 1, 0, -1, -4.4703484e-08, 0, 0.0003080368, 4.696846e-05)
-modulate = Color(0, 0, 0, 1)
-outline_modulate = Color(0, 0, 0, 0)
-text = "poster
-2
-I DUNNO
-WHAT
-GOES
-HERE
-EITHER
-BH"
-font = ExtResource("8_0hpoc")
-font_size = 64
 
 [node name="waterCooler" type="Node3D" parent="tempRoom" unique_id=916951152]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.464869, 0.42486072, -3.5600553)
@@ -1964,7 +1984,7 @@ libraries/ = SubResource("AnimationLibrary_wimhl")
 speed_scale = 1.35
 
 [node name="pixelinator" type="ColorRect" parent="Control" unique_id=531488582]
-material = SubResource("ShaderMaterial_oguhb")
+material = SubResource("ShaderMaterial_os2us")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2118,16 +2138,17 @@ shape = SubResource("BoxShape3D_yupk3")
 [node name="lightContainer" type="Node3D" parent="." unique_id=1054914849]
 
 [node name="light1" type="CSGBox3D" parent="lightContainer" unique_id=814916728]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.345908, 6.5283513, -0.2007395)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.342677, 6.5283513, -0.21526586)
+size = Vector3(0.9230957, 1, 1.8793945)
 material = SubResource("StandardMaterial3D_tkpag")
 script = ExtResource("8_qvqpt")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="lightContainer/light1" unique_id=1150511181]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.313693, 0.05075121)
+[node name="SpotLight3D2" type="SpotLight3D" parent="lightContainer/light1" unique_id=1150511181]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.3966594, 0.05075121)
 light_color = Color(1, 1, 0.9098039, 1)
-light_energy = 1.743
+light_energy = 2.176
 light_indirect_energy = 0.0
-spot_range = 7.836
+spot_range = 8.573
 spot_angle = 180.0
 spot_angle_attenuation = 0.93303066
 
@@ -2135,41 +2156,58 @@ spot_angle_attenuation = 0.93303066
 one_shot = true
 autostart = true
 
-[node name="light2" type="CSGBox3D" parent="lightContainer" unique_id=1083175524]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.345908, 6.5283513, -7.184812)
+[node name="light4" type="CSGBox3D" parent="lightContainer" unique_id=1556756243]
+transform = Transform3D(-4.3667676e-08, 0, 0.999, 0, 0.999, 0, -0.999, 0, -4.3667676e-08, -4.342677, 6.5283513, -0.21526586)
+size = Vector3(0.9230957, 1, 1.8793945)
+material = SubResource("StandardMaterial3D_sksdw")
+
+[node name="light2" type="CSGBox3D" parent="lightContainer" unique_id=2100811824]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.342677, 6.5283513, -6.893324)
+size = Vector3(0.9230957, 1, 1.8793945)
 material = SubResource("StandardMaterial3D_tkpag")
 script = ExtResource("8_qvqpt")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="lightContainer/light2" unique_id=824990064]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.313693, 0.05075121)
+[node name="SpotLight3D2" type="SpotLight3D" parent="lightContainer/light2" unique_id=1125748634]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.3966594, 0.05075121)
 light_color = Color(1, 1, 0.9098039, 1)
-light_energy = 1.743
+light_energy = 2.176
 light_indirect_energy = 0.0
-spot_range = 7.836
+spot_range = 8.573
 spot_angle = 180.0
 spot_angle_attenuation = 0.93303066
 
-[node name="Timer" type="Timer" parent="lightContainer/light2" unique_id=1917080208]
+[node name="Timer" type="Timer" parent="lightContainer/light2" unique_id=1470182878]
 one_shot = true
 autostart = true
 
-[node name="light3" type="CSGBox3D" parent="lightContainer" unique_id=791223789]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.7998556, 6.5283513, -7.184812)
+[node name="light5" type="CSGBox3D" parent="lightContainer" unique_id=1161300860]
+transform = Transform3D(-4.3667676e-08, 0, 0.999, 0, 0.999, 0, -0.999, 0, -4.3667676e-08, -4.342677, 6.5283513, -6.893324)
+size = Vector3(0.9230957, 1, 1.8793945)
+material = SubResource("StandardMaterial3D_sksdw")
+
+[node name="light3" type="CSGBox3D" parent="lightContainer" unique_id=1723270709]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.3867192, 6.5283513, -6.893324)
+size = Vector3(0.9230957, 1, 1.8793945)
 material = SubResource("StandardMaterial3D_tkpag")
 script = ExtResource("8_qvqpt")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="lightContainer/light3" unique_id=1014819112]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.313693, 0.05075121)
+[node name="SpotLight3D2" type="SpotLight3D" parent="lightContainer/light3" unique_id=1578223966]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.3966594, 0.05075121)
 light_color = Color(1, 1, 0.9098039, 1)
-light_energy = 1.743
+light_energy = 2.176
 light_indirect_energy = 0.0
-spot_range = 7.836
+spot_range = 8.573
 spot_angle = 180.0
 spot_angle_attenuation = 0.93303066
 
-[node name="Timer" type="Timer" parent="lightContainer/light3" unique_id=941924012]
+[node name="Timer" type="Timer" parent="lightContainer/light3" unique_id=718379652]
 one_shot = true
 autostart = true
+
+[node name="light6" type="CSGBox3D" parent="lightContainer" unique_id=1715990228]
+transform = Transform3D(-4.3667676e-08, 0, 0.999, 0, 0.999, 0, -0.999, 0, -4.3667676e-08, 1.3867192, 6.5283513, -6.893324)
+size = Vector3(0.9230957, 1, 1.8793945)
+material = SubResource("StandardMaterial3D_sksdw")
 
 [node name="desk" type="Node3D" parent="." unique_id=120547845]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.715246, 0.2164371, -6.82781)
@@ -2186,6 +2224,13 @@ use_collision = true
 size = Vector3(0.21435547, 1.4210205, 1)
 material = SubResource("StandardMaterial3D_dc4vm")
 
+[node name="Sprite3D" type="Sprite3D" parent="desk/CSGBox3D4" unique_id=2863016]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.10858679, 0.04959625, -0.039648533)
+shaded = true
+texture = ExtResource("40_sksdw")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="desk" unique_id=228753367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7868862, 1.430886, -2.8861337)
 use_collision = true
@@ -2197,6 +2242,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.159318, 1.430886, -1.363997
 use_collision = true
 size = Vector3(1.3441796, 0.172, 4.1894417)
 material = SubResource("StandardMaterial3D_dc4vm")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="desk" unique_id=1495145447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6557927, 0.55645204, -1.5510058)
+use_collision = true
+size = Vector3(0.33712888, 1.5449531, 3.815424)
+material = SubResource("StandardMaterial3D_htt7w")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="desk" unique_id=14023109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9775162, 0.55645204, -3.2824502)
+use_collision = true
+size = Vector3(2.980576, 1.5449531, 0.3525362)
+material = SubResource("StandardMaterial3D_htt7w")
 
 [node name="computerObj" type="Node3D" parent="desk" unique_id=750809125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2836776, 1.5882263, -1.5857844)
@@ -3195,6 +3252,7 @@ script = ExtResource("38_0ma3e")
 
 [node name="Sprite3D" type="Sprite3D" parent="desk/papers1" unique_id=886522110]
 transform = Transform3D(0.3, 0, 0, 0, 0.288, 0, 0, 0, 0.289, 0, 0.49487382, 0)
+modulate = Color(0.46618086, 0.4661808, 0.4661808, 1)
 shaded = true
 texture = ExtResource("41_cdtn7")
 

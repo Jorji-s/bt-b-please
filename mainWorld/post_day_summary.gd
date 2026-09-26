@@ -133,16 +133,18 @@ func _process(delta: float) -> void:
 		else:
 			if rank<10:
 				rich_text_label.text="Grade: [color=brown]F"
-			elif rank<500:
-				rich_text_label.text="Grade: [color=blue]D"
 			elif rank<1000:
-				rich_text_label.text="Grade: [color=yellow]C"
-			elif rank<1500:
-				rich_text_label.text="Grade: [color=orange]B"
+				rich_text_label.text="Grade: [color=blue]D"
 			elif rank<2000:
+				rich_text_label.text="Grade: [color=yellow]C"
+			elif rank<3000:
+				rich_text_label.text="Grade: [color=orange]B"
+			elif rank<4000:
 				rich_text_label.text="Grade: [color=red]A"
-			else:
+			elif rank<10000:
 				rich_text_label.text="Grade: [color=lime]S"
+			else:
+				rich_text_label.text="Grade: [color=purple]W"
 		
 	
 			

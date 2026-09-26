@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform vec2 size = vec2(32.0, 28.0);     // base pixel grid size
-uniform float pixel_scale = 0.2;          // multiplier for pixel size
+uniform float pixel_scale = 0.125;          // multiplier for pixel size
 
 uniform sampler2D screen_texture : hint_screen_texture;
 

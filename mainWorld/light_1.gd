@@ -1,10 +1,11 @@
 extends CSGBox3D
 @onready var timer: Timer = $Timer
 var flicks=0;
+@onready var spot_light_3d_2: SpotLight3D = $SpotLight3D2
 
 func _ready() -> void:
 	if Manager.day>13:
-		timer.start(randf_range(1,10))
+		timer.start(randf_range(1,30))
 	elif Manager.day>8:
 		timer.start(randf_range(60,120))
 	else:
@@ -12,7 +13,7 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	if Manager.day>13:
-		flicks=randi_range(4,10)
+		flicks=randi_range(2,5)
 	elif Manager.day>8:
 		flicks=randi_range(1,6)
 	else:
