@@ -164,11 +164,12 @@ func hide_sprites():
 # Right now all this does is initiates some sample dialog
 # Temporary
 func _on_interaction_component_interacted() -> void:
+	diag_start.play()
+	await get_tree().create_timer(0.05).timeout
 	if !hasEarthDocument:
 		interaction_component.position.y+=20
 		talking=true
 		updateTalking.emit(true)
-		diag_start.play()
 		DialogManager.start_dialog(load_lines("res://dialog_lines/alien1.txt"))
 
 # Loads lines from file
