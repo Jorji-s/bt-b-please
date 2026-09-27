@@ -14,7 +14,7 @@ extends Node
 @export var printerSpeedUpgrades:=1 #actually was supposed to be computer load upgrade
 
 @export var printerPrintSpeed:=1
-@export var dayEarningMoney:=0
+
 @export var totalMoney:=0
 
 
@@ -41,7 +41,6 @@ func save_game() -> void:
 	cfg.set_value("stats", "printerSpeedUpgrades", printerSpeedUpgrades)
 	cfg.set_value("stats", "printerPrintSpeed", printerPrintSpeed)
 	cfg.set_value("stats", "totalMoney", totalMoney)
-	cfg.set_value("stats", "dayEarningMoney", dayEarningMoney)
 
 	cfg.save(SAVE_PATH)
 
@@ -67,6 +66,5 @@ func load_game() -> void:
 	printerSpeedUpgrades = cfg.get_value("stats", "printerSpeedUpgrades", printerSpeedUpgrades)
 	printerPrintSpeed = cfg.get_value("stats", "printerPrintSpeed", printerPrintSpeed)
 	totalMoney = cfg.get_value("stats", "totalMoney", totalMoney)
-	dayEarningMoney = cfg.get_value("stats", "dayEarningMoney", dayEarningMoney)
 
 	print("Save loaded successfully.")
