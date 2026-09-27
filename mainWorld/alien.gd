@@ -286,12 +286,12 @@ func assignTraits(ID):
 				if ID!=0:
 					tickDesc=descList[randi_range(0,ID-1)]
 				else:
-					tickDesc=descList[randi_range(1,9)]
+					tickDesc=descList[randi_range(1,29)]
 			else:
-				if ID!=10:
-					physDesc=descList[randi_range(ID+1,9)]
+				if ID!=29:
+					physDesc=descList[randi_range(ID+1,28)]
 				else:
-					physDesc=descList[randi_range(0,8)]
+					physDesc=descList[randi_range(0,28)]
 		if issue==4:
 			thingWrong="Expired\nPassport"
 			passExpirDate=str(randi_range(1000,9999))+"-"+str(randi_range(1000,currentDate2-1))
