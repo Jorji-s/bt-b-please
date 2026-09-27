@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dos7e2rc01ogl" path="res://GUI/newGame.png" id="5_l30j4"]
 [ext_resource type="Texture2D" uid="uid://cf3nj2mf5741r" path="res://GUI/credits.png" id="6_d0iaf"]
 [ext_resource type="Texture2D" uid="uid://dvlgdxuvlcl3d" path="res://GUI/exit.png" id="7_1l422"]
-[ext_resource type="FontFile" uid="uid://d2v6o2skfrsrv" path="res://fonts/pixeloidSans/PixeloidSans.ttf" id="7_73ey7"]
 [ext_resource type="FontFile" uid="uid://bo1mcwmwk54y2" path="res://fonts/pixeloidSans/PixeloidSans-Bold.ttf" id="9_d0iaf"]
 [ext_resource type="AudioStream" uid="uid://b4suapv1520p5" path="res://audio/Music/SpaceGangster.mp3" id="10_1l422"]
 
@@ -39,9 +38,6 @@ shader_parameter/pixel_scale = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yupk3"]
 size = Vector2(540, 85)
-
-[sub_resource type="LabelSettings" id="LabelSettings_p3mhs"]
-font = ExtResource("7_73ey7")
 
 [sub_resource type="Animation" id="Animation_xmj0t"]
 length = 0.001
@@ -283,15 +279,6 @@ texture = ExtResource("5_l30j4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control2/Node2D/gameButton/newGame" unique_id=2084464552]
 shape = SubResource("RectangleShape2D_yupk3")
-
-[node name="Label" type="Label" parent="Control2/Node2D/gameButton" unique_id=1205414089]
-visible = false
-offset_left = -51.0
-offset_top = 44.0
-offset_right = 2.0
-offset_bottom = 67.0
-text = "Day  1   $1000 dollars"
-label_settings = SubResource("LabelSettings_p3mhs")
 
 [node name="creditButton" type="Sprite2D" parent="Control2/Node2D" unique_id=922861147]
 modulate = Color(0.7666197, 0.7666195, 0.7666197, 1)
