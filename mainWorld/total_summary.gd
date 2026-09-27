@@ -75,6 +75,7 @@ func _on_button_3_pressed() -> void:
 	await get_tree().create_timer(0.6).timeout
 	Manager.day+=1
 	if Manager.day!=15:
+		Manager.save_game()
 		get_tree().change_scene_to_file("res://mainWorld/main_world.tscn")
 	else:
 		if Manager.totalMoney>=50000:

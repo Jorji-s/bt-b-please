@@ -19,7 +19,10 @@ func _process(delta: float) -> void:
 			changing=true
 			animation_player.play_backwards("fade")
 			await get_tree().create_timer(0.6).timeout
-			get_tree().change_scene_to_file("res://openingCutscene.tscn")
+			if Manager.day==1:
+				get_tree().change_scene_to_file("res://openingCutscene.tscn")
+			else:
+				get_tree().change_scene_to_file("res://mainWorld/main_world.tscn")
 		if hoved==2 && !changing:
 			if !playingCredits:
 				playingCredits=true
