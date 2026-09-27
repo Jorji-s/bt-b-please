@@ -143,9 +143,9 @@ func _on_alien_left_counter() -> void:
 		doneDay()
 	
 func doneDay()->void:
+	alien.done=true
 	await get_tree().create_timer(6.0).timeout
 	day_done_player.play()
-	alien.done=true
 	exit_interact.global_position.y+=20
 
 
