@@ -1,5 +1,7 @@
 extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+var level=preload("res://mainWorld/main_world.tscn")
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("Interact"):
