@@ -8,6 +8,8 @@ signal atCounter
 signal leftCounter
 signal wrongChoice(reason : String)
 signal rightChoice
+@onready var diag_start: AudioStreamPlayer3D = $diagStart
+@onready var diag_end: AudioStreamPlayer3D = $diagEnd
 
 @export var done:=false
 
@@ -110,6 +112,7 @@ func _ready():
 		increment2+=1
 	
 	
+		
 	
 
 	
@@ -129,7 +132,10 @@ func _ready():
 	
 	
 	
-	
+	if dayNumber==1:
+		move_animator.speed_scale=0
+		await get_tree().create_timer(randi_range(20,30)).timeout
+	move_animator.speed_scale=1
 	hide_sprites()
 	randomize()
 	print(str(num_sprites) + " alien designs loaded.")
@@ -161,6 +167,7 @@ func _on_interaction_component_interacted() -> void:
 	interaction_component.position.y+=20
 	talking=true
 	updateTalking.emit(true)
+	diag_start.play()
 	DialogManager.start_dialog(load_lines("res://dialog_lines/alien1.txt"))
 
 # Loads lines from file

@@ -5,6 +5,7 @@ extends CSGBox3D
 @onready var looker: Marker3D = $looker
 @onready var final_mover: Marker3D = $finalMover
 @onready var exit_interact: Area3D = $exitInteract
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $Node3D/AudioStreamPlayer3D
 
 func _ready() -> void:
 	marker_3d.global_position.y=player.global_position.y
@@ -16,6 +17,7 @@ func _on_interaction_component_interacted() -> void:
 	var moveTween=create_tween()
 	moveTween.tween_property(player,"global_position",marker_3d.global_position,0.5).set_ease(Tween.EASE_IN_OUT)
 	await moveTween.finished
+	audio_stream_player_3d.play()
 	door_anima.play("openDoor")
 	player.betterLookAt(looker.global_position)
 	await get_tree().create_timer(0.7).timeout

@@ -32,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://b0ibufrppw3dl" path="res://aliens/aliens/alien8c.png" id="29_ur8xm"]
 [ext_resource type="Texture2D" uid="uid://cvwrrm7m32wxi" path="res://aliens/aliens/alien9c.png" id="30_g54mf"]
 [ext_resource type="Texture2D" uid="uid://b5pae4viojy07" path="res://aliens/aliens/alien10c.png" id="31_pms2o"]
+[ext_resource type="AudioStream" uid="uid://c4nhjyat1f8ir" path="res://audio/feedback/Alien/DialogueEnd.mp3" id="33_rqirb"]
+[ext_resource type="AudioStream" uid="uid://dfw76papesn0q" path="res://audio/feedback/Alien/DialogueStart.mp3" id="34_s1vk7"]
 
 [sub_resource type="Animation" id="Animation_j3v63"]
 length = 0.001
@@ -464,6 +466,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042583942, 0, -0.67545223)
 [node name="traitDisplayer" type="Label3D" parent="." unique_id=381937130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.332472, 1.7658873)
 visible = false
+
+[node name="diagStart" type="AudioStreamPlayer3D" parent="." unique_id=110429210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2170029, 0.4095888)
+stream = ExtResource("33_rqirb")
+volume_db = -12.0
+
+[node name="diagEnd" type="AudioStreamPlayer3D" parent="." unique_id=1309102430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2170029, 0.4095888)
+stream = ExtResource("34_s1vk7")
 
 [connection signal="animation_finished" from="moveAnimator" to="." method="_on_move_animator_animation_finished"]
 [connection signal="interacted" from="InteractionComponent" to="." method="_on_interaction_component_interacted"]

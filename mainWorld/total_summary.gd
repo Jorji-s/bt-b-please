@@ -9,6 +9,8 @@ extends Node2D
 @export var etimeTaken:=0.0
 @onready var button: Button = $ColorRect/Control/Button
 @onready var button_2: Button = $ColorRect/Control/Button2
+@onready var good_ping: AudioStreamPlayer = $goodPing
+@onready var tick: AudioStreamPlayer = $tick
 
 
 @onready var updated_values: Label = $ColorRect/Control/updatedValues
@@ -17,6 +19,7 @@ extends Node2D
 @onready var rich_text_label: RichTextLabel = $ColorRect/Control/RichTextLabel
 @onready var button_3: Button = $ColorRect/Control/Button3
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var bad_pimg: AudioStreamPlayer = $badPimg
 
 var totalScore:=0
 var rank:=0
@@ -28,7 +31,9 @@ func _ready() -> void:
 	await get_tree().create_timer(1.0).timeout
 	var totalTween=create_tween()
 	totalTween.tween_property(self,"totalScore",Manager.dayEarningMoney,1.5)
+	tick.play()
 	await get_tree().create_timer(1.6).timeout
+	tick.stop()
 	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	totalScore=0
 	Manager.totalMoney+=Manager.dayEarningMoney
@@ -47,6 +52,9 @@ func _on_button_pressed() -> void:
 		totalScore=1500
 		var totalTween=create_tween()
 		totalTween.tween_property(self,"totalScore",0,1.0)
+		good_ping.play()
+	else:
+		bad_pimg.play()
 
 
 func _on_button_2_pressed() -> void:
@@ -54,8 +62,11 @@ func _on_button_2_pressed() -> void:
 		Manager.printerPrintSpeed+=1
 		Manager.totalMoney-=2500
 		totalScore=2500
+		good_ping.play()
 		var totalTween=create_tween()
 		totalTween.tween_property(self,"totalScore",0,1.0)
+	else:
+		bad_pimg.play()
 
 
 func _on_button_3_pressed() -> void:
@@ -63,4 +74,10 @@ func _on_button_3_pressed() -> void:
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	await get_tree().create_timer(0.6).timeout
 	Manager.day+=1
-	get_tree().change_scene_to_file("res://mainWorld/main_world.tscn")
+	if Manager.day!=15:
+		get_tree().change_scene_to_file("res://mainWorld/main_world.tscn")
+	else:
+		if Manager.totalMoney>=50000:
+			get_tree().change_scene_to_file("res://closingCutscene.tscn")
+		else:
+			get_tree().change_scene_to_file("res://closingCutscenebAD.tscn")

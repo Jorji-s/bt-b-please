@@ -6,9 +6,11 @@ extends Sprite2D
 @onready var banned_planet_list: Sprite2D = $"../bannedPlanetList"
 @onready var print_menu: Sprite2D = $"../printMenu"
 @onready var messages: Node2D = $"../messages"
+@onready var home_screen: Sprite2D = $".."
 
 @export var document2Open:=0
 
+@onready var button_hover: AudioStreamPlayer = $"../../../buttonHover"
 
 
 func _input(event):
@@ -35,6 +37,8 @@ func _input(event):
 			computer_obj.hasDocuOpen=true
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	plan_cover.visible=true
+	if home_screen.visible:
+		button_hover.play()
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:

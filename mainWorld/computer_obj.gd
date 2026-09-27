@@ -6,6 +6,7 @@ extends Node3D
 @onready var cursor: TextureRect = $computerHUD/bootScreen/cursor
 @onready var computer_hud: Control = $computerHUD
 @onready var fade_2_white: ColorRect = $computerHUD/bootScreen/fade2White
+@onready var notif_sound: AudioStreamPlayer3D = $notifSound
 
 var compOn:=false
 var maxBarSize:=262.025
@@ -18,7 +19,11 @@ var mousePos := Vector2.ZERO
 signal printDocu
 var hasDocuOpen:=false
 @onready var sprite_3d: Sprite3D = $Sprite3D
+@onready var boot_down: AudioStreamPlayer = $computerHUD/bootDown
+@onready var button_hover: AudioStreamPlayer = $computerHUD/buttonHover
+@onready var messages: Node2D = $computerHUD/bootScreen/homeScreen/messages
 
+@onready var click_sound: AudioStreamPlayer = $computerHUD/clickSound
 
 @export var showsPlanetList:=false
 @export var showsWantedList:=false
@@ -34,6 +39,8 @@ var hasDocuOpen:=false
 @onready var bottom_left: Control = $computerHUD/bootScreen/fade2White/bottomLeft
 @onready var time_label: Label = $computerHUD/bootScreen/homeScreen/timeLabel
 @onready var minute_timer: Timer = $computerHUD/minuteTimer
+@onready var boot_up: AudioStreamPlayer = $computerHUD/bootUp
+@onready var home_screen_sound: AudioStreamPlayer = $computerHUD/homeScreenSound
 
 var shouldClose:=false
 
@@ -57,9 +64,14 @@ func _input(event):
 		mousePos += event.relative  # use relative movement
 	
 	if event.is_action_pressed("Interact"):
+		if home_screen.visible:
+			click_sound.play()
+			click_sound.pitch_scale=randf_range(0.8,1.2
+			)
 		if !player.allow_moving && shouldClose:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			puterimatir.play_backwards("openMonitor")
+			boot_down.play()
 			player.blurred=false
 			compOn=false
 			cursor.visible=false
@@ -74,6 +86,7 @@ func _input(event):
 		if !player.allow_moving && home_screen.visible:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			puterimatir.play_backwards("openMonitor")
+			boot_down.play()
 			player.blurred=false
 			compOn=false
 			cursor.visible=false
@@ -95,7 +108,8 @@ func _process(delta: float) -> void:
 	
 	if compOn && !onMainScreen:
 		if progress_bar.size.x<maxBarSize:
-			Input.warp_mouse(Vector2.ZERO)
+			Input.warp_mouse(messages.global_position)
+			mousePos=messages.global_position
 			await get_tree().create_timer(randf_range(0.25,0.5)).timeout
 			if progress_bar.size.x<maxBarSize:
 				if progress_bar.size.x>maxBarSize*0.25 && maxBarSize*0.8>progress_bar.size.x:
@@ -118,9 +132,11 @@ func _process(delta: float) -> void:
 				progress_bar.size.x=maxBarSize
 				await get_tree().create_timer(randf_range(0.1,0.5)).timeout
 				if !onMainScreen:
+					boot_up.stop()
+					home_screen_sound.play()
 					onMainScreen=true
-					Input.warp_mouse(Vector2.ZERO)
-					mousePos=Vector2.ZERO
+					Input.warp_mouse(messages.global_position)
+					mousePos=messages.global_position
 					Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 					Input.set_custom_mouse_cursor(null)
 					cursor.visible=true
@@ -133,6 +149,8 @@ func _process(delta: float) -> void:
 func _on_interaction_component_interacted() -> void:
 	date_label.text="Date: "+str(get_parent().get_parent().curDate1)+"-"+str(get_parent().get_parent().curDate2)+" "
 	if player.allow_moving:
+		notif_sound.stop()
+		boot_up.play()
 		puterimatir.play("openMonitor")
 		cursor.visible=false
 		player.allow_moving=false

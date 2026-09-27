@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://kpl3qwc3v5ch" path="res://decorAssets/spr_floor.png" id="2_ekunv"]
 [ext_resource type="PackedScene" uid="uid://bfpqmt6gop8pd" path="res://mainWorld/alien.tscn" id="3_2pkn0"]
 [ext_resource type="Texture2D" uid="uid://n73j44dvtngd" path="res://decorAssets/spr_wall.png" id="3_ok1w3"]
-[ext_resource type="Texture2D" uid="uid://d3kdp3t6ul116" path="res://icon.svg" id="3_suj5o"]
 [ext_resource type="Script" uid="uid://dqrwc4asj05j0" path="res://mainWorld/counter_top.gd" id="3_tklsj"]
 [ext_resource type="Texture2D" uid="uid://cmcqbxknr85p3" path="res://GUI/passportAsset2.png" id="4_2b0jq"]
 [ext_resource type="Texture2D" uid="uid://bq0vce4j3tb2k" path="res://GUI/ticketAsset.png" id="4_fwici"]
@@ -22,10 +21,12 @@
 [ext_resource type="Script" uid="uid://o6068hgywsgm" path="res://mainWorld/water_cooler.gd" id="8_5a4a1"]
 [ext_resource type="Texture2D" uid="uid://b3670mufmyucp" path="res://decorAssets/cooler.png" id="8_bgcyd"]
 [ext_resource type="Script" uid="uid://bmkw0ltgnnd3d" path="res://mainWorld/light_1.gd" id="8_qvqpt"]
+[ext_resource type="AudioStream" uid="uid://b86fwgqolbnv0" path="res://audio/feedback/Door/Door2.mp3" id="8_ubrwf"]
 [ext_resource type="Script" uid="uid://beymalf6nxt54" path="res://mainWorld/plant_2.gd" id="8_uq6u8"]
 [ext_resource type="Texture2D" uid="uid://cpmsjxmqgiesf" path="res://decorAssets/shredder.png" id="9_chl5m"]
 [ext_resource type="Script" uid="uid://bbtsf1y6u6iun" path="res://mainWorld/shredder.gd" id="9_hmnlg"]
 [ext_resource type="Script" uid="uid://c74y5wx743hd2" path="res://mainWorld/detain_button.gd" id="9_vtxlo"]
+[ext_resource type="Texture2D" uid="uid://t1ytl75qty6t" path="res://decorAssets/spr_woood.png" id="10_drumn"]
 [ext_resource type="Script" uid="uid://8lbkh8w4t2un" path="res://mainWorld/button.gd" id="10_pc4xd"]
 [ext_resource type="Script" uid="uid://cxkbomuhnw08v" path="res://mainWorld/tv.gd" id="12_2b0jq"]
 [ext_resource type="PackedScene" uid="uid://bksn65he0b3gu" path="res://interaction/interaction_component.tscn" id="12_cdvnm"]
@@ -39,6 +40,8 @@
 [ext_resource type="FontFile" uid="uid://cklety1ec87is" path="res://fonts/RoinertPixels-Regular.ttf" id="14_o56fp"]
 [ext_resource type="Texture2D" uid="uid://dmo5s3eer3efk" path="res://GUI/ticketmenu.png" id="16_a30ig"]
 [ext_resource type="FontFile" uid="uid://drqqqt30cx1gj" path="res://fonts/pixeloidSans/PixeloidSans-Bold.otf" id="18_8mfcu"]
+[ext_resource type="AudioStream" uid="uid://cocxd1py72qce" path="res://audio/feedback/Trashcan/edr-paper-shredder-01-421982.mp3" id="24_ai7xw"]
+[ext_resource type="Texture2D" uid="uid://bp64wy2ckj42e" path="res://decorAssets/DOOR.png" id="24_g4hql"]
 [ext_resource type="Texture2D" uid="uid://dmof2yoearwc7" path="res://decorAssets/printer.png" id="24_m2pnb"]
 [ext_resource type="Script" uid="uid://d1b5wj0htogvy" path="res://mainWorld/computer_obj.gd" id="24_s2031"]
 [ext_resource type="Texture2D" uid="uid://mlrkuxvv854f" path="res://GUI/computerbootscreen.png" id="24_wimhl"]
@@ -50,20 +53,39 @@
 [ext_resource type="Texture2D" uid="uid://dctnnj7mivi75" path="res://GUI/cursorBTB.png" id="28_dc4vm"]
 [ext_resource type="Script" uid="uid://p6r5yoqce01t" path="res://mainWorld/planet_text_icon.gd" id="28_n70o4"]
 [ext_resource type="Texture2D" uid="uid://bhwn8wh3kxt2" path="res://GUI/emailIcon.png" id="29_iupfl"]
+[ext_resource type="AudioStream" uid="uid://clqdw55yum8mn" path="res://audio/feedback/Monitor/Correct2.mp3" id="29_olylt"]
+[ext_resource type="AudioStream" uid="uid://86fmfk6lwju8" path="res://audio/feedback/Monitor/Wrong.mp3" id="30_5p63j"]
 [ext_resource type="Texture2D" uid="uid://cemr76n3jjckx" path="res://GUI/docxfile.png" id="30_tnf0g"]
 [ext_resource type="Texture2D" uid="uid://c2jc3fj0tl2un" path="res://GUI/document.png" id="31_t0hcu"]
 [ext_resource type="Script" uid="uid://6d1oxt20r4l1" path="res://mainWorld/documentHand.gd" id="32_pf7i5"]
+[ext_resource type="AudioStream" uid="uid://d0h1hqwyrfjp2" path="res://audio/Paperwork/Pagepickup.mp3" id="36_bb4qy"]
 [ext_resource type="Script" uid="uid://cn8a28j611vyp" path="res://mainWorld/printer.gd" id="37_7fyfl"]
+[ext_resource type="AudioStream" uid="uid://hypp0enq42et" path="res://audio/Paperwork/page.mp3" id="37_oshli"]
+[ext_resource type="AudioStream" uid="uid://djnwu2y0w01jj" path="res://audio/feedback/Monitor/Correct.mp3" id="37_qvj82"]
 [ext_resource type="Texture2D" uid="uid://cbix03wu6heay" path="res://decorAssets/spr_ceilLight.png" id="37_umhf6"]
 [ext_resource type="Script" uid="uid://cn7g23ucmbt2j" path="res://mainWorld/cofee_mug.gd" id="38_0ma3e"]
 [ext_resource type="Texture2D" uid="uid://b7lrmyx04rws6" path="res://decorAssets/mug.png" id="38_fm20r"]
+[ext_resource type="AudioStream" uid="uid://ckatih86mfwgb" path="res://audio/feedback/Monitor/Wrong2.mp3" id="38_jsntt"]
 [ext_resource type="Texture2D" uid="uid://rkiyfkdqblmv" path="res://decorAssets/plant.png" id="40_0ma3e"]
+[ext_resource type="AudioStream" uid="uid://r6wfmra1lc3d" path="res://audio/ambiance/FluorescentBuzz.mp3" id="40_htt7w"]
 [ext_resource type="Texture2D" uid="uid://cmbopa165cu0o" path="res://player/Idle (32x32).png" id="40_sksdw"]
 [ext_resource type="Texture2D" uid="uid://e6wv7t35g7tn" path="res://decorAssets/papers.png" id="41_cdtn7"]
 [ext_resource type="Texture2D" uid="uid://c0ivxnvnte4qs" path="res://decorAssets/duck.png" id="41_iahri"]
 [ext_resource type="Texture2D" uid="uid://bkbf6uas1at44" path="res://decorAssets/beer.png" id="41_u5bxb"]
+[ext_resource type="AudioStream" uid="uid://qmx4qoxa21ed" path="res://audio/feedback/Buttons/Detain.mp3" id="42_5p63j"]
 [ext_resource type="Script" uid="uid://dheml56a34x4o" path="res://mainWorld/printer_obj.gd" id="45_4dcx6"]
 [ext_resource type="AudioStream" uid="uid://rp7n4ou4e0nh" path="res://sounds/objectSounds/freesound_community-printer-scan-68679.mp3" id="54_kwoeb"]
+[ext_resource type="AudioStream" uid="uid://bdaesqhf0h8t5" path="res://audio/UI/Computer/PCBootup.mp3" id="61_aft07"]
+[ext_resource type="AudioStream" uid="uid://cka2j1324au2a" path="res://audio/UI/Computer/PCstartupchime.mp3" id="62_d36mu"]
+[ext_resource type="AudioStream" uid="uid://dhtprllligxwk" path="res://audio/UI/Computer/PCshutoff.mp3" id="62_u1eyb"]
+[ext_resource type="AudioStream" uid="uid://bdqdd38cmrle0" path="res://audio/UI/Computer/Buttonhover.mp3" id="64_g4hql"]
+[ext_resource type="AudioStream" uid="uid://bmmp0qgy51pq8" path="res://audio/UI/Computer/Click.mp3" id="65_3u1gp"]
+[ext_resource type="AudioStream" uid="uid://buee020aaj3uo" path="res://audio/ambiance/Backgrounddrone.mp3" id="66_k81kd"]
+[ext_resource type="AudioStream" uid="uid://cojoapi5e0rfr" path="res://audio/UI/Computer/Prompt.mp3" id="67_0i02w"]
+[ext_resource type="AudioStream" uid="uid://vexi0njc3f03" path="res://audio/ambiance/Eerieambiance.mp3" id="67_0p5cv"]
+[ext_resource type="AudioStream" uid="uid://175d8fvhm3c7" path="res://audio/ambiance/OminousAmbiance.mp3" id="68_gvgjr"]
+[ext_resource type="Script" uid="uid://b5t2ci8kcthuf" path="res://mainWorld/audio_stream_player_3.gd" id="69_ijurg"]
+[ext_resource type="AudioStream" uid="uid://dku40hwk54py5" path="res://audio/UI/EoD/Ding3.mp3" id="85_ubrwf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6a8i"]
 albedo_texture = ExtResource("2_ekunv")
@@ -163,7 +185,7 @@ albedo_texture = ExtResource("3_ok1w3")
 uv1_scale = Vector3(4.71, 69.32, 69.32)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oguhb"]
-albedo_color = Color(0.36971408, 0.16448101, 0, 1)
+albedo_texture = ExtResource("10_drumn")
 
 [sub_resource type="Animation" id="Animation_4buxl"]
 length = 0.001
@@ -420,7 +442,7 @@ size = Vector2(2, 3)
 size = Vector3(5.161377, 2.7138672, 0.12860107)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4buxl"]
-albedo_texture = ExtResource("3_suj5o")
+albedo_texture = ExtResource("24_g4hql")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0hpoc"]
 shader = ExtResource("5_2pkn0")
@@ -838,6 +860,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_tklsj"]
 resource_name = "press"
@@ -913,6 +959,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.43333334, 1, 6.1, 6.76),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-80.0, -10.0, -10.0, -80.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2b0jq"]
@@ -998,11 +1068,9 @@ albedo_texture = ExtResource("37_umhf6")
 albedo_color = Color(1, 1, 0.9098039, 1)
 albedo_texture = ExtResource("37_umhf6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dc4vm"]
-albedo_color = Color(0.65725046, 0.36867046, 2.8878452e-07, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htt7w"]
-albedo_color = Color(0.23584792, 0.117607184, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drumn"]
+albedo_color = Color(0.5409905, 0.5409905, 0.5409905, 1)
+albedo_texture = ExtResource("10_drumn")
 
 [sub_resource type="LabelSettings" id="LabelSettings_p3mhs"]
 line_spacing = -4.225
@@ -1328,10 +1396,6 @@ _data = {
 &"openMonitor": SubResource("Animation_dc4vm")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yupk3"]
-depth_draw_mode = 2
-albedo_color = Color(0.6620339, 0.29155645, 4.813075e-07, 1)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wimhl"]
 atlas = ExtResource("24_m2pnb")
 region = Rect2(0, 0, 750, 750)
@@ -1485,6 +1549,11 @@ texture = ExtResource("2_6o1xe")
 libraries/ = SubResource("AnimationLibrary_kwoeb")
 speed_scale = 0.648
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="tempRoom/SouthWall2/Node3D" unique_id=1002456174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3764541, -0.26984596, -3.5762787e-07)
+stream = ExtResource("8_ubrwf")
+volume_db = -18.961
+
 [node name="exitInteract" parent="tempRoom/SouthWall2" unique_id=340135597 instance=ExtResource("12_cdvnm")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -20, -2.694)
 
@@ -1594,6 +1663,18 @@ causeTurn2Look = true
 [node name="CollisionShape3D" parent="tempRoom/North Wall/counterTop/tripTicket/InteractionComponent" index="0" unique_id=285619197]
 transform = Transform3D(0.71, 0, 0, 0, 0.71, 0, 0, 0, 0.71, 0, 0, 0)
 
+[node name="placePaper" type="AudioStreamPlayer3D" parent="tempRoom/North Wall/counterTop" unique_id=2063147496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2997303, 0, 0)
+stream = ExtResource("37_oshli")
+volume_db = 5.0
+pitch_scale = 0.67
+
+[node name="placePaper2" type="AudioStreamPlayer3D" parent="tempRoom/North Wall/counterTop" unique_id=52166362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2997303, 0, 0)
+stream = ExtResource("37_oshli")
+volume_db = 5.0
+pitch_scale = 0.67
+
 [node name="emerLight1" type="MeshInstance3D" parent="tempRoom/North Wall" unique_id=822086251]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1, 4.852, -10.222)
 mesh = SubResource("CylinderMesh_p3mhs")
@@ -1686,6 +1767,7 @@ script = ExtResource("8_uq6u8")
 
 [node name="Sprite3D" type="Sprite3D" parent="tempRoom/plant2" unique_id=880425221]
 transform = Transform3D(0.425, 0, 0, 0, 0.407, 0, 0, 0, 0.417, 0, 1.8975184, 0)
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 shaded = true
 texture = ExtResource("7_pf7i5")
 
@@ -1763,6 +1845,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42836386, 0)
 visible = false
 use_collision = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="tempRoom/shredder" unique_id=501059268]
+stream = ExtResource("24_ai7xw")
+volume_db = 3.261
+unit_size = 0.8
+
 [node name="blastDoor" type="MeshInstance3D" parent="tempRoom" unique_id=1497704008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57336426, 5.6935825, -10.512121)
 mesh = SubResource("BoxMesh_yupk3")
@@ -1823,6 +1910,16 @@ font_size = 43
 outline_size = 30
 line_spacing = 1.64
 autowrap_mode = 3
+
+[node name="greenSound" type="AudioStreamPlayer3D" parent="TV/TVSCREEN" unique_id=609048577]
+transform = Transform3D(1.0000001, 0, 3.5527137e-15, 0, 1.0000001, 0, 0, 0, 1, -0.098921776, -0.03180051, -0.0203619)
+stream = ExtResource("29_olylt")
+volume_db = -16.0
+
+[node name="redSound" type="AudioStreamPlayer3D" parent="TV/TVSCREEN" unique_id=1806330133]
+transform = Transform3D(1.0000001, 0, 3.5527137e-15, 0, 1.0000001, 0, 0, 0, 1, -0.108202934, -0.030800343, -0.026047945)
+stream = ExtResource("30_5p63j")
+volume_db = -15.094
 
 [node name="greenFlash" type="CSGBox3D" parent="TV" unique_id=529262198]
 transform = Transform3D(-4.1272948e-08, 1.7434377e-08, 1.025, 0.39885208, 0.944215, 0, -0.944215, 0.39885208, -4.480417e-08, 0.7, 4.840431, -9.759627)
@@ -1983,6 +2080,11 @@ autowrap_mode = 3
 libraries/ = SubResource("AnimationLibrary_wimhl")
 speed_scale = 1.35
 
+[node name="openPaper" type="AudioStreamPlayer" parent="Control/documentHUD" unique_id=620228619]
+stream = ExtResource("36_bb4qy")
+volume_db = 5.0
+pitch_scale = 0.76
+
 [node name="pixelinator" type="ColorRect" parent="Control" unique_id=531488582]
 material = SubResource("ShaderMaterial_os2us")
 layout_mode = 1
@@ -2003,8 +2105,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8061442, 1.7957144, -11.204
 script = ExtResource("10_pc4xd")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="button" unique_id=1629829945]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42258072, 0.79828835, 0.5458975)
-size = Vector3(0.70510864, 1.2836914, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42299986, 0.79799986, 0.8015442)
+size = Vector3(0.705, 1.284, 0.48108888)
 material = SubResource("StandardMaterial3D_qvqpt")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="button" unique_id=1480171176]
@@ -2048,6 +2150,16 @@ transform = Transform3D(1, 0, 0, 0, 1, -7.1054274e-15, 0, 7.1054274e-15, 1, 0, 0
 libraries/ = SubResource("AnimationLibrary_tklsj")
 autoplay = &"RESET"
 speed_scale = 1.25
+
+[node name="greenSound" type="AudioStreamPlayer3D" parent="button" unique_id=1432232167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43123388, 1.0545154, 1.191328)
+stream = ExtResource("37_qvj82")
+volume_db = -28.566
+
+[node name="redSound" type="AudioStreamPlayer3D" parent="button" unique_id=1693844905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44898367, 0.5192807, 1.1226454)
+stream = ExtResource("38_jsntt")
+volume_db = -28.566
 
 [node name="detainButton" type="CSGCombiner3D" parent="." unique_id=1970323349]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.266, 1.796, -11.204)
@@ -2135,6 +2247,17 @@ speed_scale = 0.512
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28941822, 0.0026855469, 0.06921196)
 shape = SubResource("BoxShape3D_yupk3")
 
+[node name="pressSound" type="AudioStreamPlayer3D" parent="detainButton" unique_id=662317787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44898367, 0.5192807, 1.1226454)
+stream = ExtResource("30_5p63j")
+volume_db = -25.0
+pitch_scale = 1.5
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="detainButton" unique_id=457257041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9314222, 3.533996, 1.0063744)
+stream = ExtResource("42_5p63j")
+volume_db = -80.0
+
 [node name="lightContainer" type="Node3D" parent="." unique_id=1054914849]
 
 [node name="light1" type="CSGBox3D" parent="lightContainer" unique_id=814916728]
@@ -2155,6 +2278,11 @@ spot_angle_attenuation = 0.93303066
 [node name="Timer" type="Timer" parent="lightContainer/light1" unique_id=1938585358]
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="lightContainer/light1" unique_id=545706301]
+stream = ExtResource("40_htt7w")
+volume_db = -2.0
+autoplay = true
 
 [node name="light4" type="CSGBox3D" parent="lightContainer" unique_id=1556756243]
 transform = Transform3D(-4.3667676e-08, 0, 0.999, 0, 0.999, 0, -0.999, 0, -4.3667676e-08, -4.342677, 6.5283513, -0.21526586)
@@ -2180,6 +2308,11 @@ spot_angle_attenuation = 0.93303066
 one_shot = true
 autostart = true
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="lightContainer/light2" unique_id=1399572609]
+stream = ExtResource("40_htt7w")
+volume_db = -2.0
+autoplay = true
+
 [node name="light5" type="CSGBox3D" parent="lightContainer" unique_id=1161300860]
 transform = Transform3D(-4.3667676e-08, 0, 0.999, 0, 0.999, 0, -0.999, 0, -4.3667676e-08, -4.342677, 6.5283513, -6.893324)
 size = Vector3(0.9230957, 1, 1.8793945)
@@ -2204,6 +2337,11 @@ spot_angle_attenuation = 0.93303066
 one_shot = true
 autostart = true
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="lightContainer/light3" unique_id=637830680]
+stream = ExtResource("40_htt7w")
+volume_db = -2.0
+autoplay = true
+
 [node name="light6" type="CSGBox3D" parent="lightContainer" unique_id=1715990228]
 transform = Transform3D(-4.3667676e-08, 0, 0.999, 0, 0.999, 0, -0.999, 0, -4.3667676e-08, 1.3867192, 6.5283513, -6.893324)
 size = Vector3(0.9230957, 1, 1.8793945)
@@ -2216,13 +2354,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.715246, 0.2164371, -6.8278
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4839754, 0.6765022, -2.8861337)
 use_collision = true
 size = Vector3(0.21435547, 1.4210205, 1)
-material = SubResource("StandardMaterial3D_dc4vm")
+material = SubResource("StandardMaterial3D_oguhb")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="desk" unique_id=1073083871]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.1382203, 0.6765022, 0.40927076)
 use_collision = true
 size = Vector3(0.21435547, 1.4210205, 1)
-material = SubResource("StandardMaterial3D_dc4vm")
+material = SubResource("StandardMaterial3D_oguhb")
 
 [node name="Sprite3D" type="Sprite3D" parent="desk/CSGBox3D4" unique_id=2863016]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.10858679, 0.04959625, -0.039648533)
@@ -2235,25 +2373,25 @@ region_rect = Rect2(0, 0, 32, 32)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7868862, 1.430886, -2.8861337)
 use_collision = true
 size = Vector3(1.9161421, 0.172, 1.245)
-material = SubResource("StandardMaterial3D_dc4vm")
+material = SubResource("StandardMaterial3D_oguhb")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="desk" unique_id=1713449834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.159318, 1.430886, -1.363997)
 use_collision = true
 size = Vector3(1.3441796, 0.172, 4.1894417)
-material = SubResource("StandardMaterial3D_dc4vm")
+material = SubResource("StandardMaterial3D_oguhb")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="desk" unique_id=1495145447]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6557927, 0.55645204, -1.5510058)
 use_collision = true
 size = Vector3(0.33712888, 1.5449531, 3.815424)
-material = SubResource("StandardMaterial3D_htt7w")
+material = SubResource("StandardMaterial3D_drumn")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="desk" unique_id=14023109]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9775162, 0.55645204, -3.2824502)
 use_collision = true
 size = Vector3(2.980576, 1.5449531, 0.3525362)
-material = SubResource("StandardMaterial3D_htt7w")
+material = SubResource("StandardMaterial3D_drumn")
 
 [node name="computerObj" type="Node3D" parent="desk" unique_id=750809125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2836776, 1.5882263, -1.5857844)
@@ -3202,6 +3340,34 @@ offset_bottom = 2694.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.627451)
 
+[node name="bootUp" type="AudioStreamPlayer" parent="desk/computerObj/computerHUD" unique_id=358387364]
+stream = ExtResource("61_aft07")
+volume_db = 3.0
+
+[node name="bootDown" type="AudioStreamPlayer" parent="desk/computerObj/computerHUD" unique_id=787806477]
+stream = ExtResource("62_u1eyb")
+volume_db = 3.0
+
+[node name="homeScreenSound" type="AudioStreamPlayer" parent="desk/computerObj/computerHUD" unique_id=1830373300]
+stream = ExtResource("62_d36mu")
+volume_db = -5.233
+
+[node name="buttonHover" type="AudioStreamPlayer" parent="desk/computerObj/computerHUD" unique_id=1596075864]
+stream = ExtResource("64_g4hql")
+volume_db = 3.0
+
+[node name="clickSound" type="AudioStreamPlayer" parent="desk/computerObj/computerHUD" unique_id=1824121484]
+stream = ExtResource("65_3u1gp")
+volume_db = -5.0
+
+[node name="notifSound" type="AudioStreamPlayer3D" parent="desk/computerObj" unique_id=1887990272]
+stream = ExtResource("67_0i02w")
+volume_db = 20.375
+unit_size = 0.1
+max_db = 6.0
+pitch_scale = 0.85
+autoplay = true
+
 [node name="cofeeMug" type="Node3D" parent="desk" unique_id=941167092]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3872352, 1.3664763, -0.5372653)
 script = ExtResource("38_0ma3e")
@@ -3279,35 +3445,35 @@ speed_scale = 0.78
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9687514, 1.0488808, 2.5862086)
 script = ExtResource("37_7fyfl")
 
+[node name="CSGBox3D7" type="CSGBox3D" parent="printer" unique_id=717552204]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.11039543, -0.27301335, -1.0045185)
+use_collision = true
+size = Vector3(0.2, 1.4600966, 0.2)
+material = SubResource("StandardMaterial3D_oguhb")
+
 [node name="CSGBox3D5" type="CSGBox3D" parent="printer" unique_id=1502162821]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.11039543, -0.20645827, 0)
 use_collision = true
 size = Vector3(0.2, 1.4600966, 0.2)
-material = SubResource("StandardMaterial3D_yupk3")
+material = SubResource("StandardMaterial3D_oguhb")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="printer" unique_id=39213485]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.1070037, -0.20645827, 0)
 use_collision = true
 size = Vector3(0.2, 1.4600966, 0.2)
-material = SubResource("StandardMaterial3D_yupk3")
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="printer" unique_id=1722989930]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.11039543, -0.20645827, -0.97301626)
-use_collision = true
-size = Vector3(0.2, 1.4600966, 0.2)
-material = SubResource("StandardMaterial3D_yupk3")
+material = SubResource("StandardMaterial3D_oguhb")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="printer" unique_id=1423572411]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5789008, 0.47597957, -0.5081055)
 use_collision = true
 size = Vector3(1.354126, 0.158, 1.3526001)
-material = SubResource("StandardMaterial3D_yupk3")
+material = SubResource("StandardMaterial3D_oguhb")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="printer" unique_id=1860672799]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.1070037, -0.20645827, -0.97301626)
 use_collision = true
 size = Vector3(0.2, 1.4600966, 0.2)
-material = SubResource("StandardMaterial3D_yupk3")
+material = SubResource("StandardMaterial3D_oguhb")
 
 [node name="printerObj" type="Node3D" parent="printer" unique_id=788460647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5597253, 0.6304984, -0.519428)
@@ -3338,12 +3504,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5977764, 0.9342036, -0.525
 stream = ExtResource("54_kwoeb")
 volume_db = -14.525
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="printer" unique_id=971488716]
+stream = ExtResource("36_bb4qy")
+
 [node name="DialogLayer" type="CanvasLayer" parent="." unique_id=1052968968]
 layer = 100
 
 [node name="DialogUI" parent="DialogLayer" unique_id=358119890 instance=ExtResource("13_pc4xd")]
 visible = false
 mouse_filter = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=487400771]
+stream = ExtResource("66_k81kd")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer3D" parent="." unique_id=786875036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.887765, 1.9534805, 11.296039)
+stream = ExtResource("67_0p5cv")
+unit_size = 1.11
+max_db = 6.0
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer3D" parent="." unique_id=1119255308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.670871, 1.9534805, -18.537735)
+stream = ExtResource("68_gvgjr")
+volume_db = 20.523
+unit_size = 1.11
+max_db = 6.0
+script = ExtResource("69_ijurg")
+
+[node name="ominousxAmbiTimer" type="Timer" parent="AudioStreamPlayer3" unique_id=1918305014]
+
+[node name="dayDonePlayer" type="AudioStreamPlayer" parent="." unique_id=1010643807]
+stream = ExtResource("85_ubrwf")
+pitch_scale = 0.1
 
 [connection signal="interacted" from="tempRoom/SouthWall2/exitInteract" to="tempRoom/SouthWall2" method="_on_interaction_component_interacted"]
 [connection signal="interacted" from="tempRoom/North Wall/counterTop/passport/passInteractionComponent" to="Control/documentHUD" method="_on_pass_interaction_component_interacted"]
@@ -3397,6 +3590,7 @@ mouse_filter = 1
 [connection signal="interacted" from="printer/printerObj/InteractionComponent" to="printer" method="_on_interaction_component_interacted"]
 [connection signal="timeout" from="printer/Timer" to="printer" method="_on_timer_timeout"]
 [connection signal="dialogueFin" from="DialogLayer/DialogUI" to="alien" method="_on_dialog_ui_dialogue_fin"]
+[connection signal="timeout" from="AudioStreamPlayer3/ominousxAmbiTimer" to="AudioStreamPlayer3" method="_on_ominousx_ambi_timer_timeout"]
 
 [editable path="tempRoom/SouthWall2/exitInteract"]
 [editable path="tempRoom/North Wall/counterTop/passport/passInteractionComponent"]

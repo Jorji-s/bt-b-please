@@ -10,6 +10,8 @@ extends Control
 @onready var player: CharacterBody3D = $"../../player"
 @onready var docu_hud_animator: AnimationPlayer = $docuHudAnimator
 
+@onready var open_paper: AudioStreamPlayer = $openPaper
+@onready var place_paper: AudioStreamPlayer = $placePaper
 
 @onready var name_label_2: Label = $travelCard/nameLabel2
 @onready var species_label_2: Label = $travelCard/speciesLabel2
@@ -44,6 +46,8 @@ func _on_pass_interaction_component_interacted() -> void:
 		#player.betterLookAt(look_at_point.global_position)
 		if docu_hud_animator.current_animation!="showPassport" && get_parent().get_parent().AlienAtCounter:
 			if player.allow_moving:
+				open_paper.play()
+				open_paper.pitch_scale=randf_range(0.9,1.2)
 				docu_hud_animator.play("showPassport")
 				passOpen=true
 				player.allow_moving=false
@@ -51,6 +55,8 @@ func _on_pass_interaction_component_interacted() -> void:
 				player.allow_looking=false
 			else:
 				docu_hud_animator.play_backwards("showPassport")
+				open_paper.play()
+				open_paper.pitch_scale=randf_range(0.75,0.85)
 				player.allow_moving=true
 				player.allow_looking=true
 				player.blurred=false
@@ -63,12 +69,16 @@ func _on_interaction_component_interacted() -> void:
 		if docu_hud_animator.current_animation!="showTicket" && get_parent().get_parent().AlienAtCounter:
 			if player.allow_moving:
 				docu_hud_animator.play("showTicket")
+				open_paper.play()
+				open_paper.pitch_scale=randf_range(0.9,1.25)
 				tickOpen=true
 				player.blurred=true
 				player.allow_moving=false
 				player.allow_looking=false
 			else:
 				docu_hud_animator.play_backwards("showTicket")
+				open_paper.play()
+				open_paper.pitch_scale=randf_range(0.75,0.85)
 				player.allow_moving=true
 				player.blurred=false
 				player.allow_looking=true

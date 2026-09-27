@@ -1,0 +1,231 @@
+[gd_scene format=3 uid="uid://cf1njo7vvidfw"]
+
+[ext_resource type="Script" uid="uid://bkcqbjg8vgkly" path="res://closing_cutscene.gd" id="1_244hs"]
+[ext_resource type="FontFile" uid="uid://drqqqt30cx1gj" path="res://fonts/pixeloidSans/PixeloidSans-Bold.otf" id="2_phna3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yupk3"]
+font = ExtResource("2_phna3")
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_244hs"]
+font = ExtResource("2_phna3")
+font_size = 102
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Animation" id="Animation_av4ec"]
+resource_name = "FADEoUT"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_albu3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lab1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lab2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kiv35"]
+resource_name = "loadIn"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lab1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lab2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.98, 5.88),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lab3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(9.97, 10.87),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("lab4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(15.05, 15.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_av4ec"]
+_data = {
+&"FADEoUT": SubResource("Animation_av4ec"),
+&"RESET": SubResource("Animation_albu3"),
+&"loadIn": SubResource("Animation_kiv35")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1315687083]
+script = ExtResource("1_244hs")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1835904620]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1608.0
+offset_top = -926.0
+offset_right = 1462.0
+offset_bottom = 1032.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=438736220]
+
+[node name="lab1" type="Label" parent="." unique_id=665994556]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -825.0
+offset_top = -504.0
+offset_right = 867.0
+offset_bottom = -366.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "After your shift ends, you start running to the nearest spaceport, cash in hand"
+label_settings = SubResource("LabelSettings_yupk3")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="lab3" type="Label" parent="." unique_id=1403732898]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -825.0
+offset_top = 38.0
+offset_right = 867.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "
+Finally taking a second to breathe, you feel a sense of relief, as both the conflict and that job are behind you now."
+label_settings = SubResource("LabelSettings_yupk3")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="lab4" type="Label" parent="." unique_id=1624087447]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -825.0
+offset_top = 282.0
+offset_right = 867.0
+offset_bottom = 420.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "GOOD ENDING"
+label_settings = SubResource("LabelSettings_244hs")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="lab2" type="Label" parent="." unique_id=1558337787]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -825.0
+offset_top = -239.0
+offset_right = 867.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "As you run, you see thousands of people in line for various shuttles off the planet. Luckily, as a government employee you get to skip the line, and just barely manage to pay for and get onto a shuttle headed out of this sector. "
+label_settings = SubResource("LabelSettings_yupk3")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=713089186]
+libraries/ = SubResource("AnimationLibrary_av4ec")
+autoplay = &"loadIn"
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=57858339]
+modulate = Color(1, 1, 1, 0)
+offset_left = -1157.0
+offset_top = -723.0
+offset_right = 1279.0
+offset_bottom = 646.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,6 +1,7 @@
 extends Node3D
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var player: CharacterBody3D = $"../../player"
+@onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer
 
 func _ready() -> void:
 	pass
@@ -13,4 +14,6 @@ func _process(delta: float) -> void:
 
 
 func _on_interaction_component_interacted() -> void:
-	player.holdingPaper=false
+	if player.holdingPaper:
+		player.holdingPaper=false
+		audio_stream_player.play(1.84)

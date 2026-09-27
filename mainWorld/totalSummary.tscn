@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dj6rgjxa8edki" path="res://mainWorld/total_summary.gd" id="1_g6xv8"]
 [ext_resource type="FontFile" uid="uid://bo1mcwmwk54y2" path="res://fonts/pixeloidSans/PixeloidSans-Bold.ttf" id="2_y76pj"]
+[ext_resource type="AudioStream" uid="uid://d5uoy45fnk5s" path="res://audio/UI/EoD/Ding1.mp3" id="3_34vq5"]
+[ext_resource type="AudioStream" uid="uid://7dnedces132h" path="res://audio/UI/EoD/Ding1 - Copy.mp3" id="4_14lo2"]
+[ext_resource type="AudioStream" uid="uid://dku40hwk54py5" path="res://audio/UI/EoD/Ding3.mp3" id="4_dqn6s"]
+[ext_resource type="AudioStream" uid="uid://csmc7qoqharur" path="res://audio/UI/EoD/Dock.mp3" id="5_dqn6s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p3mhs"]
 line_spacing = 7.865
@@ -201,6 +205,24 @@ speed_scale = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1848219794]
 position = Vector2(960, 540)
+
+[node name="goodPing" type="AudioStreamPlayer" parent="." unique_id=529191802]
+stream = ExtResource("3_34vq5")
+volume_db = -5.0
+
+[node name="endSound" type="AudioStreamPlayer" parent="." unique_id=167844242]
+stream = ExtResource("4_dqn6s")
+pitch_scale = 0.1
+
+[node name="tick" type="AudioStreamPlayer" parent="." unique_id=1167771542]
+stream = ExtResource("4_14lo2")
+volume_db = -22.325
+pitch_scale = 2.0
+
+[node name="badPimg" type="AudioStreamPlayer" parent="." unique_id=1525539133]
+stream = ExtResource("5_dqn6s")
+volume_db = -5.0
+pitch_scale = 0.65
 
 [connection signal="pressed" from="ColorRect/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ColorRect/Control/Button2" to="." method="_on_button_2_pressed"]

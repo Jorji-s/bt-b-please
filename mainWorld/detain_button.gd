@@ -8,6 +8,7 @@ extends CSGCombiner3D
 @onready var docu_animator: AnimationPlayer = $"../tempRoom/North Wall/counterTop/docuAnimator"
 @onready var alien: Node3D = $"../alien"
 @onready var button_cover: CSGCombiner3D = $buttonCover
+@onready var press_sound: AudioStreamPlayer3D = $pressSound
 
 func updateButton()->void:
 	if Manager.detainUnlocked:
@@ -26,5 +27,6 @@ func _ready() -> void:
 
 func _on_interaction_component_interacted() -> void:
 	if detainimator.current_animation!="press" && animation_player.current_animation!="pressGreen" && animation_player.current_animation!="pressRed" && get_parent().AlienAtCounter==true:
+		press_sound.play()
 		detainimator.play("press")
 		alien.letThrough("detain")

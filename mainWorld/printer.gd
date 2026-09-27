@@ -4,6 +4,7 @@ var hasPaper:=false
 @onready var sprite_3d: AnimatedSprite3D = $printerObj/Sprite3D
 @onready var player: CharacterBody3D = $"../player"
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func _on_computer_obj_print_docu() -> void:
 	timer.start(36/Manager.printerPrintSpeed)
@@ -19,4 +20,6 @@ func _on_interaction_component_interacted() -> void:
 	if hasPaper:
 		hasPaper=false
 		player.holdingPaper=true
+		audio_stream_player.play()
+		audio_stream_player.pitch_scale=randf_range(0.8,1.2)
 	sprite_3d.play("noPaper")

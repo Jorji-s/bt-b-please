@@ -23,6 +23,9 @@ extends Node3D
 @onready var exit_interact: Area3D = $tempRoom/SouthWall2/exitInteract
 @onready var player: CharacterBody3D = $player
 
+@onready var ominousx_ambi_timer: Timer = $AudioStreamPlayer3/ominousxAmbiTimer
+@onready var audio_stream_player_2: AudioStreamPlayer3D = $AudioStreamPlayer2
+@onready var day_done_player: AudioStreamPlayer = $dayDonePlayer
 
 
 
@@ -45,7 +48,9 @@ func _ready() -> void:
 	if day>6:
 		computer_obj.showsWantedList=true
 	if day>9:
+		audio_stream_player_2.play()
 		computer_obj.showsBlackList=true
+		ominousx_ambi_timer.start(randf_range(15,30))
 	
 	if day==1:
 		quota=3
@@ -138,6 +143,8 @@ func _on_alien_left_counter() -> void:
 		doneDay()
 	
 func doneDay()->void:
+	await get_tree().create_timer(6.0).timeout
+	day_done_player.play()
 	alien.done=true
 	exit_interact.global_position.y+=20
 

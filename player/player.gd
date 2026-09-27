@@ -25,6 +25,7 @@ var bobTime:=0.0
 var camStartPos:=Vector3.ZERO
 var lastHitObject=null
 var overridingBlur:=false
+@onready var footstep: AudioStreamPlayer = $footstep
 
 #better look at, smooth with a tweeen yuuum
 func betterLookAt(target : Vector3):
@@ -53,7 +54,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	#Pause mechanics
 	# asher added: pause key is disabled if dialog manager is active
-	if event.is_action_pressed("esc") and not DialogManager.is_active:
+	if event.is_action_pressed("esc") and not DialogManager.is_active && allow_looking:
 		if !paused:
 			if blurred:
 				overridingBlur=true
@@ -123,10 +124,15 @@ func _physics_process(delta: float) -> void:
 
 		#cool epic view bobbing yummers
 		if walkDir!=Vector3.ZERO:
+			if !footstep.playing:
+				footstep.volume_db=6
+				footstep.play()
+				footstep.pitch_scale=randf_range(0.8,1.0)
 			bobTime += delta * bobSpeed
 			camera_3d.position.y = camStartPos.y + sin(bobTime) * bobAmount
 			camera_3d.position.x = camStartPos.x + cos(bobTime * 0.5) * bobAmount * 0.5
 		else:
+			footstep.volume_db=0
 			bobTime=0.0
 			camera_3d.position.y = lerpf(camera_3d.position.y,camStartPos.y,delta * bobReturn)
 			camera_3d.position.x = lerpf(camera_3d.position.x,camStartPos.x,delta * bobReturn)
@@ -154,3 +160,7 @@ func _on_dialog_finished():
 func _on_alien_update_talking(yesnt: bool) -> void:
 	allow_looking=!yesnt
 	allow_moving=!yesnt
+
+
+func _on_button_pressed() -> void:
+	get_tree().quit()
