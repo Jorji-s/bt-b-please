@@ -9,8 +9,12 @@ var changing:=false
 var playingCredits:=false
 @onready var credits_label: Label = $Control2/creditsLabel
 @onready var animation_player: AnimationPlayer = $ColorRect/AnimationPlayer
+@onready var label: Label = $Control2/Node2D/gameButton/Label
 
 func _process(delta: float) -> void:
+	if Manager.day>1:
+		label.visible=true
+		label.text="Day "+str(Manager.day)+"       $"+str(Manager.totalMoney)
 	cursor.global_position=get_viewport().get_mouse_position()
 	if playingCredits:
 		credits_label.global_position.y-=100*delta

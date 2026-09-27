@@ -285,7 +285,6 @@ texture = ExtResource("5_l30j4")
 shape = SubResource("RectangleShape2D_yupk3")
 
 [node name="Label" type="Label" parent="Control2/Node2D/gameButton" unique_id=1205414089]
-visible = false
 offset_left = -51.0
 offset_top = 44.0
 offset_right = 2.0
