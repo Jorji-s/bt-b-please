@@ -1,6 +1,6 @@
 extends Node
 @export var detainUnlocked:=false
-@export var day:=6
+@export var day:=1
 @export var crimThough:=0
 @export var validThough:=0
 @export var crimAway:=0
